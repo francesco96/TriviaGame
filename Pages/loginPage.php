@@ -1,3 +1,8 @@
+<?php
+	//page title
+	$title = 'LoginPage';
+	//Landing page
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -38,7 +43,7 @@
 								<input type="password" class="form-control" id="InputPasswordlogin" placeholder="Password">
 							</div>
 						</form>
-						<button type="button" class="btn btn-success">Login</button>
+						<a type="button" href="homePage.php" class="btn btn-success">Login</a>
 					</div>
 				</div>
 				<div class="col-sm-6 text-center" id="regeistration">
@@ -59,7 +64,7 @@
 								<input type="password" class="form-control" id="InputEmailreg" placeholder="Password">
 							</div>
 						</form>
-						<button type="button" class="btn btn-success">Register</button>
+						<a type="button" href="homePage.php" class="btn btn-success">Register</a>
 					</div>
 				</div>
 			</div>

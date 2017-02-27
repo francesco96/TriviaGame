@@ -1,3 +1,8 @@
+<?php
+	//page title
+	$title = 'HomePage';
+	//Landing page
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,7 +13,7 @@
     <title>Login/Register</title>
 
     <!-- Bootstrap -->
-    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="lib/bootstrap/css/bootstrap.css" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="lib/bootstrap/js/bootstrap.min.js"></script>
 	<script src="lib/Jquery/jquery-3.1.1.min.js"></script>
@@ -26,7 +31,7 @@
 		<div class="row">
 			<div class="col-sm-6 col-md-4">
 				<div class="thumbnail">
-					<img src="..." alt="...">
+					<img src="marist_pic3.jpg">
 					<div class="caption">
 						<h3>Math</h3>
 						<p>Quick description of the game</p>
@@ -36,7 +41,7 @@
 			</div>
 			<div class="col-sm-6 col-md-4">
 				<div class="thumbnail">
-					<img src="..." alt="...">
+					<img src="marist_pic3.jpg">
 					<div class="caption">
 						<h3>Business</h3>
 						<p>Quick description of the game</p>
@@ -46,7 +51,7 @@
 			</div>
 			<div class="col-sm-6 col-md-4">
 				<div class="thumbnail">
-					<img src="..." alt="...">
+					<img src="marist_pic3.jpg">
 					<div class="caption">
 						<h3>Science</h3>
 						<p>Quick description of the game</p>
