@@ -1,0 +1,118 @@
+#wheel{
+	width:500px;
+	height:500px;
+	border-radius:100%;
+	position:relative;
+	transform: rotate(0deg);
+	overflow: hidden;
+	margin: 0 auto;
+	text-align: left;
+	background-color: #6C7A89;
+	border: 5px solid #6C7A89;
+}
+
+#inner-wheel{
+	position: absolute;
+	width:100%;
+	height:100%;
+	text-align: center;
+	
+	-webkit-transition: all 6s cubic-bezier(0,.99,.44,.99);
+	-moz-transition:    all 6s cubic-bezier(0,.99,.44,.99);
+	-o-transition:      all 6s cubic-bezier(0,.99,.44,.99);
+	-ms-transition:     all 6s cubic-bezier(0,.99,.44,.99);
+	transition:         all 6s cubic-bezier(0,.99,.44,.99);	
+}
+
+.noTransition{
+	-webkit-transition: all none;
+	-moz-transition:    all none;
+	-o-transition:      all none;
+	-ms-transition:     all none;
+	transition:         all none;	
+}
+
+
+#wheel div.sec{
+	position: absolute;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	text-align: center;
+}
+
+
+#wheel div.sec .category-text{
+	margin-top: -150px;
+	color: rgba(0, 0, 0, 0.5);
+	position: relative;
+	z-index: 10000000;
+	display: block;
+	font-size:20px;
+	transform: rotate(-90deg);
+}
+
+
+
+
+#spin{
+	width:136px;
+	height:136px;
+	position:absolute;
+	border-radius:50%;
+	box-shadow:rgba(0,0,0,0.1) 0px 3px 0px;
+	z-index:1000;
+	cursor:pointer;
+  
+    -webkit-user-select: none; 
+    -moz-user-select: none;    
+    -ms-user-select: none;     
+    -o-user-select: none;
+    user-select: none;
+    
+    left: 182px;
+    top: 182px;
+    
+    background-color: white;
+}
+
+
+#spin:after{
+	content:"SPIN";	
+	text-align:center;
+	line-height:136px;
+	color:#CCC;
+	text-shadow: 0 2px 0 #fff, 0 -2px 0 rgba(0,0,0,0.3) ;
+	position: relative;
+	z-index: 100000;
+	width:136px;
+	height:136px;
+	display:block;
+}
+
+#spin:before{
+	content:"";
+	position:absolute;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 68px 100px 68px;
+	border-color: white transparent;
+	bottom: 68px;
+}
+
+#inner-spin{
+	width:108px;
+	height:108px;
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin:-54px 0 0 -54px;
+	border-radius:50%;
+	z-index:999;
+	background-color: rgb(255,255,255);	
+}
+
+#spin:active:after{
+	font-size:30px;	
+}
