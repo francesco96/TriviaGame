@@ -39,26 +39,19 @@
 		</div>
 		<div class="row">
 		<?php
-                                $numberOfGames = 6;
-                                //$categories = ["Social Studies", "Science", "Math", "English", "PhysEd", "Health", "Art", "Music", "Business", "Computers"];
-                                //$colors = ["#1abc9c", "#2ecc71", "#3498db", "#9b59b6", "#f1c40f", "#e67e22", "#e74c3c", "#ecf0f1", "#16a085", "#27ae60", "#2980b9", "#8e44ad", "#f39c12", "#d35400", "#c0392b", "#bdc3c7"];
-                                //$apothem = 250;
-                                //$base = (2 * $apothem) * tan(deg2rad(180 / $numberOfCategories));
-                                //$borderWidth = "border-width:" . $apothem . "px " . ($base / 2) . "px 0 " . ($base / 2) . "px;";
-                                //$transformOrigin = "transform-origin: " . ($base / 2) . "px " . $apothem . "px;";
-                                //$marginLeft = "margin-left: " . (250 - ($base / 2)) . "px;";
-
-                                for ($i = 0; $i < $numberOfGames; $i++) {
-	                                echo "<div class='col-sm-6 col-md-3'>
-											<div class='thumbnail'>
-												<img src='img/marist_pic3.jpg'>
-												<div class='caption'>
-													<h3>Math</h3>
-													<p>Quick description of the game</p>
-													<p><a href='GamePage.php' class='btn btn-primary' role='button'>Play</a></p>
-												</div>
+                            $numberOfGames = 6;
+                            for ($i = 0; $i < $numberOfGames; $i++) {
+	                            echo "<div class='col-sm-6 col-md-3'>
+										<div class='thumbnail'>
+											<img src='img/marist_pic3.jpg'>
+											<div class='caption'>
+												<h3>Math</h3>
+												<p>Quick description of the game</p>
+												<p><a href='GamePage.php' class='btn btn-primary' role='button'>Play</a></p>
+												<p><a href='ManageCourse.php' class='btn btn-default' role='button'>Play</a></p>													
 											</div>
-										</div>";
+										</div>
+									</div>";
 								}
         ?>
 		</div>
