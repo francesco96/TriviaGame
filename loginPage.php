@@ -19,7 +19,7 @@
  
   </head>
   <body>	
-	<div class="container-fluid">
+	<div class="container">
 		<div class="page-header text-center" id="pg_header">
 			<h1><font face="Comic sans MS" color="black">Marist Fox Trivia</font><br /></h1>
 		</div>
