@@ -1,6 +1,6 @@
 <?php
 	//page title
-	$title = 'LoginPage';
+	$title = 'ReportPage';
 	//Landing page
 ?>
 <!DOCTYPE html>
@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Options</title>
+    <title>Report</title>
 
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -33,30 +33,25 @@
             </div>
         </div>
 		<div class="page-header text-center" id="pg_header">
-			<h1><font face="Comic sans MS" color="black">Options</font><br /></h1>
+			<h1><font face="Comic sans MS" color="black">Report</font><br /></h1>
 		</div>
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8">
 		<div class="well well-lg">
 		<div class="row">
 			<div class="col-sm-3"></div>
-			<div class="col-sm-3 text-center" id="toolTips">
-				<h2>Tool Tips:</h2>
-			</div>
-			<div class="col-sm-3 text-center" id="toolTips1">
-				<h2><a type="button" id="tool_tips" class="btn btn-success">On</a><a type="button" id="tool_tips" class="btn btn-danger">Off</a></h2>
+			<div class="col-sm" id="toolTips">
+				<h2>The following description will be directed to the Administrator.</h2>
 			</div>
 		</div>
-		<br>
-		<div class="row">
-			<div class="col-sm-12 text-center">
-				<a type="button" id="report_a_bug" href="report.php" class="btn btn-danger">Report A Bug</a>
-			</div>
-		</div>
+    <div class="form-group">
+      <label for="report">Description of Bug: </label>
+      <label for="text" class="form-control" id="report">
+    </div>
 		<br>
 		<div class="row">
 			<div class="col-sm-12 text-center" id="toolTips1">
-				<a type="button" href="index.php" class="btn btn-success">Log Out</a>
+				<a type="button" href="homePage.php" class="btn btn-success">Submit</a>
 			</div>
 		</div>
 		</div>
