@@ -29,6 +29,7 @@
 			<h1><font face="Comic sans MS" size="40px" color="black">Marist Fox Trivia</font><br /></h1>
 		</div>
 		<div class="row">
+<<<<<<< HEAD
 			<div class="col-sm-6 col-md-4">
 				<div class="thumbnail">
 					<img src="marist_pic3.jpg">
@@ -59,6 +60,24 @@
 					</div>
 				</div>
 			</div>
+=======
+		<?php
+                                $numberOfGames = 6;
+                                for ($i = 0; $i < $numberOfGames; $i++) {
+	                                echo "<div class='col-sm-6 col-md-3'>
+											<div class='thumbnail'>
+												<img src='img/marist_pic3.jpg'>
+												<div class='caption'>
+													<h3>Math</h3>
+													<p>Quick description of the game</p>
+													<p><a href='#' class='btn btn-primary' role='button'>Play</a>
+													<a href='#' class='btn btn-default' role='button'>Edit</a></p>
+												</div>
+											</div>
+										</div>";
+								}
+        ?>
+>>>>>>> e4e10477468acbaab50e86e3e5694323fd98f3ac
 		</div>
 	</div>    
 
