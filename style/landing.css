@@ -1,3 +1,5 @@
+@font-face { font-family: CartoonRelief; src: url('CartoonRelief.ttf'); } 
+
 body{
 	font-face: "Comic sans MS";
 	font-color: black;
@@ -26,6 +28,7 @@ body{
     -o-background-size: cover;
 }
 h1{
+	font-family: CartoonRelief;
 	font-size: 100px;
 }
 h2{

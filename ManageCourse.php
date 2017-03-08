@@ -1,16 +1,14 @@
 <?php
 	//page title
 	$title = 'ManageCourse';
+	include('db.php');
+	$cid = $_GET ["cid"]
 	// Manage Course
 ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  	<style>
-  		@font-face { font-family: CartoonRelief; src: url('CartoonRelief.ttf'); }
-		
-		div h1 { font-family: CartoonRelief; text-shadow:1px 1px black }
-		
+  	<style>	
 		/* Testing
 		a:hover { 
    			color: black;
@@ -102,12 +100,35 @@
 						<form>
 							<div class="form-group">
 								<label for="exampleInputEmail1">Course Name</label>
-								<input type="email" class="form-control" id="CourseName" placeholder="Math101"> <!-- dynamically change of the course-->
+								<?php
+									$sql = "Select *
+										From triviacrack.course
+										WHERE COURSE_ID = '$cid'
+										";
+									$result = mysqli_query($conn, $sql);
+									$result = mysqli_fetch_assoc($result);
+									$courseName = ($result['TITLE']);
+									
+									echo"
+										<input type='text' class='form-control' id='CourseName' placeholder=$courseName>
+									";	
+								?>
 							</div>
 							<div class="form-group">
 								<label for="exampleInputPassword1">Questions</label>
-								<p><u>Is Climate Change a hoax?<br>
-									  Does looking at a picture of the sun hurt your eyes?</u></p>
+								<?php
+									$sql = "SELECT * FROM triviacrack.question WHERE COURSE_ID = $cid";
+									$result = mysqli_query($conn, $sql);
+									$numberOfQuestions = mysqli_num_rows($result);
+									for ($i = 0; $i < $numberOfQuestions; $i++) {
+									$result = mysqli_fetch_assoc($result);
+									$courseQuestion = ($result['QUESTION_TEXT']);	
+									echo"
+										<p><u>$courseQuestion
+									";	
+									}echo"</u></p>";
+									
+								?>
 							</div>
 							<div class="col-sm-6 text-center" id="currentUser">
 							<a type="button" id="myBtn" class="btn btn-success">+ Add Question</a>
@@ -145,7 +166,7 @@
 							</div>
 						</div>
 						</form>
-						<a type="button" href="homePage.php" class="btn btn-success">Submit</a>
+						<a type="button" id="addQuestions" class="btn btn-success">Submit</a>
 					</div>
 		</div>
 	</div>    
@@ -160,6 +181,13 @@
 	// Get the <span> element that closes the modal
 	var span = document.getElementsByClassName("close")[0];
 
+	var addQ = document.getElementById("addQuestions");
+	
+	addQ.onclick = function() {
+			<?php
+				
+			?>
+	}
 	// When the user clicks the button, open the modal 
 	btn.onclick = function() {
 	    modal.style.display = "block";

@@ -36,7 +36,7 @@
             </div>
         </div>
 		<div class="page-header text-center" id="pg_header">
-			<h1><font face="Comic sans MS" color="black">Marist Fox Trivia</font><br /></h1>
+			<h1>Marist Fox Trivia</h1>
 		</div>
 		<div class="row">
 		<?php
@@ -61,8 +61,8 @@
 											<div class='caption'>
 												<h3>$courseName</h3>
 												<p>$courseDescr</p>
-												<p><a href='GamePage.php' class='btn btn-primary' role='button'>Play</a>
-												<a href='ManageCourse.php' class='btn btn-default' role='button'>Edit</a></p>													
+												<p><a href='GamePage.php?courseid=$id' class='btn btn-primary' role='button'>Play</a>
+												<a href='ManageCourse.php?cid=$id' class='btn btn-default' role='button'>Edit</a></p>													
 											</div>
 										</div>
 									</div>";
@@ -70,7 +70,7 @@
         ?>
 			<div class='col-sm-6 col-md-3'>
 				<div class='thumbnail'>
-					<a type="button" href="loginPage.php"><img src="img/plusSign.jpg" width="500px" alt="addGame" title="addGame"></a>
+					<a type="button" href="ManageCourse.php"><img src="img/plusSign.jpg" width="500px" alt="addGame" title="addGame"></a>
 					<!--<img src='img/plusSign.jpg'>-->
 					<div class='caption'>
 						<h3>Add a Game</h3>

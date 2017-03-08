@@ -6,7 +6,7 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+  <head>  
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,7 +22,7 @@
   <body>	
 	<div class="container">
 		<div class="page-header text-center" id="pg_header">
-			<h1><font face="Comic sans MS" color="black">Marist Fox Trivia</font><br /></h1>
+			<h1>Marist Fox Trivia</font><br /></h1>
 		</div>
 			<div class="row">
 				<div class="col-sm-6 text-center" id="logging_in">
