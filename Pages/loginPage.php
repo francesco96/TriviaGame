@@ -12,21 +12,31 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Login/Register</title>
 
-	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<link href="style/general.css" rel="stylesheet" type="text/css">
- 
+    <!-- Bootstrap -->
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+	<script src="lib/Jquery/jquery-3.1.1.min.js"></script>
+	<script href="style/general.css" rel="stylesheet" type="text/css"></script>
+
+	
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   </head>
+<<<<<<< HEAD
+  <body background ="marist_pic2.jpg">	
+	<div class="container">
+=======
   <body>	
 	<div class="container-fluid">
+>>>>>>> e4e10477468acbaab50e86e3e5694323fd98f3ac
 		<div class="page-header text-center" id="pg_header">
-			<h1><font face="Comic sans MS" color="black">Marist Fox Trivia</font><br /></h1>
+			<h1><font face="Comic sans MS" size="40px" color="black">Marist Fox Trivia</font><br /></h1>
 		</div>
 			<div class="row">
 				<div class="col-sm-6 text-center" id="logging_in">
 					<div class="well well-lg">
-						<h2>Login</h2>
+						<h1>Login</h1>
 						<br>
 						<form>
 							<div class="form-group">
@@ -43,7 +53,7 @@
 				</div>
 				<div class="col-sm-6 text-center" id="regeistration">
 					<div class="well well-lg">
-						<h2>Register</h2>
+						<h1>Register</h1>
 						<br>
 						<form>
 							<div class="form-group">

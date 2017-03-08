@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+html {
+}	
+body {
+	background-image: url("marist_pic4.jpg");
+	background-repeat: no-repeat;
+}
+=======
 body{
 	font-face: "Comic sans MS";
 	font-color: black;
@@ -23,3 +31,4 @@ h2{
 	text-align: left;
     padding-top: 10px;
 }
+>>>>>>> e4e10477468acbaab50e86e3e5694323fd98f3ac
