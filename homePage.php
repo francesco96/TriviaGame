@@ -1,5 +1,6 @@
 <?php
 	//page title
+	include('db.php');
 	$title = 'HomePage';
 	//Landing page
 ?>
@@ -39,7 +40,10 @@
 		</div>
 		<div class="row">
 		<?php
-                            $numberOfGames = 3;
+                            $sql = "SELECT * FROM triviacrack.course;";
+							$result = mysqli_query($conn, $sql);
+							$numberOfGames = mysqli_num_rows($result);
+							
 							$gamePics = ['img/marist_pic3.jpg', 'img/marist_pic2.jpg', 'img/marist_pic.jpg'];
 							$courses = ['Math', 'Science', 'English'];
                             for ($i = 0; $i < $numberOfGames; $i++) {
