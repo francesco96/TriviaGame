@@ -1,7 +1,7 @@
 <?php
 	//page title
 	$title = 'ManageCourse';
-	// Manage Course
+	// Manage Course Page
 ?>
 <!DOCTYPE html>
 <html lang="en">
