@@ -1,5 +1,6 @@
 <?php
 	//page title
+	include('db.php');
 	$title = 'HomePage';
 	//Landing page
 ?>
@@ -28,7 +29,7 @@
 			</div>
 			<div class="col-sm-6" id="utilities">
                 <!-- Utility Icons Here -->
-                <a type="button" href="loginPage.php"><img src="img/home.png" width="40px" alt="Home" title="Home"></a>
+                <a type="button" href="homePage.php"><img src="img/home.png" width="40px" alt="Home" title="Home"></a>
 				<a type="button" href="options.php"><img src="img/settings.png" width="40px" alt="Options" title="Options"></a>
                 <img src="img/profile.png" width="40px" alt="Profile" title="Profile">
                <!--  <img src="img/settings.png" width="40px" alt="Settings" title="Settings"> -->
@@ -39,28 +40,46 @@
 		</div>
 		<div class="row">
 		<?php
-                                $numberOfGames = 6;
-                                //$categories = ["Social Studies", "Science", "Math", "English", "PhysEd", "Health", "Art", "Music", "Business", "Computers"];
-                                //$colors = ["#1abc9c", "#2ecc71", "#3498db", "#9b59b6", "#f1c40f", "#e67e22", "#e74c3c", "#ecf0f1", "#16a085", "#27ae60", "#2980b9", "#8e44ad", "#f39c12", "#d35400", "#c0392b", "#bdc3c7"];
-                                //$apothem = 250;
-                                //$base = (2 * $apothem) * tan(deg2rad(180 / $numberOfCategories));
-                                //$borderWidth = "border-width:" . $apothem . "px " . ($base / 2) . "px 0 " . ($base / 2) . "px;";
-                                //$transformOrigin = "transform-origin: " . ($base / 2) . "px " . $apothem . "px;";
-                                //$marginLeft = "margin-left: " . (250 - ($base / 2)) . "px;";
-
-                                for ($i = 0; $i < $numberOfGames; $i++) {
-	                                echo "<div class='col-sm-6 col-md-3'>
-											<div class='thumbnail'>
-												<img src='img/marist_pic3.jpg'>
-												<div class='caption'>
-													<h3>Math</h3>
-													<p>Quick description of the game</p>
-													<p><a href='GamePage.php' class='btn btn-primary' role='button'>Play</a></p>
-												</div>
+                            $sql = "SELECT * FROM triviacrack.course;";
+							$result = mysqli_query($conn, $sql);
+							$numberOfGames = mysqli_num_rows($result);
+							$gamePics = ['img/marist_pic3.jpg', 'img/marist_pic2.jpg', 'img/marist_pic.jpg'];
+							$courses = ['Math', 'Science', 'English'];
+                            for ($i = 0; $i < $numberOfGames; $i++) {
+								$id = $i + 1;
+								$sql = "Select *
+										From triviacrack.course
+										WHERE COURSE_ID = '$id'
+										";
+								$result = mysqli_query($conn, $sql);
+								$result = mysqli_fetch_assoc($result);
+								$courseName = ($result['TITLE']);
+								$courseDescr = ($result['DESCRIPTION']);
+	                            echo "<div class='col-sm-6 col-md-3'>
+										<div class='thumbnail'>
+											<img src= $gamePics[$i]>
+											<div class='caption'>
+												<h3>$courseName</h3>
+												<p>$courseDescr</p>
+												<p><a href='GamePage.php' class='btn btn-primary' role='button'>Play</a>
+												<a href='ManageCourse.php' class='btn btn-default' role='button'>Edit</a></p>													
 											</div>
-										</div>";
+										</div>
+									</div>";
 								}
         ?>
+			<div class='col-sm-6 col-md-3'>
+				<div class='thumbnail'>
+					<a type="button" href="loginPage.php"><img src="img/plusSign.jpg" width="500px" alt="addGame" title="addGame"></a>
+					<!--<img src='img/plusSign.jpg'>-->
+					<div class='caption'>
+						<h3>Add a Game</h3>
+						<!-- <p>Quick description of the game</p>
+						<p><a href='GamePage.php' class='btn btn-primary' role='button'>Play</a></p>
+						<p><a href='ManageCourse.php' class='btn btn-default' role='button'>Play</a></p> -->
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>    
 

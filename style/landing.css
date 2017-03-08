@@ -6,7 +6,8 @@ body{
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    
+	max-height: 300vh;
+    min-height: 100vh;    
 }
 .text-vertical-center {
     display: table-cell;

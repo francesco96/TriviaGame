@@ -1,6 +1,7 @@
 <?php
 	//page title
-	$title = 'LoginPage';
+	include('db.php');
+	$title = 'Marist Fox Trivia';
 	//Landing page
 ?>
 <!DOCTYPE html>

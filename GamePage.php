@@ -17,9 +17,9 @@
             <div class="row">
                 <div class="col-sm-12" id="utilities">
                     <!-- Utility Icons Here -->
-                    <img src="img/home.png" width="40px" alt="Home" title="Home">
-                    <img src="img/profile.png" width="40px" alt="Profile" title="Profile">
-                    <img src="img/settings.png" width="40px" alt="Settings" title="Settings">
+                     <a type="button" href="homePage.php"><img src="img/home.png" width="40px" alt="Home" title="Home"></a>
+					<a type="button" href="options.php"><img src="img/settings.png" width="40px" alt="Options" title="Options"></a>
+					<img src="img/profile.png" width="40px" alt="Profile" title="Profile">
                 </div>
             </div>
             <div class="row">
