@@ -28,7 +28,7 @@
 			</div>
 			<div class="col-sm-6" id="utilities">
                 <!-- Utility Icons Here -->
-                <a type="button" href="loginPage.php"><img src="img/home.png" width="40px" alt="Home" title="Home"></a>
+                <a type="button" href="homePage.php"><img src="img/home.png" width="40px" alt="Home" title="Home"></a>
 				<a type="button" href="options.php"><img src="img/settings.png" width="40px" alt="Options" title="Options"></a>
                 <img src="img/profile.png" width="40px" alt="Profile" title="Profile">
                <!--  <img src="img/settings.png" width="40px" alt="Settings" title="Settings"> -->
@@ -39,21 +39,35 @@
 		</div>
 		<div class="row">
 		<?php
-                            $numberOfGames = 6;
+                            $numberOfGames = 3;
+							$gamePics = ['img/marist_pic3.jpg', 'img/marist_pic2.jpg', 'img/marist_pic.jpg'];
+							$courses = ['Math', 'Science', 'English'];
                             for ($i = 0; $i < $numberOfGames; $i++) {
 	                            echo "<div class='col-sm-6 col-md-3'>
 										<div class='thumbnail'>
-											<img src='img/marist_pic3.jpg'>
+											<img src= $gamePics[$i]>
 											<div class='caption'>
-												<h3>Math</h3>
+												<h3>$courses[$i]</h3>
 												<p>Quick description of the game</p>
-												<p><a href='GamePage.php' class='btn btn-primary' role='button'>Play</a></p>
-												<p><a href='ManageCourse.php' class='btn btn-default' role='button'>Play</a></p>													
+												<p><a href='GamePage.php' class='btn btn-primary' role='button'>Play</a>
+												<a href='ManageCourse.php' class='btn btn-default' role='button'>Edit</a></p>													
 											</div>
 										</div>
 									</div>";
 								}
         ?>
+			<div class='col-sm-6 col-md-3'>
+				<div class='thumbnail'>
+					<a type="button" href="loginPage.php"><img src="img/plusSign.jpg" width="500px" alt="addGame" title="addGame"></a>
+					<!--<img src='img/plusSign.jpg'>-->
+					<div class='caption'>
+						<h3>Add a Game</h3>
+						<!-- <p>Quick description of the game</p>
+						<p><a href='GamePage.php' class='btn btn-primary' role='button'>Play</a></p>
+						<p><a href='ManageCourse.php' class='btn btn-default' role='button'>Play</a></p> -->
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>    
 

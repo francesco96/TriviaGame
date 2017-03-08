@@ -1,6 +1,6 @@
 <?php
 	//page title
-	include('includes/db.php');
+	//include('db.php');
 	$title = 'LoginPage';
 	//Landing page
 ?>
