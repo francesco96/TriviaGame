@@ -43,16 +43,24 @@
                             $sql = "SELECT * FROM triviacrack.course;";
 							$result = mysqli_query($conn, $sql);
 							$numberOfGames = mysqli_num_rows($result);
-							
 							$gamePics = ['img/marist_pic3.jpg', 'img/marist_pic2.jpg', 'img/marist_pic.jpg'];
 							$courses = ['Math', 'Science', 'English'];
                             for ($i = 0; $i < $numberOfGames; $i++) {
+								$id = $i + 1;
+								$sql = "Select *
+										From triviacrack.course
+										WHERE COURSE_ID = '$id'
+										";
+								$result = mysqli_query($conn, $sql);
+								$result = mysqli_fetch_assoc($result);
+								$courseName = ($result['TITLE']);
+								$courseDescr = ($result['DESCRIPTION']);
 	                            echo "<div class='col-sm-6 col-md-3'>
 										<div class='thumbnail'>
 											<img src= $gamePics[$i]>
 											<div class='caption'>
-												<h3>$courses[$i]</h3>
-												<p>Quick description of the game</p>
+												<h3>$courseName</h3>
+												<p>$courseDescr</p>
 												<p><a href='GamePage.php' class='btn btn-primary' role='button'>Play</a>
 												<a href='ManageCourse.php' class='btn btn-default' role='button'>Edit</a></p>													
 											</div>
