@@ -2,8 +2,49 @@
 	//page title
 	$title = 'ManageCourse';
 	include('db.php');
-	$cid = $_GET ["cid"]
-	// Manage Course
+	$cid = $_GET ["cid"];
+	// Manage Course	
+	if ($_SERVER["REQUEST_METHOD"] == "POST") {
+		$errors = array();
+		$q = $_POST['Question'];
+		$a = $_POST['Answer'];
+		$o2 = $_POST['Option_2'];
+		$o3 = $_POST['Option_3'];
+		$o4 = $_POST['Option_4'];
+		$sql = "";
+		if($q){
+			$sql = "INSERT INTO triviacrack.question (QUESTION_TEXT, QUESTION_CORRECT, TIMES_ASKED, CATEGORY, COURSE_ID) VALUES ('$q', '0', '0', 'Chapter 1', '$cid')";
+			mysqli_query($conn, $sql);
+			$sql ="";
+			$q_id = $conn->insert_id;
+			if($a){
+				$sql .= "INSERT INTO triviacrack.answer (QUESTION_ID, ANSWER_CORRECT, ANSWER_TEXT, TIMES_PICKED) VALUES ('$q_id', '1', '$a', '$cid')";
+			}else {		
+				$errors[] ='Enter in a correct answer!';
+			}
+			if($o2){
+				$sql .= ",('$q_id', '0', '$o2', '$cid')";
+			}else {			
+				$errors[] ='Enter 3 options!';
+			}
+			if($o3){
+				$sql .= ",('$q_id', '0', '$o3', '$cid')";
+			}else {			
+				$errors[] ='Enter 3 options!';
+			}
+			if($o4){
+				$sql .= ",('$q_id', '0', '$o4', '$cid')";
+			}else {			
+				$errors[] ='Enter 3 options!';
+			}	
+			if(empty($errors)){
+				mysqli_query($conn, $sql);
+			}else{
+			}
+		}else {		
+			$errors[] ='Enter in a question!';
+		}
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -119,53 +160,57 @@
 								<?php
 									$sql = "SELECT * FROM triviacrack.question WHERE COURSE_ID = $cid";
 									$result = mysqli_query($conn, $sql);
-									$numberOfQuestions = mysqli_num_rows($result);
-									for ($i = 0; $i < $numberOfQuestions; $i++) {
-									$result = mysqli_fetch_assoc($result);
-									$courseQuestion = ($result['QUESTION_TEXT']);	
-									echo"
-										<p><u>$courseQuestion
-									";	
-									}echo"</u></p>";
-									
-								?>
+									if (mysqli_num_rows($result) > 0) {
+										while($row = mysqli_fetch_assoc($result)) {
+											echo"
+												<p><u>".$row['QUESTION_TEXT']."</u></p>
+											";	
+										}
+									}
+									?>
 							</div>
 							<div class="col-sm-6 text-center" id="currentUser">
 							<a type="button" id="myBtn" class="btn btn-success">+ Add Question</a>
 							<!-- The Modal -->
 							<div id="myModal" class="modal">
-
+						</form>
 							  <!-- Modal content WHEN PRESSING BUTTON -->
 							  <div class="modal-content">
 							    <span class="close">&times;</span>
 							    <h3 align="center">Adding a New Question<br></h3>
 							    <p>
-							    <div class="form-group">
-								<label for="exampleInputEmail1">Question:</label>
-								<input type="text" class="form-control" id="Question" placeholder="Question">
-								</div>
-								<!-- Answer -->
-								<div class="form-group">
-								<label for="exampleInputEmail1">Answer:</label>
-								<input type="text" class="form-control" id="Answer" placeholder="Answer">
-								</div>
-								<!-- Option 2 -->
-								<div class="form-group">
-								<label for="exampleInputEmail1">Option 2:</label>
-								<input type="text" class="form-control" id="Option2" placeholder="Option 2">
-								</div>
-								<!-- Option 3 -->
-								<div class="form-group">
-								<label for="exampleInputEmail1">Option 3:</label>
-								<input type="text" class="form-control" id="Option 3" placeholder="Option 3">
-								</div>
-							    </p>
-							    <a type="button" id="myBtn" href="ManageCourse.php"class="btn btn-success">Add Question</a>
+									<form action= "<?php echo "ManageCourse.php?cid=$cid"; ?>"  method="post">
+									<p>
+										<label>Question:</label>
+										<input type='text' class='form-control' name="Question" placeholder='Question' >
+									</p>
+									<!-- Answer -->
+									<p>
+										<label>Answer:</label>
+										<input type="text" class="form-control" name="Answer" placeholder="Answer">
+									</p>
+									<!-- Option 2 -->
+									<p>
+										<label>Option 2:</label>
+										<input type="text" class="form-control" name="Option_2" placeholder="Option 2">
+									</p>
+									<!-- Option 3 -->
+									<p>
+										<label>Option 3:</label>
+										<input type="text" class="form-control" name="Option_3" placeholder="Option 3">
+									</p>
+									<!-- Option 4 -->
+									<p>
+										<label>Option 4:</label>
+										<input type="text" class="form-control" name="Option_4" placeholder="Option 4">
+									</p>
+									<input type="submit" value="Add Question">
+									</form>
+								</p>	
 							  </div>
 
 							</div>
 						</div>
-						</form>
 						<a type="button" id="addQuestions" class="btn btn-success">Submit</a>
 					</div>
 		</div>
@@ -180,14 +225,7 @@
 
 	// Get the <span> element that closes the modal
 	var span = document.getElementsByClassName("close")[0];
-
-	var addQ = document.getElementById("addQuestions");
 	
-	addQ.onclick = function() {
-			<?php
-				
-			?>
-	}
 	// When the user clicks the button, open the modal 
 	btn.onclick = function() {
 	    modal.style.display = "block";

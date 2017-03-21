@@ -45,7 +45,23 @@
 							$numberOfGames = mysqli_num_rows($result);
 							$gamePics = ['img/marist_pic3.jpg', 'img/marist_pic2.jpg', 'img/marist_pic.jpg'];
 							$courses = ['Math', 'Science', 'English'];
-                            for ($i = 0; $i < $numberOfGames; $i++) {
+                            if (mysqli_num_rows($result) > 0) {
+								while($row = mysqli_fetch_assoc($result)) {
+									echo "<div class='col-sm-6 col-md-3'>
+										<div class='thumbnail'>
+											<img src= 'img/marist_pic3.jpg'>
+											<div class='caption'>
+												<h3>".$row['TITLE']."</h3>
+												<p>".$row['DESCRIPTION']."</p>
+												<p><a href='GamePage.php?courseid=".$row['COURSE_ID']."' class='btn btn-primary' role='button'>Play</a>
+												<a href='ManageCourse.php?cid=".$row['COURSE_ID']."' class='btn btn-default' role='button'>Edit</a></p>													
+											</div>
+										</div>
+									</div>";	
+								}
+							}
+							/*
+							for ($i = 0; $i < $numberOfGames; $i++) {
 								$id = $i + 1;
 								$sql = "Select *
 										From triviacrack.course
@@ -66,7 +82,7 @@
 											</div>
 										</div>
 									</div>";
-								}
+								} */
         ?>
 			<div class='col-sm-6 col-md-3'>
 				<div class='thumbnail'>
