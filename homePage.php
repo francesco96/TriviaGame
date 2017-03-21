@@ -60,39 +60,13 @@
 									</div>";	
 								}
 							}
-							/*
-							for ($i = 0; $i < $numberOfGames; $i++) {
-								$id = $i + 1;
-								$sql = "Select *
-										From triviacrack.course
-										WHERE COURSE_ID = '$id'
-										";
-								$result = mysqli_query($conn, $sql);
-								$result = mysqli_fetch_assoc($result);
-								$courseName = ($result['TITLE']);
-								$courseDescr = ($result['DESCRIPTION']);
-	                            echo "<div class='col-sm-6 col-md-3'>
-										<div class='thumbnail'>
-											<img src= $gamePics[$i]>
-											<div class='caption'>
-												<h3>$courseName</h3>
-												<p>$courseDescr</p>
-												<p><a href='GamePage.php?courseid=$id' class='btn btn-primary' role='button'>Play</a>
-												<a href='ManageCourse.php?cid=$id' class='btn btn-default' role='button'>Edit</a></p>													
-											</div>
-										</div>
-									</div>";
-								} */
         ?>
 			<div class='col-sm-6 col-md-3'>
 				<div class='thumbnail'>
-					<a type="button" href="ManageCourse.php"><img src="img/plusSign.jpg" width="500px" alt="addGame" title="addGame"></a>
+					<a type="button" href="addCourse.php"><img src="img/plusSign.jpg" width="500px" alt="addGame" title="addGame"></a>
 					<!--<img src='img/plusSign.jpg'>-->
 					<div class='caption'>
 						<h3>Add a Game</h3>
-						<!-- <p>Quick description of the game</p>
-						<p><a href='GamePage.php' class='btn btn-primary' role='button'>Play</a></p>
-						<p><a href='ManageCourse.php' class='btn btn-default' role='button'>Play</a></p> -->
 					</div>
 				</div>
 			</div>

@@ -109,7 +109,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login/Register</title>
+    <title>Manage Course</title>
 
 
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -211,7 +211,7 @@
 
 							</div>
 						</div>
-						<a type="button" id="addQuestions" class="btn btn-success">Submit</a>
+						<a type="button" id="addQuestions" href="homepage.php" class="btn btn-success">Done</a>
 					</div>
 		</div>
 	</div>    
