@@ -7,45 +7,50 @@
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$errors = array();
 		$q = $_POST['Question'];
+		$category = $_POST['Category'];
 		$a = $_POST['Answer'];
 		$o2 = $_POST['Option_2'];
 		$o3 = $_POST['Option_3'];
 		$o4 = $_POST['Option_4'];
 		$sql = "";
 		if($q){
-			$sql = "INSERT INTO triviacrack.question (QUESTION_TEXT, QUESTION_CORRECT, TIMES_ASKED, CATEGORY, COURSE_ID) VALUES ('$q', '0', '0', 'Chapter 1', '$cid')";
-			mysqli_query($conn, $sql);
-			$sql ="";
-			$q_id = $conn->insert_id;
-			if($a){
-				$sql .= "INSERT INTO triviacrack.answer (QUESTION_ID, ANSWER_CORRECT, ANSWER_TEXT, TIMES_PICKED) VALUES ('$q_id', '1', '$a', '$cid')";
-			}else {		
-				$errors[] ='Enter in a correct answer!';
-			}
-			if($o2){
-				$sql .= ",('$q_id', '0', '$o2', '$cid')";
-			}else {			
-				$errors[] ='Enter 3 options!';
-			}
-			if($o3){
-				$sql .= ",('$q_id', '0', '$o3', '$cid')";
-			}else {			
-				$errors[] ='Enter 3 options!';
-			}
-			if($o4){
-				$sql .= ",('$q_id', '0', '$o4', '$cid')";
-			}else {			
-				$errors[] ='Enter 3 options!';
-			}	
-			if(empty($errors)){
+			if($category){
+				$sql = "INSERT INTO triviacrack.question (QUESTION_TEXT, QUESTION_CORRECT, TIMES_ASKED, CATEGORY, COURSE_ID) VALUES ('$q', '0', '0', '$category', '$cid')";
 				mysqli_query($conn, $sql);
-			}else{
+				$sql ="";
+				$q_id = $conn->insert_id;
+				if($a){
+					$sql .= "INSERT INTO triviacrack.answer (QUESTION_ID, ANSWER_CORRECT, ANSWER_TEXT, TIMES_PICKED) VALUES ('$q_id', '1', '$a', '$cid')";
+				}else {		
+					$errors[] ='Enter in a correct answer!';
+				}
+				if($o2){
+					$sql .= ",('$q_id', '0', '$o2', '$cid')";
+				}else {			
+					$errors[] ='Enter 3 options!';
+				}
+				if($o3){
+					$sql .= ",('$q_id', '0', '$o3', '$cid')";
+				}else {			
+					$errors[] ='Enter 3 options!';
+				}
+				if($o4){
+					$sql .= ",('$q_id', '0', '$o4', '$cid')";
+				}else {			
+					$errors[] ='Enter 3 options!';
+				}	
+				if(empty($errors)){
+					mysqli_query($conn, $sql);
+				}else{
+				}
+			}else {
+				$errors[] = 'Enter a category';
 			}
 		}else {		
-			$errors[] ='Enter in a question!';
+				$errors[] ='Enter in a question!';
 		}
 	}
-?>
+	?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -137,43 +142,39 @@
 		</div>
 		<div class="row">
 			<div class="well well-lg">
-						<br>
-						<form>
-							<div class="form-group">
-								<label for="exampleInputEmail1">Course Name</label>
-								<?php
-									$sql = "Select *
-										From triviacrack.course
-										WHERE COURSE_ID = '$cid'
-										";
-									$result = mysqli_query($conn, $sql);
-									$result = mysqli_fetch_assoc($result);
-									$courseName = ($result['TITLE']);
-									
-									echo"
-										<input type='text' class='form-control' id='CourseName' placeholder=$courseName>
-									";	
-								?>
-							</div>
-							<div class="form-group">
-								<label for="exampleInputPassword1">Questions</label>
-								<?php
-									$sql = "SELECT * FROM triviacrack.question WHERE COURSE_ID = $cid";
-									$result = mysqli_query($conn, $sql);
-									if (mysqli_num_rows($result) > 0) {
-										while($row = mysqli_fetch_assoc($result)) {
-											echo"
-												<p><u>".$row['QUESTION_TEXT']."</u></p>
-											";	
-										}
+					<div class="col-sm-12 text-center">
+							<h2>Course Name: <?php
+								$sql = "Select *
+									From triviacrack.course
+									WHERE COURSE_ID = '$cid'
+									";
+								$result = mysqli_query($conn, $sql);
+								$result = mysqli_fetch_assoc($result);
+								$courseName = ($result['TITLE']);
+								$description = ($result['DESCRIPTION']);
+								echo"$courseName";
+							?></h2>
+							<h4><?php echo"$description" ?></h4>
+					</div>
+				<div class="col-sm-12 text-center">		
+							<a type="button" id="editName" class="btn btn-success">Edit Name or Description</a>
+				</div>
+							<h2>Questions</h2>
+							<?php
+								$sql = "SELECT * FROM triviacrack.question WHERE COURSE_ID = $cid";
+								$result = mysqli_query($conn, $sql);
+								if (mysqli_num_rows($result) > 0) {
+									while($row = mysqli_fetch_assoc($result)) {
+										echo"
+											<p><u>".$row['QUESTION_TEXT']."</u></p>
+										";	
 									}
-									?>
-							</div>
+								}
+								?>
 							<div class="col-sm-6 text-center" id="currentUser">
 							<a type="button" id="myBtn" class="btn btn-success">+ Add Question</a>
 							<!-- The Modal -->
 							<div id="myModal" class="modal">
-						</form>
 							  <!-- Modal content WHEN PRESSING BUTTON -->
 							  <div class="modal-content">
 							    <span class="close">&times;</span>
@@ -183,6 +184,10 @@
 									<p>
 										<label>Question:</label>
 										<input type='text' class='form-control' name="Question" placeholder='Question' >
+									</p>
+									<p>
+										<label>Category:</label>
+										<input type='text' class='form-control' name="Category" placeholder='Catergory' >
 									</p>
 									<!-- Answer -->
 									<p>

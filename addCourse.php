@@ -8,12 +8,15 @@
 		$cn = $_POST['CourseName'];
 		$d = $_POST['description'];
 		$sql = "";
+		echo"$cn $d";
 		if($cn){
 			if($d){
-			$sql = "INSERT INTO triviacrack.question (TITLE, USER_ID, DESCRIPTION) VALUES ('$cn', '2', '$d')";
+			$sql = "INSERT INTO triviacrack.course (TITLE, USER_ID, DESCRIPTION) VALUES ('$cn', '2', '$d')";
 			mysqli_query($conn, $sql);
 			$cid = $conn->insert_id;
-			echo "href='ManageCourse.php?cid=$cid'";
+			header("Location:ManageCourse.php?cid=$cid");
+			}else{
+			
 			}
 		}else {		
 			$errors[] ='Enter in a Name and Description';
