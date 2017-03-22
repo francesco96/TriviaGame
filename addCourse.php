@@ -57,20 +57,25 @@
 		</div>
 		<div class="row">
 			<div class="well well-lg">
-						<br>
-						<form action= "<?php echo "addCourse.php"; ?>"  method="post">
-							<div class="form-group">
-								<label for="exampleInputEmail1">Course Name</label>
-									<input type='text' class='form-control' name='CourseName' placeholder="Course Name">
-							</div>
-							<div class="form-group">
-								<label for="exampleInputPassword1">Description</label>
-									<textarea rows ="5" name='description' placeholder="Description"> </textarea>
-							</div>
-							
+					<br>
+					<form action= "<?php echo "addCourse.php"; ?>"  method="post">
+						<div class="form-group">
+							<label for="exampleInputEmail1">Course Name</label>
+							<input type='text' class='form-control' name='CourseName' placeholder="Course Name">
+						</div>
+						<div class="form-group">
+							<label for="exampleInputPassword1">Description</label>
+							<textarea rows ="5" cols="106" name='description' placeholder="Description"> </textarea>
+						</div>
+						<div class="col-sm-6 text-center">
 							<input type="submit" value="Add Course" href="homePage.php">
-							<!-- <a type="button" id="myBtn" class="btn btn-success">+ Add Question</a> -->
-						</form>
+						</div>
+						<div class="col-sm-6 text-center">
+							<a type="button" href="homePage.php" class="btn btn-danger">Cancel</a>
+						</div>
+					</form>
+					<br>
+			</div>
 		</div>
 	</div>    
 

@@ -157,67 +157,77 @@
 							<h4><?php echo"$description" ?></h4>
 					</div>
 				<div class="col-sm-12 text-center">		
+							<a type="button" id="myBtn" class="btn btn-success">+ Add Question</a>
 							<a type="button" id="editName" class="btn btn-success">Edit Name or Description</a>
 				</div>
-							<h2>Questions</h2>
-							<?php
-								$sql = "SELECT * FROM triviacrack.question WHERE COURSE_ID = $cid";
+				<table width="%100">
+					<tr>
+						<th>Questions</th>
+						<th>Answers</th>
+					</tr>
+					<?php
+								$sql = "SELECT * FROM triviacrack.question WHERE question.COURSE_ID = $cid";
 								$result = mysqli_query($conn, $sql);
+								$count = 1;
 								if (mysqli_num_rows($result) > 0) {
 									while($row = mysqli_fetch_assoc($result)) {
 										echo"
-											<p><u>".$row['QUESTION_TEXT']."</u></p>
+										<tr>
+											<td>$count. $row[QUESTION_TEXT]</td>
+											<td></td>
+										</tr> 
 										";	
+										$count += 1;
 									}
 								}
-								?>
-							<div class="col-sm-6 text-center" id="currentUser">
-							<a type="button" id="myBtn" class="btn btn-success">+ Add Question</a>
-							<!-- The Modal -->
-							<div id="myModal" class="modal">
-							  <!-- Modal content WHEN PRESSING BUTTON -->
-							  <div class="modal-content">
-							    <span class="close">&times;</span>
-							    <h3 align="center">Adding a New Question<br></h3>
-							    <p>
-									<form action= "<?php echo "ManageCourse.php?cid=$cid"; ?>"  method="post">
-									<p>
-										<label>Question:</label>
-										<input type='text' class='form-control' name="Question" placeholder='Question' >
-									</p>
-									<p>
-										<label>Category:</label>
-										<input type='text' class='form-control' name="Category" placeholder='Catergory' >
-									</p>
-									<!-- Answer -->
-									<p>
-										<label>Answer:</label>
-										<input type="text" class="form-control" name="Answer" placeholder="Answer">
-									</p>
-									<!-- Option 2 -->
-									<p>
-										<label>Option 2:</label>
-										<input type="text" class="form-control" name="Option_2" placeholder="Option 2">
-									</p>
-									<!-- Option 3 -->
-									<p>
-										<label>Option 3:</label>
-										<input type="text" class="form-control" name="Option_3" placeholder="Option 3">
-									</p>
-									<!-- Option 4 -->
-									<p>
-										<label>Option 4:</label>
-										<input type="text" class="form-control" name="Option_4" placeholder="Option 4">
-									</p>
-									<input type="submit" value="Add Question">
-									</form>
-								</p>	
-							  </div>
-
+					?>
+				
+				</table>
+							<div class="col-sm-6 text-center">
+								<!-- The Modal -->
+								<div id="myModal" class="modal">
+									<!-- Modal content WHEN PRESSING BUTTON -->
+									<div class="modal-content">
+										<span class="close">&times;</span>
+										<h3 align="center">Adding a New Question<br></h3>
+										<p>
+											<form action= "<?php echo "ManageCourse.php?cid=$cid"; ?>"  method="post">
+											<p>
+												<label>Question:</label>
+												<input type='text' class='form-control' name="Question" placeholder='Question' >
+											</p>
+											<p>
+												<label>Category:</label>
+												<input type='text' class='form-control' name="Category" placeholder='Catergory' >
+											</p>
+										<!-- Answer -->
+											<p>
+												<label>Answer:</label>
+												<input type="text" class="form-control" name="Answer" placeholder="Answer">
+											</p>
+										<!-- Option 2 -->
+											<p>
+												<label>Option 2:</label>
+												<input type="text" class="form-control" name="Option_2" placeholder="Option 2">
+											</p>
+										<!-- Option 3 -->
+											<p>
+												<label>Option 3:</label>
+												<input type="text" class="form-control" name="Option_3" placeholder="Option 3">
+											</p>
+										<!-- Option 4 -->
+											<p>
+												<label>Option 4:</label>
+												<input type="text" class="form-control" name="Option_4" placeholder="Option 4">
+											</p>
+												<input type="submit" value="Add Question">
+											</form>
+										</p>	
+									</div>
+								</div>
 							</div>
-						</div>
-						<a type="button" id="addQuestions" href="homepage.php" class="btn btn-success">Done</a>
-					</div>
+						<a type="button" href="homepage.php" class="btn btn-success">Done</a>
+			</div>
 		</div>
 	</div>    
 

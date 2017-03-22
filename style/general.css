@@ -19,6 +19,17 @@ body{
     min-height: 100vh;
     box-shadow: inset 0 0 0 1000px rgba(225,225,225,0.5);
 }
+
+table{
+	width: %100;
+}
+tr:nth-child(even) {background: #CCC}
+tr:nth-child(odd) {background: #FFF}
+th{
+	text-align: center;
+	font-family: CartoonRelief;
+	font-size: 40px;
+}
 h1{
 	font-family: CartoonRelief; 
 	font-size: 100px;
