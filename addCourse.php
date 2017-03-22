@@ -65,7 +65,7 @@
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Description</label>
-							<textarea rows ="5" cols="106" name='description' placeholder="Description"> </textarea>
+							<textarea rows ="5" width="%100" name='description' placeholder="Description"> </textarea>
 						</div>
 						<div class="col-sm-6 text-center">
 							<input type="submit" value="Add Course" href="homePage.php">

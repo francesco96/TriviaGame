@@ -160,13 +160,15 @@
 							<a type="button" id="myBtn" class="btn btn-success">+ Add Question</a>
 							<a type="button" id="editName" class="btn btn-success">Edit Name or Description</a>
 				</div>
-				<table width="%100">
+				<br>
+				<table class="table-striped" width="%100">
 					<tr>
 						<th>Questions</th>
-						<th>Answers</th>
+						<th>Category</th>
+						<th>Answer</th>
 					</tr>
 					<?php
-								$sql = "SELECT * FROM triviacrack.question WHERE question.COURSE_ID = $cid";
+								$sql = "SELECT * FROM question, answer WHERE question.COURSE_ID = $cid AND question.QUESTION_ID = answer.QUESTION_ID AND answer.ANSWER_CORRECT = 1";
 								$result = mysqli_query($conn, $sql);
 								$count = 1;
 								if (mysqli_num_rows($result) > 0) {
@@ -174,7 +176,8 @@
 										echo"
 										<tr>
 											<td>$count. $row[QUESTION_TEXT]</td>
-											<td></td>
+											<td>$row[CATEGORY]</td>
+											<td>$row[ANSWER_TEXT]</td>
 										</tr> 
 										";	
 										$count += 1;
@@ -183,6 +186,7 @@
 					?>
 				
 				</table>
+				<br>
 							<div class="col-sm-6 text-center">
 								<!-- The Modal -->
 								<div id="myModal" class="modal">
@@ -228,6 +232,7 @@
 							</div>
 						<a type="button" href="homepage.php" class="btn btn-success">Done</a>
 			</div>
+		</div>
 		</div>
 	</div>    
 

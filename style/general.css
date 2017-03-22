@@ -21,10 +21,8 @@ body{
 }
 
 table{
-	width: %100;
+	width: 100%;
 }
-tr:nth-child(even) {background: #CCC}
-tr:nth-child(odd) {background: #FFF}
 th{
 	text-align: center;
 	font-family: CartoonRelief;
