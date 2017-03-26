@@ -3,7 +3,6 @@
 	$title = 'addCourse';
 	include('db.php');
 	// Manage Course	
-	session_start();
 	$userN = $_SESSION['username'];
 	$userRole = $_SESSION['role'];
 	$userID = $_SESSION['userId'];

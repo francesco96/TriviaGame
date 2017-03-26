@@ -3,7 +3,11 @@
 	$title = 'ManageCourse';
 	include('db.php');
 	$cid = $_GET ["cid"];
-	// Manage Course	
+	// Manage Course
+	//session_start();
+	$userN = $_SESSION['username'];
+	$userRole = $_SESSION['role'];
+	$userID = $_SESSION['userId'];	
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$errors = array();
 		$q = $_POST['Question'];
@@ -128,7 +132,7 @@
 	<div class="container">
 		<div class="row">
             <div class="col-sm-6" id="currentUser">
-				<h3>Hi, Blades</h3>
+				<h3>Hi, <?php echo"$userN" ?></h3>
 			</div>
 			<div class="col-sm-6" id="utilities">
                 <!-- Utility Icons Here -->
@@ -159,7 +163,7 @@
 				<div class="col-sm-12 text-center">		
 							<a type="button" id="myBtn" class="btn btn-success">+ Add Question</a>
 							<a type="button" class="btn btn-success">+ Add Category</a>
-							<a type="button" id="editName" href="<?php echo"editCourse.php?cid=$cid "; ?>" class="btn btn-success">Edit: Name, Description</a>
+							<a type="button" id="editName" href="<?php echo"editCourse.php?cid=$cid"; ?>" class="btn btn-success">Edit: Name, Description</a>
 				</div>
 				<br>
 				<table class="table-striped" width="%100">

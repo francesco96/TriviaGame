@@ -12,7 +12,6 @@
          FROM user
          WHERE USER_NAME = '$usr'
          AND USER_PASSWORD = '$pass'"; //SHA2(?, 256)
-		 echo"$sql";
 		$result = mysqli_query($conn, $sql);
         if(mysqli_num_rows($result) > 0){
             session_start();

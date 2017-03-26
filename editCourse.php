@@ -1,11 +1,10 @@
 <?php
 	//page title
-	$title = 'addCourse';
+	$title = 'editCourse';
 	include('db.php');
 	$cid = $_GET ["cid"];
-	echo "$cid";
 	// Manage Course
-	session_start();	
+	//session_start();	
 	$userN = $_SESSION['username'];
 	$userRole = $_SESSION['role'];
 	$userID = $_SESSION['userId'];
@@ -18,8 +17,8 @@
 		if($cn){
 			if($d){
 			$sql = "UPDATE triviacrack.course SET TITLE='$cn', DESCRIPTION='$d' WHERE COURSE_ID='$cid';";
-			mysqli_query($conn, $sql);
-			header("Location:ManageCourse.php?cid=$cid");
+			$result = mysqli_query($conn, $sql);
+			header("Location: ManageCourse.php?cid=$cid");
 			}}else {		
 			$errors[] ='Enter in a Name and Description';
 		}
@@ -60,7 +59,7 @@
 		<div class="row">
 			<div class="well well-lg">
 					<br>
-					<form action= "addCourse.php"  method="post">
+					<form action= "editCourse.php?cid=<?php echo"$cid"; ?>"  method="post">
 						<div class="col-sm-12 text-center">
 							<label>Course Name</label>
 						</div>
@@ -87,7 +86,7 @@
 							<input type="submit" value="Update Course" href="homePage.php">
 						</div>
 						<div class="col-sm-6 text-center">
-							<a type="button" href="homePage.php" class="btn btn-danger">Cancel</a>
+							<a type="button" href=" <?php echo"ManageCourse.php?cid=$cid" ?>" class="btn btn-danger">Cancel</a>
 						</div>
 					</div>
 					</form>
