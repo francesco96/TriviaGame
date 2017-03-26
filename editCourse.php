@@ -2,8 +2,10 @@
 	//page title
 	$title = 'addCourse';
 	include('db.php');
-	// Manage Course	
-	session_start();
+	$cid = $_GET ["cid"];
+	echo "$cid";
+	// Manage Course
+	session_start();	
 	$userN = $_SESSION['username'];
 	$userRole = $_SESSION['role'];
 	$userID = $_SESSION['userId'];
@@ -15,14 +17,10 @@
 		echo"$cn $d";
 		if($cn){
 			if($d){
-			$sql = "INSERT INTO triviacrack.course (TITLE, USER_ID, DESCRIPTION) VALUES ('$cn', '2', '$d')";
+			$sql = "UPDATE triviacrack.course SET TITLE='$cn', DESCRIPTION='$d' WHERE COURSE_ID='$cid';";
 			mysqli_query($conn, $sql);
-			$cid = $conn->insert_id;
 			header("Location:ManageCourse.php?cid=$cid");
-			}else{
-			
-			}
-		}else {		
+			}}else {		
 			$errors[] ='Enter in a Name and Description';
 		}
 	}
@@ -47,7 +45,7 @@
 	<div class="container">
 		<div class="row">
             <div class="col-sm-6" id="currentUser">
-				<h3>Hi, <?php echo"$userN" ?></h3>
+				<h3>Hi, <?php echo"$userN"; ?></h3>
 			</div>
 			<div class="col-sm-6" id="utilities">
                 <!-- Utility Icons Here -->
@@ -66,7 +64,12 @@
 						<div class="col-sm-12 text-center">
 							<label>Course Name</label>
 						</div>
-							<input type='text' class='form-control' name='CourseName' placeholder="Course Name" required>
+						<?php  
+							$sql = "SELECT * FROM triviacrack.course WHERE COURSE_ID = $cid;";
+							$result = mysqli_query($conn, $sql);
+							$row = mysqli_fetch_assoc($result);
+						?>
+							<input type='text' class='form-control' name='CourseName' value="<?php echo"$row[TITLE]"; ?>" required>
 					<div class="row">	
 						<div class="col-sm-12 text-center">
 							<label>Description</label>
@@ -74,14 +77,14 @@
 					</div>
 					<div class="row">
 						<div class="col-sm-12 text-center">
-							<textarea rows="8" class="form-control no-resize" id="description" name="description" placeholder="Write the description here!"> </textarea>
+							<textarea rows="8" class="form-control no-resize" id="description" name="description"><?php echo"$row[DESCRIPTION]"; ?></textarea>
 						</div>
 						
 					</div>
 					<div class="row">
 					<br>
 						<div class="col-sm-6 text-center">
-							<input type="submit" value="Add Course" href="homePage.php">
+							<input type="submit" value="Update Course" href="homePage.php">
 						</div>
 						<div class="col-sm-6 text-center">
 							<a type="button" href="homePage.php" class="btn btn-danger">Cancel</a>
@@ -93,33 +96,6 @@
 		</div>
 	</div>    
 
-	<script>
-	// Get the modal
-	var modal = document.getElementById('myModal');
-
-	// Get the button that opens the modal
-	var btn = document.getElementById("myBtn");
-
-	// Get the <span> element that closes the modal
-	var span = document.getElementsByClassName("close")[0];
-	
-	// When the user clicks the button, open the modal 
-	btn.onclick = function() {
-	    modal.style.display = "block";
-	}
-
-	// When the user clicks on <span> (x), close the modal
-	span.onclick = function() {
-	    modal.style.display = "none";
-	}
-
-	// When the user clicks anywhere outside of the modal, close it
-	window.onclick = function(event) {
-	    if (event.target == modal) {
-	        modal.style.display = "none";
-	    }
-	}
-	</script>
 
   </body>
 </html>

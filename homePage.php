@@ -2,6 +2,9 @@
 	//page title
 	include('db.php');
 	$title = 'HomePage';
+	$userN = $_SESSION['username'];
+	$userRole = $_SESSION['role'];
+	$userID = $_SESSION['userId'];
 	//Landing page
 ?>
 <!DOCTYPE html>
@@ -25,7 +28,7 @@
 	<div class="container">
 		<div class="row">
             <div class="col-sm-6" id="currentUser">
-				<h3>Hi, Blades</h3>
+				<h3>Hi, <?php echo"$userN" ?></h3>
 			</div>
 			<div class="col-sm-6" id="utilities">
                 <!-- Utility Icons Here -->
@@ -44,7 +47,6 @@
 							$result = mysqli_query($conn, $sql);
 							$numberOfGames = mysqli_num_rows($result);
 							$gamePics = ['img/marist_pic3.jpg', 'img/marist_pic2.jpg', 'img/marist_pic.jpg'];
-							$courses = ['Math', 'Science', 'English'];
                             if (mysqli_num_rows($result) > 0) {
 								while($row = mysqli_fetch_assoc($result)) {
 									echo "<div class='col-sm-6 col-md-3'>
@@ -53,23 +55,30 @@
 											<div class='caption'>
 												<h3>".$row['TITLE']."</h3>
 												<p>".$row['DESCRIPTION']."</p>
-												<p><a href='GamePage.php?courseid=".$row['COURSE_ID']."' class='btn btn-primary' role='button'>Play</a>
-												<a href='ManageCourse.php?cid=".$row['COURSE_ID']."' class='btn btn-default' role='button'>Edit</a></p>													
+												<p><a href='GamePage.php?courseid=".$row['COURSE_ID']."' class='btn btn-primary' role='button'>Play</a>";
+											if($userRole < 1){											
+												echo"<a href='ManageCourse.php?cid=".$row['COURSE_ID']."' class='btn btn-default' role='button'>Edit</a></p>";
+											}
+											echo"
 											</div>
 										</div>
 									</div>";	
 								}
 							}
-        ?>
+        
+		if($userRole < 1){
+			echo"
 			<div class='col-sm-6 col-md-3'>
 				<div class='thumbnail'>
-					<a type="button" href="addCourse.php"><img src="img/plusSign.jpg" width="500px" alt="addGame" title="addGame"></a>
+					<a type='button' href='addCourse.php'><img src='img/plusSign.jpg' width='500px' alt='addGame' title='addGame'></a>
 					<!--<img src='img/plusSign.jpg'>-->
 					<div class='caption'>
 						<h3>Add a Game</h3>
 					</div>
 				</div>
-			</div>
+			</div>";
+		}
+		?>
 		</div>
 	</div>    
 

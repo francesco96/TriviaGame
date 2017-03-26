@@ -158,7 +158,8 @@
 					</div>
 				<div class="col-sm-12 text-center">		
 							<a type="button" id="myBtn" class="btn btn-success">+ Add Question</a>
-							<a type="button" id="editName" class="btn btn-success">Edit Name or Description</a>
+							<a type="button" class="btn btn-success">+ Add Category</a>
+							<a type="button" id="editName" href="<?php echo"editCourse.php?cid=$cid "; ?>" class="btn btn-success">Edit: Name, Description</a>
 				</div>
 				<br>
 				<table class="table-striped" width="%100">
@@ -166,7 +167,9 @@
 						<th>Questions</th>
 						<th>Category</th>
 						<th>Answer</th>
+						<th>Delete</th>
 					</tr>
+					<form action='' method='post'>
 					<?php
 								$sql = "SELECT * FROM question, answer WHERE question.COURSE_ID = $cid AND question.QUESTION_ID = answer.QUESTION_ID AND answer.ANSWER_CORRECT = 1";
 								$result = mysqli_query($conn, $sql);
@@ -178,13 +181,14 @@
 											<td>$count. $row[QUESTION_TEXT]</td>
 											<td>$row[CATEGORY]</td>
 											<td>$row[ANSWER_TEXT]</td>
+											<td	<a type='button' name='delete' class='btn btn-danger'>Delete</a></td>
 										</tr> 
 										";	
 										$count += 1;
 									}
 								}
 					?>
-				
+					</form>
 				</table>
 				<br>
 							<div class="col-sm-6 text-center">
@@ -197,33 +201,83 @@
 										<p>
 											<form action= "<?php echo "ManageCourse.php?cid=$cid"; ?>"  method="post">
 											<p>
+											<div class="col-sm-2 text-center">
 												<label>Question:</label>
-												<input type='text' class='form-control' name="Question" placeholder='Question' >
+											</div>
+											<div class="col-sm-10 text-center">
+												<input type='text' class='form-control' name="Question" placeholder='Question' required oninvalid="this.setCustomValidity('Please Enter a Question!')" oninput="setCustomValidity('')">
+											</div>
 											</p>
+											<br>
+											<br>
 											<p>
+											<div class="col-sm-2 text-center">
 												<label>Category:</label>
-												<input type='text' class='form-control' name="Category" placeholder='Catergory' >
+											</div>
+											<div class="col-sm-10 text-center">
+												<select class="form-control" id="Category" name="Category" required oninvalid="this.setCustomValidity('Please Select a Category!') " oninput="setCustomValidity('')">
+													<option disabled="" selected="" value=""> -- select an category -- </option>
+													<?php
+														$sql = "SELECT categorylist.CATEGORY_NAME FROM categorylist WHERE categorylist.COURSE_ID = $cid";
+														$result = mysqli_query($conn, $sql);
+														if (mysqli_num_rows($result) > 0) {
+															while($row = mysqli_fetch_assoc($result)) {
+																echo"
+																<option>$row[CATEGORY_NAME]</option>
+																";	
+																$count += 1;
+															}
+														}
+													?>
+												</select>
+											</div>
 											</p>
+											<br>
+											<br>
 										<!-- Answer -->
 											<p>
+											<div class="col-sm-2 text-center">
 												<label>Answer:</label>
-												<input type="text" class="form-control" name="Answer" placeholder="Answer">
+											</div>
+											<div class="col-sm-10 text-center">
+												<input type="text" class="form-control" name="Answer" placeholder="Answer" required oninvalid="this.setCustomValidity('Please Enter an Answer')" oninput="setCustomValidity('')">
+											</div>
 											</p>
+											<br>
+											<br>
 										<!-- Option 2 -->
 											<p>
+											<div class="col-sm-2 text-center">
 												<label>Option 2:</label>
-												<input type="text" class="form-control" name="Option_2" placeholder="Option 2">
+											</div>
+											<div class="col-sm-10 text-center">
+												<input type="text" class="form-control" name="Option_2" placeholder="Option 2" required oninvalid="this.setCustomValidity('Please Enter an Option')" oninput="setCustomValidity('')">
+											</div>
 											</p>
+											<br>
+											<br>
 										<!-- Option 3 -->
 											<p>
+											<div class="col-sm-2 text-center">
 												<label>Option 3:</label>
-												<input type="text" class="form-control" name="Option_3" placeholder="Option 3">
+											</div>
+											<div class="col-sm-10 text-center">
+												<input type="text" class="form-control" name="Option_3" placeholder="Option 3" required oninvalid="this.setCustomValidity('Please Enter an Option')" oninput="setCustomValidity('')">
+											</div>
 											</p>
+											<br>
+											<br>
 										<!-- Option 4 -->
 											<p>
+											<div class="col-sm-2 text-center">
 												<label>Option 4:</label>
-												<input type="text" class="form-control" name="Option_4" placeholder="Option 4">
+											</div>
+											<div class="col-sm-10 text-center">
+												<input type="text" class="form-control" name="Option_4" placeholder="Option 4" required oninvalid="this.setCustomValidity('Please Enter an Option')" oninput="setCustomValidity('')">
+											</div>
 											</p>
+											<br>
+											<br>
 												<input type="submit" value="Add Question">
 											</form>
 										</p>	
@@ -242,10 +296,8 @@
 
 	// Get the button that opens the modal
 	var btn = document.getElementById("myBtn");
-
 	// Get the <span> element that closes the modal
 	var span = document.getElementsByClassName("close")[0];
-	
 	// When the user clicks the button, open the modal 
 	btn.onclick = function() {
 	    modal.style.display = "block";

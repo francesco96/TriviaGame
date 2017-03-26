@@ -1,7 +1,11 @@
 <?php
 	//page title
-	$title = 'LoginPage';
+	$title = 'Options';
 	//Landing page
+	session_start();
+	$userN = $_SESSION['username'];
+	$userRole = $_SESSION['role'];
+	$userID = $_SESSION['userId'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +26,7 @@
 	<div class="container">
 		<div class="row">
             <div class="col-sm-6" id="currentUser">
-				<h3>Hi, Blades</h3>
+				<h3>Hi, <?php echo"$userN" ?></h3>
 			</div>
 			<div class="col-sm-6" id="utilities">
                 <!-- Utility Icons Here -->
@@ -56,7 +60,10 @@
 		<br>
 		<div class="row">
 			<div class="col-sm-12 text-center" id="toolTips1">
-				<a type="button" href="index.php" class="btn btn-success">Log Out</a>
+				<form action="logout.php" method="post">
+					<input type="submit" value="Log Out">
+					<!-- <a type="button" href="index.php" class="btn btn-success">Log Out</a> -->
+				</form>
 			</div>
 		</div>
 		</div>

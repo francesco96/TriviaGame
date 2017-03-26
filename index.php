@@ -34,7 +34,8 @@
 						<h1>Marist Fox Trivia</h1>
 						<h3>Get Ready To Study</h3>
 						<br>
-						<a href="loginPage.php" class="btn btn-success btn-lg">Login/Register</a>
+						<a href="loginPage.php" class="btn btn-success btn-lg">Login</a>
+						<a href="registerPage.php" class="btn btn-success btn-lg">Register</a>
 					</div>
 				</div>
 			
