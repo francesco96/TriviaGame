@@ -49,15 +49,30 @@
 							$gamePics = ['img/marist_pic3.jpg', 'img/marist_pic2.jpg', 'img/marist_pic.jpg'];
                             if (mysqli_num_rows($result) > 0) {
 								while($row = mysqli_fetch_assoc($result)) {
-									echo "<div class='col-sm-6 col-md-3'>
+									echo "
+									<div class='col-sm-6 col-md-3'>
 										<div class='thumbnail'>
-											<img src= 'img/marist_pic3.jpg'>
+										<img src= 'img/marist_pic3.jpg'>
 											<div class='caption'>
 												<h3>".$row['TITLE']."</h3>
 												<p>".$row['DESCRIPTION']."</p>
-												<p><a href='GamePage.php?courseid=".$row['COURSE_ID']."' class='btn btn-primary' role='button'>Play</a>";
+												<p><div class='col-sm-3'>
+													<a href='GamePage.php?courseid=".$row['COURSE_ID']."' class='btn btn-primary' role='button'>Play</a>
+												</div>";
 											if($userRole < 1){											
-												echo"<a href='ManageCourse.php?cid=".$row['COURSE_ID']."' class='btn btn-default' role='button'>Edit</a></p>";
+												echo"
+												<div class='col-sm-3'>
+													<a href='ManageCourse.php?cid=".$row['COURSE_ID']."' class='btn btn-default' role='button'>Edit</a>
+												</div>
+												<div class='col-sm-3'>
+													<form action='deleteCourse.php' method='POST'>
+													<input type='hidden' name='cid' value='".$row['COURSE_ID']."'>
+													<input type='submit' value='Delete'>
+													</form>
+												</div>
+												</p>
+												<br>
+												";
 											}
 											echo"
 											</div>

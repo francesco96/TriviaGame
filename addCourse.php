@@ -74,8 +74,7 @@
 					<div class="row">
 						<div class="col-sm-12 text-center">
 							<textarea rows="8" class="form-control no-resize" id="description" name="description" placeholder="Write the description here!"> </textarea>
-						</div>
-						
+						</div>	
 					</div>
 					<div class="row">
 					<br>
