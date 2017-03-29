@@ -80,12 +80,12 @@
                 <!-- Utility Icons Here -->
                 <a type="button" href="homePage.php"><img src="img/home.png" width="40px" alt="Home" title="Home"></a>
 				<a type="button" href="options.php"><img src="img/settings.png" width="40px" alt="Options" title="Options"></a>
-                <img src="img/profile.png" width="40px" alt="Profile" title="Profile">
+                <a type="button" href="ProfilePage.php"><img src="img/profile.png" width="40px" alt="Profile" title="Profile"></a>
                <!--  <img src="img/settings.png" width="40px" alt="Settings" title="Settings"> -->
             </div>
         </div>
 		<div class="page-header text-center" id="pg_header">
-			<h1><font face="Comic sans MS" color="black">Options</font><br /></h1>
+			<h1>Options</h1>
 		</div>
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8">
