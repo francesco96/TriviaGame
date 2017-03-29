@@ -3,6 +3,7 @@
 	$title = 'ManageCourse';
 	include('db.php');
 	$cid = $_GET ["cid"];
+	$userN = $_SESSION['username'];
 	// Manage Course
 	?>
 <!DOCTYPE html>
@@ -65,13 +66,15 @@
 			}
 			#table2{
 				width:25%;
+				background-color: #FFFFFF;
+				height: 300px;
+				border: 5px solid black;
 			}
 			#table1, #table2{
 				display: inline-block;
 			}
 			#leaderboard{
-				background-color: #FFFFFF;
-				border: 5px solid black;
+
 			}
 			#options{
 				font-size: 30px;
@@ -110,20 +113,20 @@
 					$result = mysqli_query($conn, $sql);
 					$result = mysqli_fetch_assoc($result);
 					$courseName = ($result['TITLE']);
-					echo"$courseName";
+					echo"$courseName"." course";
 				?></h1>
 			</div>
-		<center><a type="button" href="homepage.php" style = "height:100px;width:300px;font-size:50px"class="btn btn-success">Play</a></center>
+		<center><a type="button" href="homepage.php" style = "height:90px;width:250px;font-size:50px;margin-bottom:50px;"class="btn btn-success">Play</a></center>
 			<div id = "tableContainer">
 				<div id="table1">
 					<table id="options">
-						<th>Available Games</th>
+						<th alight="right">Available Games</th>
 						<tr>
-							<td><a href = "GamePage.php?courseid=1">Galleti's Game</a></td>
+							<td><a href = "GamePage.php?cid=1">Galletti's Game</a></td>
 							<td> - Hard Questions</td>
 						</tr>
 						<tr>
-							<td><a href = "GamePage.php?courseid=19">Blades's Game</a></td>
+							<td><a href = "GamePage.php?cid=19">Blades's Game</a></td>
 							<td> - Medium Questions</td>
 						</tr>
 						<?php
@@ -134,8 +137,8 @@
 								while($row = mysqli_fetch_assoc($result)) {
 									echo"
 									<tr>
-									<td>'s Game</td>
-									<td></td>
+									<td>". $userN . "'s Game</td>
+									<td>-  Questions </td>
 									</tr>
 									";
 									$count += 1;
@@ -147,9 +150,29 @@
 				<div id="table2">
 					<table id="leaderboard">
 						<th>Leaderboard</th>
+						<?php
+							$sql = "SELECT * FROM triviacrack.question WHERE question.COURSE_ID = $cid";
+							$result = mysqli_query($conn, $sql);
+							$count = 1;
+							if (mysqli_num_rows($result) > 0) {
+								while($row = mysqli_fetch_assoc($result)) {
+									echo"
+									<tr>
+									<td></td>
+									<td></td>
+									</tr>
+									";
+									$count += 1;
+								}
+							}
+						?>
 						<tr>
 							<td>Blades</td>
 							<td>1120</td>
+						</tr>
+						<tr>
+							<td>Eletto</td>
+							<td>1085</td>
 						</tr>
 						<tr>
 							<td>Eletto</td>

@@ -21,10 +21,10 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link href="style/general.css" rel="stylesheet" type="text/css">
- 
+
 
   </head>
-  <body>	
+  <body>
 	<div class="container">
 		<div class="row">
             <div class="col-sm-6" id="currentUser">
@@ -57,9 +57,9 @@
 												<h3>".$row['TITLE']."</h3>
 												<p>".$row['DESCRIPTION']."</p>
 												<p><div class='col-sm-3'>
-													<a href='GamePage.php?courseid=".$row['COURSE_ID']."' class='btn btn-success' role='button'>Play</a>
+													<a href='gameInfo.php?cid=".$row['COURSE_ID']."' class='btn btn-success' role='button'>Play</a>
 												</div>";
-											if($userRole < 1){											
+											if($userRole < 1){
 												echo"
 												<div class='col-sm-3'>
 													<a href='ManageCourse.php?cid=".$row['COURSE_ID']."' class='btn btn-primary' role='button'>Edit</a>
@@ -77,10 +77,10 @@
 											echo"
 											</div>
 										</div>
-									</div>";	
+									</div>";
 								}
 							}
-        
+
 		if($userRole < 1){
 			echo"
 			<div class='col-sm-6 col-md-3'>
@@ -95,7 +95,7 @@
 		}
 		?>
 		</div>
-	</div>    
+	</div>
 
   </body>
 </html>

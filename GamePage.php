@@ -1,10 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+    <style>
+    img:hover {
+        color: black;
+        border: 0.1px solid #e5e5e5;
+        -webkit-transition-duration: 0.2s;
+        transition-duration: 0.2s;
+        padding: 0px;
+      Margin - Border - Padding - Content
+    }
+    /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
+
+    /* The Close Button */
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 25px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    } ,
+  </style>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
+
         <title><!-- Title Of Game Here - PHP --></title>
-        
+
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="style/spinnerStyle.css">
         <link rel="stylesheet" type="text/css" href="style/modalStyle.css">
@@ -73,7 +121,7 @@
 <script>
     var disabled = false;
     var numberOfCategories = <?php echo $numberOfCategories ?>;
-    
+
     function spinWheel() {
         if (!disabled) {
             disabled = true;
@@ -103,7 +151,7 @@
             window.setTimeout(getQuestion, 7000, section);
         }
     }
-    
+
     function getQuestion(category) {
         $.ajax({
             type: "POST",
@@ -127,7 +175,7 @@
                         counter--;
                     } else {
                         window.clearInterval(window.modaltimer);
-                        
+
                         $(".modal-body-answer-button"). attr('disabled', 'disabled');
     		            document.getElementById('modal-body-result').style.color='red';
     		            document.getElementById('modal-body-result').innerHTML = "Time's Up!";
@@ -143,7 +191,7 @@
 
         });
     }
-    
+
     function checkAnswer(button, value, question) {
         $(".modal-body-answer-button").attr('disabled', 'disabled');
         $.ajax({
@@ -173,7 +221,7 @@
             }
         });
     }
-    
+
     function newRound() {
         $('#inner-wheel').css({
             WebkitTransition: 'none',
@@ -190,8 +238,8 @@
         $('#inner-wheel').removeAttr('style');
         disabled = false;
     }
-    
-    
+
+
 </script>
 
 <!--
