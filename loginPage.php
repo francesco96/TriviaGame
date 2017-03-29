@@ -55,11 +55,11 @@
 						<br>
 						<form action="loginPage.php" method="POST">
 							<div class="form-group">
-								<label for="exampleInputEmail1">Username</label>
+								<label>Username</label>
 								<input type="text" class="form-control" name="username" placeholder="Email" required>
 							</div>
 							<div class="form-group">
-								<label for="exampleInputPassword1">Password</label>
+								<label>Password</label>
 								<input type="password" class="form-control" name="password" placeholder="Password" required>
 							</div>
 							<input type="submit" value="Login">

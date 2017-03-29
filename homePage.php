@@ -57,17 +57,17 @@
 												<h3>".$row['TITLE']."</h3>
 												<p>".$row['DESCRIPTION']."</p>
 												<p><div class='col-sm-3'>
-													<a href='GamePage.php?courseid=".$row['COURSE_ID']."' class='btn btn-primary' role='button'>Play</a>
+													<a href='GamePage.php?courseid=".$row['COURSE_ID']."' class='btn btn-success' role='button'>Play</a>
 												</div>";
 											if($userRole < 1){											
 												echo"
 												<div class='col-sm-3'>
-													<a href='ManageCourse.php?cid=".$row['COURSE_ID']."' class='btn btn-default' role='button'>Edit</a>
+													<a href='ManageCourse.php?cid=".$row['COURSE_ID']."' class='btn btn-primary' role='button'>Edit</a>
 												</div>
 												<div class='col-sm-3'>
 													<form action='deleteCourse.php' method='POST'>
 													<input type='hidden' name='cid' value='".$row['COURSE_ID']."'>
-													<input type='submit' value='Delete'>
+													<input type='submit' id='delete' value='Delete'>
 													</form>
 												</div>
 												</p>
