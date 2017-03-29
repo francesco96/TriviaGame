@@ -185,11 +185,11 @@
 											<td>$count. $row[QUESTION_TEXT]</td>
 											<td>$row[CATEGORY]</td>
 											<td>$row[ANSWER_TEXT]</td>
-											<td>
+											<td align='center'>
 											<form action='deleteQuestion.php' method='POST'>
 											<input type='hidden' name='qid' value='$row[QUESTION_ID]'>
 											<input type='hidden' name='cid' value='$cid'>
-											<input type='submit' value='Delete'> 
+											<input type='submit' id='delete' value='Delete'> 
 											</form>
 											</td>
 										</tr> 

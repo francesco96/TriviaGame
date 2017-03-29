@@ -17,7 +17,7 @@
 			$sql = "INSERT INTO triviacrack.course (TITLE, USER_ID, DESCRIPTION) VALUES ('$cn', '2', '$d')";
 			mysqli_query($conn, $sql);
 			$cid = $conn->insert_id;
-			header("Location:ManageCourse.php?cid=$cid");
+			header("Location:setCategory.php?cid=$cid");
 			}else{
 			
 			}
@@ -79,7 +79,7 @@
 					<div class="row">
 					<br>
 						<div class="col-sm-6 text-center">
-							<input type="submit" value="Add Course" href="homePage.php">
+							<input type="submit" value="Add Course">
 						</div>
 						<div class="col-sm-6 text-center">
 							<a type="button" href="homePage.php" class="btn btn-danger">Cancel</a>
@@ -89,35 +89,6 @@
 					<br>
 			</div>
 		</div>
-	</div>    
-
-	<script>
-	// Get the modal
-	var modal = document.getElementById('myModal');
-
-	// Get the button that opens the modal
-	var btn = document.getElementById("myBtn");
-
-	// Get the <span> element that closes the modal
-	var span = document.getElementsByClassName("close")[0];
-	
-	// When the user clicks the button, open the modal 
-	btn.onclick = function() {
-	    modal.style.display = "block";
-	}
-
-	// When the user clicks on <span> (x), close the modal
-	span.onclick = function() {
-	    modal.style.display = "none";
-	}
-
-	// When the user clicks anywhere outside of the modal, close it
-	window.onclick = function(event) {
-	    if (event.target == modal) {
-	        modal.style.display = "none";
-	    }
-	}
-	</script>
-
+	</div> 
   </body>
 </html>
