@@ -67,7 +67,7 @@
                     <!-- Utility Icons Here -->
                      <a type="button" href="homePage.php"><img src="img/home.png" width="40px" alt="Home" title="Home"></a>
 					<a type="button" href="options.php"><img src="img/settings.png" width="40px" alt="Options" title="Options"></a>
-					<img src="img/profile.png" width="40px" alt="Profile" title="Profile">
+          <a type="button" href="ProfilePage.php"><img src="img/profile.png" width="40px" alt="Profile" title="Profile"></a> <!-- PUT PROFILE PAGE -->
                 </div>
             </div>
             <div class="row">

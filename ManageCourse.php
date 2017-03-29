@@ -7,7 +7,7 @@
 	//session_start();
 	$userN = $_SESSION['username'];
 	$userRole = $_SESSION['role'];
-	$userID = $_SESSION['userId'];	
+	$userID = $_SESSION['userId'];
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$errors = array();
 		$q = $_POST['Question'];
@@ -25,24 +25,24 @@
 				$q_id = $conn->insert_id;
 				if($a){
 					$sql .= "INSERT INTO triviacrack.answer (QUESTION_ID, ANSWER_CORRECT, ANSWER_TEXT, TIMES_PICKED) VALUES ('$q_id', '1', '$a', '$cid')";
-				}else {		
+				}else {
 					$errors[] ='Enter in a correct answer!';
 				}
 				if($o2){
 					$sql .= ",('$q_id', '0', '$o2', '$cid')";
-				}else {			
+				}else {
 					$errors[] ='Enter 3 options!';
 				}
 				if($o3){
 					$sql .= ",('$q_id', '0', '$o3', '$cid')";
-				}else {			
+				}else {
 					$errors[] ='Enter 3 options!';
 				}
 				if($o4){
 					$sql .= ",('$q_id', '0', '$o4', '$cid')";
-				}else {			
+				}else {
 					$errors[] ='Enter 3 options!';
-				}	
+				}
 				if(empty($errors)){
 					mysqli_query($conn, $sql);
 				}else{
@@ -50,7 +50,7 @@
 			}else {
 				$errors[] = 'Enter a category';
 			}
-		}else {		
+		}else {
 				$errors[] ='Enter in a question!';
 		}
 	}
@@ -58,63 +58,54 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  	<style>	
-		/* Testing
-		a:hover { 
-   			color: black;
-   			border: 1px solid #ffffff;
-   			-webkit-transition-duration: 0.2s;
-    		transition-duration: 0.2s; 
-    		padding: 10px;
-			Margin - Border - Padding - Content
-		}*/
-		img:hover { 
-   			color: black;
-   			border: 0.1px solid #e5e5e5;
-   			-webkit-transition-duration: 0.2s;
-    		transition-duration: 0.2s; 
-    		padding: 0px;
-			Margin - Border - Padding - Content
-		}*/
-		/* The Modal (background) */
-		.modal {
-		    display: none; /* Hidden by default */
-		    position: fixed; /* Stay in place */
-		    z-index: 1; /* Sit on top */
-		    padding-top: 100px; /* Location of the box */
-		    left: 0;
-		    top: 0;
-		    width: 100%; /* Full width */
-		    height: 100%; /* Full height */
-		    overflow: auto; /* Enable scroll if needed */
-		    background-color: rgb(0,0,0); /* Fallback color */
-		    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-		}
+	<style>
+	img:hover {
+			color: black;
+			border: 0.1px solid #e5e5e5;
+			-webkit-transition-duration: 0.2s;
+			transition-duration: 0.2s;
+			padding: 0px;
+		Margin - Border - Padding - Content
+	}
+	/* The Modal (background) */
+	.modal {
+			display: none; /* Hidden by default */
+			position: fixed; /* Stay in place */
+			z-index: 1; /* Sit on top */
+			padding-top: 100px; /* Location of the box */
+			left: 0;
+			top: 0;
+			width: 100%; /* Full width */
+			height: 100%; /* Full height */
+			overflow: auto; /* Enable scroll if needed */
+			background-color: rgb(0,0,0); /* Fallback color */
+			background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	}
 
-		/* Modal Content */
-		.modal-content {
-		    background-color: #fefefe;
-		    margin: auto;
-		    padding: 20px;
-		    border: 1px solid #888;
-		    width: 80%;
-		}
+	/* Modal Content */
+	.modal-content {
+			background-color: #fefefe;
+			margin: auto;
+			padding: 20px;
+			border: 1px solid #888;
+			width: 80%;
+	}
 
-		/* The Close Button */
-		.close {
-		    color: #aaaaaa;
-		    float: right;
-		    font-size: 25px;
-		    font-weight: bold;
-		}
+	/* The Close Button */
+	.close {
+			color: #aaaaaa;
+			float: right;
+			font-size: 25px;
+			font-weight: bold;
+	}
 
-		.close:hover,
-		.close:focus {
-		    color: #000;
-		    text-decoration: none;
-		    cursor: pointer;
-		} ,
-	</style>
+	.close:hover,
+	.close:focus {
+			color: #000;
+			text-decoration: none;
+			cursor: pointer;
+	} ,
+</style>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -125,10 +116,10 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link href="style/general.css" rel="stylesheet" type="text/css">
- 
+
 
   </head>
-  <body>	
+  <body>
 	<div class="container">
 		<div class="row">
             <div class="col-sm-6" id="currentUser">
@@ -138,7 +129,7 @@
                 <!-- Utility Icons Here -->
                 <a type="button" href="homePage.php"><img src="img/home.png" width="40px" alt="Home" title="Home"></a>
 				<a type="button" href="options.php"><img src="img/settings.png" width="40px" alt="Options" title="Options"></a>
-				<a type="button" href="homePage.php"><img src="img/profile.png" width="40px" alt="Profile" title="Profile"></a> <!-- PUT PROFILE PAGE -->
+				<a type="button" href="ProfilePage.php"><img src="img/profile.png" width="40px" alt="Profile" title="Profile"></a> <!-- PUT PROFILE PAGE -->
             </div>
         </div>
 		<div class="page-header text-center" id="pg_header">
@@ -160,7 +151,7 @@
 							?></h2>
 							<h4><?php echo"$description" ?></h4>
 					</div>
-				<div class="col-sm-12 text-center">		
+				<div class="col-sm-12 text-center">
 							<a type="button" id="myBtn" class="btn btn-success">+ Add Question</a>
 							<a type="button" class="btn btn-success">+ Add Category</a>
 							<a type="button" id="editName" href="<?php echo"editCourse.php?cid=$cid"; ?>" class="btn btn-success">Edit: Name, Description</a>
@@ -189,11 +180,11 @@
 											<form action='deleteQuestion.php' method='POST'>
 											<input type='hidden' name='qid' value='$row[QUESTION_ID]'>
 											<input type='hidden' name='cid' value='$cid'>
-											<input type='submit' id='delete' value='Delete'> 
+											<input type='submit' id='delete' value='Delete'>
 											</form>
 											</td>
-										</tr> 
-										";	
+										</tr>
+										";
 										$count += 1;
 									}
 								}
@@ -234,7 +225,7 @@
 															while($row = mysqli_fetch_assoc($result)) {
 																echo"
 																<option>$row[CATEGORY_NAME]</option>
-																";	
+																";
 																$count += 1;
 															}
 														}
@@ -290,7 +281,7 @@
 											<br>
 												<input type="submit" value="Add Question">
 											</form>
-										</p>	
+										</p>
 									</div>
 								</div>
 							</div>
@@ -298,7 +289,7 @@
 			</div>
 		</div>
 		</div>
-	</div>    
+	</div>
 
 	<script>
 	// Get the modal
@@ -308,7 +299,7 @@
 	var btn = document.getElementById("myBtn");
 	// Get the <span> element that closes the modal
 	var span = document.getElementsByClassName("close")[0];
-	// When the user clicks the button, open the modal 
+	// When the user clicks the button, open the modal
 	btn.onclick = function() {
 	    modal.style.display = "block";
 	}
@@ -328,4 +319,3 @@
 
   </body>
 </html>
-

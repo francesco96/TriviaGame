@@ -10,12 +10,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <style>	
-		img:hover { 
+  <style>
+		img:hover {
    			color: black;
    			border: 0.1px solid #e5e5e5;
    			-webkit-transition-duration: 0.2s;
-    		transition-duration: 0.2s; 
+    		transition-duration: 0.2s;
     		padding: 0px;
 			Margin - Border - Padding - Content
 		}
@@ -80,7 +80,7 @@
                 <!-- Utility Icons Here -->
                 <a type="button" href="homePage.php"><img src="img/home.png" width="40px" alt="Home" title="Home"></a>
 				<a type="button" href="options.php"><img src="img/settings.png" width="40px" alt="Options" title="Options"></a>
-                <a type="button" href="ProfilePage.php"><img src="img/profile.png" width="40px" alt="Profile" title="Profile"></a>
+				<a type="button" href="ProfilePage.php"><img src="img/profile.png" width="40px" alt="Profile" title="Profile"></a> <!-- PUT PROFILE PAGE -->
                <!--  <img src="img/settings.png" width="40px" alt="Settings" title="Settings"> -->
             </div>
         </div>
