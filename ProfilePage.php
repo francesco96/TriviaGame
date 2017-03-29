@@ -2,6 +2,8 @@
 	//page title
 	$title = 'ManageCourse';
 	include('db.php');
+	//session_start()
+	$userN = $_SESSION['username'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -81,7 +83,7 @@
             </div>
         </div>
 		<div class="page-header text-center" id="pg_header">
-			<h1>Matthew Blades<br /></h1>
+			<h1><?php echo"$userN" ?>'s profile</h1>
 		</div>
 		<div class="row">
 			<div class="well well-lg">
@@ -89,23 +91,31 @@
 						<form>
 							<table>
 							  <tr>
-							    <th width="150px">Class</th>
-							    <th width="150px">Games Played</th>
-							    <th width="150px">In Class</th>
+							    <th width="90px">Class</th>
+							    <th width="110px">Games Played</th> <!-- -->
+							    <th width="90px">Win Rate</th>
+							    <th width="90px">In Class</th>
+							    <th width="150px">On-Going Games</th>
 							  </tr>
-							  <tr>
+							  <tr align="center">
 							    <td>PHY 101</td>
 							    <td>30</td>
+							    <td>72%</td>
 							    <td>YES</td>
-							  </tr>
-							  <tr>
-							    <td>CMPT 308</td>
-							    <td>20</td>
 							    <td>NO</td>
 							  </tr>
-							  <tr>
+							  <tr align="center">
+							    <td>CMPT 308</td>
+							    <td>20</td>
+							    <td>89%</td>
+							    <td>NO</td>
+							    <td>NO</td>
+							  </tr>
+							  <tr align="center">
 							    <td>PHIL 200</td>
 							    <td>15</td>
+							    <td>68%</td>
+							    <td>YES</td>
 							    <td>YES</td>
 							  </tr>
 							  </tr>
