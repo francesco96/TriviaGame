@@ -95,7 +95,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-6" id="currentUser">
-					<h3>Hi, Blades</h3>
+					<h3>Hi, <?php echo"$userN" ?></h3>
 				</div>
 				<div class="col-sm-6" id="utilities">
 				<!-- Utility Icons Here -->
