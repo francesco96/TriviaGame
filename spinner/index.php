@@ -2,9 +2,9 @@
 <html lang="en">
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
+
         <title>Fox Trivia</title>
-        
+
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="style/spinnerStyle.css">
         <link rel="stylesheet" type="text/css" href="style/modalStyle.css">
@@ -25,11 +25,8 @@
             <div class="row">
                 <div class="col-sm-12" id="gameTitle">
                     <?php
-                        $conn = new mysqli('localhost', 'johnanthonyelett', '', 'triviacrack');
-                        if ($conn->connect_error) {
-                            die("Connection failed: " . $conn->connect_error);
-                        } 
-                        $gameinfo = $conn->query("SELECT DISTINCT course.TITLE, category.CATEGORY_NAME, category.CATEGORY_ID FROM course JOIN question ON course.COURSE_ID = question.COURSE_ID JOIN category ON question.CATEGORY_ID = category.CATEGORY_ID WHERE course.COURSE_ID = ".$_GET['courseid']);
+                        require("databaseConnect.php");
+                        $gameinfo = $conn->query("SELECT DISTINCT course.TITLE, categorylist.CATEGORY_NAME, categorylist.CATEGORY_ID FROM course JOIN categorylist ON course.COURSE_ID = categorylist.COURSE_ID WHERE course.COURSE_ID = ".$_GET['courseid']);
                         $conn->close();
                         $gamename = $gameinfo->fetch_assoc();
                         $gamename = $gamename['TITLE'];
@@ -84,7 +81,7 @@
 <script>
     var disabled = false;
     var numberOfCategories = <?php echo $numberOfCategories ?>;
-    
+
     function spinWheel() {
         if (!disabled) {
             disabled = true;
@@ -104,17 +101,10 @@
             if (section == numberOfCategories + 1) {
                 section = 1;
             }
-
-
-
-
-            //document.getElementById("test").innerHTML = section;
-
-
             window.setTimeout(getQuestion, 7000, section);
         }
     }
-    
+
     function getQuestion(category) {
         var value = document.getElementById(category).getAttribute('value');
         $.ajax({
@@ -139,7 +129,7 @@
                         counter--;
                     } else {
                         window.clearInterval(window.modaltimer);
-                        
+
                         $(".modal-body-answer-button"). attr('disabled', 'disabled');
     		            document.getElementById('modal-body-result').style.color='red';
     		            document.getElementById('modal-body-result').innerHTML = "Time's Up!";
@@ -149,7 +139,7 @@
                 }, 1000);
                 $(".modal-body-answer-button").click(function() {
                     window.clearInterval(window.modaltimer);
-                    
+
                     var questionid = document.getElementById("myModal").getAttribute('value');
                     checkAnswer(this, this.value, questionid);
                 });
@@ -157,7 +147,7 @@
 
         });
     }
-    
+
     function checkAnswer(button, value, question) {
         $(".modal-body-answer-button").attr('disabled', 'disabled');
         $.ajax({
@@ -187,7 +177,7 @@
             }
         });
     }
-    
+
     function newRound() {
         $('#inner-wheel').css({
             WebkitTransition: 'none',
@@ -204,8 +194,8 @@
         $('#inner-wheel').removeAttr('style');
         disabled = false;
     }
-    
-    
+
+
 </script>
 
 <!--
