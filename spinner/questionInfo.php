@@ -1,5 +1,5 @@
 <?php
-    require_once('databaseConnect.php');
+    require_once('../db.php');
     switch($_POST['action']){
         case 'getQuestion':
             getQuestion();

@@ -25,7 +25,7 @@
             <div class="row">
                 <div class="col-sm-12" id="gameTitle">
                     <?php
-                        require("databaseConnect.php");
+                        require("../db.php");
                         $gameinfo = $conn->query("SELECT DISTINCT course.TITLE, categorylist.CATEGORY_NAME, categorylist.CATEGORY_ID FROM course JOIN categorylist ON course.COURSE_ID = categorylist.COURSE_ID WHERE course.COURSE_ID = ".$_GET['courseid']);
                         $conn->close();
                         $gamename = $gameinfo->fetch_assoc();

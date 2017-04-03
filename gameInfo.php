@@ -116,7 +116,7 @@
 					echo"$courseName"." course";
 				?></h1>
 			</div>
-		<center><a type="button" href="homepage.php" style = "height:90px;width:250px;font-size:50px;margin-bottom:50px;"class="btn btn-success">Play</a></center>
+		<center><a type="button" href="/spinner/?courseid=<?php echo"$cid" ?>" style = "height:90px;width:250px;font-size:50px;margin-bottom:50px;"class="btn btn-success">Play</a></center>
 			<div id = "tableContainer">
 				<div id="table1">
 					<table id="options">
