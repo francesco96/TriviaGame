@@ -28,11 +28,15 @@
             <div class="row">
                 <div class="col-sm-12" id="gameTitle">
                     <?php
+<<<<<<< HEAD
                         //$conn = new mysqli('localhost', 'johnanthonyelett', '', 'triviacrack');
                         if ($conn->connect_error) {
                             die("Connection failed: " . $conn->connect_error);
                         }
-                        $gameinfo = $conn->query("SELECT CATEGORY_NAME FROM categorylist WHERE COURSE_ID = ".$_GET['cid'].";");
+=======
+                        require("../db.php");
+                        $gameinfo = $conn->query("SELECT DISTINCT course.TITLE, categorylist.CATEGORY_NAME, categorylist.CATEGORY_ID FROM course JOIN categorylist ON course.COURSE_ID = categorylist.COURSE_ID WHERE course.COURSE_ID = ".$_GET['courseid']);
+>>>>>>> b199dcee509201b1f1d727e7232f8703a56e56b1
                         $conn->close();
                         $gamename = $gameinfo->fetch_assoc();
                         $gamename = $gamename['CATEGORY_NAME'];
@@ -107,13 +111,6 @@
             if (section == numberOfCategories + 1) {
                 section = 1;
             }
-
-
-
-
-            //document.getElementById("test").innerHTML = section;
-
-
             window.setTimeout(getQuestion, 7000, section);
         }
     }

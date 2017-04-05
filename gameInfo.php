@@ -101,7 +101,7 @@
 				<!-- Utility Icons Here -->
 				<a type="button" href="homePage.php"><img src="img/home.png" width="40px" alt="Home" title="Home"></a>
 				<a type="button" href="options.php"><img src="img/settings.png" width="40px" alt="Options" title="Options"></a>
-				<a type="button" href="homePage.php"><img src="img/profile.png" width="40px" alt="Profile" title="Profile"></a> <!-- PUT PROFILE PAGE -->
+				<a type="button" href="ProfilePage.php"><img src="img/profile.png" width="40px" alt="Profile" title="Profile"></a> <!-- PUT PROFILE PAGE -->
 				</div>
 			</div>
 			<div class="page-header text-center" id="pg_header">
@@ -116,7 +116,10 @@
 					echo"$courseName"." course";
 				?></h1>
 			</div>
+<<<<<<< HEAD
 		<center><a type="button" href="spinner/index.php?cid=<?php echo "$cid" ?>" style = "height:90px;width:250px;font-size:50px;margin-bottom:50px;"class="btn btn-success">Play</a></center>
+=======
+>>>>>>> b199dcee509201b1f1d727e7232f8703a56e56b1
 			<div id = "tableContainer">
 				<div id="table1">
 					<table id="options">
