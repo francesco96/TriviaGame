@@ -159,6 +159,7 @@
 							<a type="button" id="myBtn" class="btn btn-success">+ Add Question</a>
 							<a type="button" class="btn btn-success" href="<?php echo"setCategory.php?cid=$cid" ?>">+ Add Category</a>
 							<a type="button" id="editName" href="<?php echo"editCourse.php?cid=$cid"; ?>" class="btn btn-success">Edit: Name, Description</a>
+							<a type="button" id="Edit Students" href="<?php echo"editStudents.php?cid=$cid"; ?>" class="btn btn-success"> Edit Students </a>
 				</div>
 				<br>
 				<table class="table-striped" width="100%">
