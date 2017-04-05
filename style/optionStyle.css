@@ -1,5 +1,14 @@
+@font-face { font-family: CartoonRelief; src: url('CartoonRelief.ttf'); }
+		/*img:hover {
+   			color: black;
+   			border: 0.1px solid #e5e5e5;
+   			-webkit-transition-duration: 0.2s;
+    		transition-duration: 0.2s;
+    		padding: 0px;
+			Margin - Border - Padding - Content
+}*/
+
 body{
-	font-face: "Comic sans MS";
 	font-color: black;
 	font-size: 20px;
     background-image: url('../img/marist_pic2.jpg');
@@ -10,11 +19,42 @@ body{
     min-height: 100vh;
     box-shadow: inset 0 0 0 1000px rgba(225,225,225,0.5);
 }
+#delete {
+    padding:5.5px 15px;
+    background: #F20707;
+	font-size: 16px;
+	color: white;
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#delete:hover {
+    padding:5.5px 15px;
+    background:#C12828;
+	font-size: 16px;
+	color: white;
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+table{
+	width: 100%;
+}
+th{
+	text-align: center;
+	font-family: CartoonRelief;
+	font-size: 40px;
+}
 h1{
+	font-family: CartoonRelief;
 	font-size: 100px;
 }
 h2{
-	font-size: 30px;
+	font-family: CartoonRelief;
+	font-size: 40px;
 }
 #utilities{
     text-align: right;

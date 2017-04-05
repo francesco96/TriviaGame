@@ -8,12 +8,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  	<style>	
-		img:hover { 
+  	<style>
+		img:hover {
    			color: black;
    			border: 0.1px solid #e5e5e5;
    			-webkit-transition-duration: 0.2s;
-    		transition-duration: 0.2s; 
+    		transition-duration: 0.2s;
     		padding: 0px;
 			Margin - Border - Padding - Content
 		}
@@ -66,10 +66,10 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link href="style/general.css" rel="stylesheet" type="text/css">
- 
+
 
   </head>
-  <body>	
+  <body>
 	<div class="container">
 		<div class="row">
             <div class="col-sm-6" id="currentUser">
@@ -91,6 +91,7 @@
 						<form>
 							<table>
 							  <tr>
+									<!-- select COURSE_NAME, FROM triviacrack.course WHERE USER_ID = -->
 							    <th width="90px">Class</th>
 							    <th width="110px">Games Played</th> <!-- -->
 							    <th width="90px">Win Rate</th>
@@ -120,15 +121,14 @@
 							  </tr>
 							  </tr>
 							</table>
-							
+
 							<div id="myModal" class="modal">
 						</form>
 
 						</div>
 					</div>
 		</div>
-	</div>    
+	</div>
 
   </body>
 </html>
-
