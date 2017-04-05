@@ -116,10 +116,7 @@
 					echo"$courseName"." course";
 				?></h1>
 			</div>
-<<<<<<< HEAD
 		<center><a type="button" href="spinner/index.php?cid=<?php echo "$cid" ?>" style = "height:90px;width:250px;font-size:50px;margin-bottom:50px;"class="btn btn-success">Play</a></center>
-=======
->>>>>>> b199dcee509201b1f1d727e7232f8703a56e56b1
 			<div id = "tableContainer">
 				<div id="table1">
 					<table id="options">
