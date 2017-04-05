@@ -93,11 +93,7 @@
             disabled = true;
 
             var randomDegree = Math.floor(Math.random() * 360) + 1080;
-
-
-            document.getElementById('inner-wheel').style.transform = 'rotate(' + randomDegree + 'deg)';
-
-
+            document.getElementById('inner-wheel').style.transform = 'rotate(' + randomDegree + 'deg)'; 	
             var degreesPerSection = 360 / numberOfCategories;
 
             var degreeChange = randomDegree % 360;
@@ -116,7 +112,7 @@
         $.ajax({
             type: "POST",
             url: "questionInfo.php",
-            data: "action=getQuestion&category=" + value + "&courseid=" + <?php echo $_GET['courseid']; ?>,
+            data: "action=getQuestion&category=" + value + "&courseid=" + <?php echo $_GET['cid']; ?>,
             cache: false,
             dataType: "JSON",
             success: function(result) {
@@ -159,7 +155,7 @@
         $.ajax({
             type: "POST",
             url: "questionInfo.php",
-            data: "action=getAnswer&answerid=" + value + "&questionid=" + question + "&courseid=" + <?php echo $_GET['courseid']; ?>,
+            data: "action=getAnswer&answerid=" + value + "&questionid=" + question + "&courseid=" + <?php echo $_GET['cid']; ?>,
             cache: false,
             dataType: "JSON",
             success: function(result) {
