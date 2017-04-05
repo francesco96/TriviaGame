@@ -12,6 +12,10 @@
 		$errors = array();
 		$q = $_POST['Question'];
 		$category = $_POST['Category'];
+		$sql = "SELECT * FROM categorylist WHERE CATEGORY_NAME = '$category' AND COURSE_ID = $cid;";
+		$result = mysqli_query($conn, $sql);
+		$result = mysqli_fetch_assoc($result);
+		$category = $result['CATEGORY_ID'];
 		$a = $_POST['Answer'];
 		$o2 = $_POST['Option_2'];
 		$o3 = $_POST['Option_3'];
@@ -19,7 +23,7 @@
 		$sql = "";
 		if($q){
 			if($category){
-				$sql = "INSERT INTO triviacrack.question (QUESTION_TEXT, QUESTION_CORRECT, TIMES_ASKED, CATEGORY, COURSE_ID) VALUES ('$q', '0', '0', '$category', '$cid')";
+				$sql = "INSERT INTO triviacrack.question (QUESTION_TEXT, QUESTION_CORRECT, TIMES_ASKED, CATEGORY_ID, COURSE_ID) VALUES ('$q', '0', '0', '$category', '$cid')";
 				mysqli_query($conn, $sql);
 				$sql ="";
 				$q_id = $conn->insert_id;
