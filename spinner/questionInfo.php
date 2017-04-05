@@ -1,5 +1,5 @@
 <?php
-    require_once('../db.php');
+	
     switch($_POST['action']){
         case 'getQuestion':
             getQuestion();
@@ -9,14 +9,19 @@
             break;
     }
     function getQuestion(){
+		
+		require('../db.php');
         $courseid = $_POST['courseid'];
         $category = $_POST['category'];
         $colors = ["#1abc9c", "#2ecc71", "#3498db", "#9b59b6", "#f1c40f", "#e67e22", "#e74c3c", "#ecf0f1", "#16a085", "#27ae60", "#2980b9", "#8e44ad", "#f39c12", "#d35400", "#c0392b", "#bdc3c7"];
-
+		
+		
+		
         $question = $conn->query("SELECT question.QUESTION_ID, question.QUESTION_TEXT FROM question WHERE question.CATEGORY_ID=$category AND question.COURSE_ID=$courseid ORDER BY RAND() LIMIT 1");
         $question = $question->fetch_assoc();
 
-        $color = $colors[$_POST['category']-1];
+		
+        $color = "Red";
         $questionText = $question['QUESTION_TEXT'];
         $questionid = $question['QUESTION_ID'];
 
@@ -30,13 +35,14 @@
 
             $answerid = $answertext['ANSWER_ID'];
             $answertext = $answertext['ANSWER_TEXT'];
-
             $answers .= "<button type='button' class='form-control modal-body-answer-button' value='$answerid'>$answertext</button><br/>";
         }
 
         /*for($i = 0; $i < 4; $i++){
             $answers .= "<button type='button' class='form-control modal-body-answer-button' value='$i'>Answer $i</button><br/>";
         }*/
+echo json_encode($answertext);
+		die();
 
         $modal = "<div class='modal fade' id='myModal' role='dialog' value='".$question['QUESTION_ID']."'>
                     <div class='modal-dialog'>
@@ -63,6 +69,7 @@
     }
 
     function getAnswer(){
+		require('../db.php');
         $questionid = $_POST['questionid'];
         $answerid = $_POST['answerid'];
 

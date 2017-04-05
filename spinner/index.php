@@ -33,7 +33,7 @@
                             die("Connection failed: " . $conn->connect_error);
                         }
                         $gameinfo = $conn->query("SELECT DISTINCT course.TITLE, categorylist.CATEGORY_NAME, categorylist.CATEGORY_ID FROM course JOIN categorylist ON course.COURSE_ID = categorylist.COURSE_ID WHERE course.COURSE_ID = ".$_GET['cid']);
-                        $conn->close();
+                        //$conn->close();
                         $gamename = $gameinfo->fetch_assoc();
                         $gamename = $gamename['TITLE'];
                     ?>
@@ -116,12 +116,13 @@
             cache: false,
             dataType: "JSON",
             success: function(result) {
+				document.write(result);
                 document.getElementById("modal-section").innerHTML = result;
                 $('#myModal').modal({
                     backdrop: 'static',
                     keyboard: false
                 });
-
+				document.write("YES");
 
                 var counter = 30;
                 window.modaltimer = setInterval(function() {
