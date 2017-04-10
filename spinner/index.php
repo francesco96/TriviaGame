@@ -2,11 +2,16 @@
 <?php
   include('../db.php');
   $sid = $_GET['sid'];
+  $uid = $_SESSION['userId'];
   $sql = "SELECT * FROM game_session WHERE $sid = SESSION_ID";
   $result = mysqli_query($conn, $sql);
   $result = mysqli_fetch_assoc($result);
   $cid = $result['COURSE_ID'];
-  $urScore = 0;
+  $sql= "SELECT * FROM score WHERE $sid = SESSION_ID AND USER_ID = $uid";
+  $result = mysqli_query($conn, $sql);
+  $result = mysqli_fetch_assoc($result);
+  
+  $urScore = $result['SCORE'];
 ?>
 <html lang="en">
     <head>
@@ -34,7 +39,7 @@
 			<div class ="row">
 				<div class="col-sm-3" id="urScore">
 					<div class="well">
-						<h1 id='urscore'>Score: <?php echo "$urScore" ?></h1>
+						<div id='test'><h1>Score: <?php echo "$urScore" ?></h1></div>
 					</div>
 				</div>
 			</div>
@@ -176,8 +181,8 @@
                     button.style.borderColor = 'green';
                     button.style.color = 'green';
                     button.style.fontWeight = 'bold';
-					urScore += 100;
-					document.getElementById('urscore').innnerHTML = "1000";
+					//urScore += 100;
+					//document.getElementById('test').innnerHTML = urScore;
 					$('#modal-body-answers').append($("<button type='button' class='btn btn-success' onclick='newRound()'>Continue</button><br/>"));
                 } else {
                     document.getElementById('modal-body-result').style.color = 'red';
@@ -185,7 +190,9 @@
                     button.style.borderColor = 'red';
                     button.style.color = 'red';
                     button.style.fontWeight = 'bold';
-					$('#modal-body-answers').append($("<button type='button' class='btn btn-danger' onclick='endRound()'>End Turn</button><br/>"));
+					$('#modal-body-answers').append($("<form action='nextTurn.php' method='POST'><input type='submit' id='endTurn' value='End Turn'><input type='hidden' name='sid' value='<?php echo $sid; ?>'><input type='hidden' name='score' value='" + urScore + "'></form>"));
+					
+					//<button type='button' class='btn btn-danger' onclick='endRound()'>End Turn</button><br/>"));
                 }
                 $("#modal-body-result").animate({
                     fontSize: '50px'
@@ -201,7 +208,9 @@
             OTransition: 'none',
             transition: 'none'
         });
-
+		urScore += 100;
+		document.getElementById('test').innerHTML = "<h1>Score: " + urScore + "</h1>";
+		
         document.getElementById('inner-wheel').style.transform = 'none';
 
         $('#myModal').modal('hide');

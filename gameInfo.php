@@ -4,6 +4,7 @@
 	include('db.php');
 	$cid = $_GET ["cid"];
 	$userN = $_SESSION['username'];
+	$uid = $_SESSION['userId'];
 	// Manage Course
 	?>
 <!DOCTYPE html>
@@ -120,29 +121,22 @@
 		<form action='startSession.php' method='POST'>
 			<input type='hidden' name='cid' value='<?php echo "$cid" ?>'>
 			<center><input type='submit' id='submit' style = 'height:90px;width:250px;font-size:50px;margin-bottom:50px;' value='Play'></center>
-		</form
+		</form>
 			<div id = "tableContainer">
 				<div id="table1">
 					<table id="options">
 						<th alight="right">Available Games</th>
-						<tr>
-							<td><a href = "GamePage.php?cid=1">Galletti's Game</a></td>
-							<td> - Hard Questions</td>
-						</tr>
-						<tr>
-							<td><a href = "GamePage.php?cid=19">Blades's Game</a></td>
-							<td> - Medium Questions</td>
-						</tr>
 						<?php
-							$sql = "SELECT * FROM triviacrack.question WHERE question.COURSE_ID = $cid";
+							$sql = "SELECT * FROM game_session, score WHERE game_session.USER_ID_WINNER = $uid AND game_session.IS_OVER = 1 AND game_session.SESSION_ID = score.SESSION_ID AND game_session.USER_ID_WINNER = score.USER_ID";
 							$result = mysqli_query($conn, $sql);
 							$count = 1;
 							if (mysqli_num_rows($result) > 0) {
 								while($row = mysqli_fetch_assoc($result)) {
 									echo"
 									<tr>
-									<td>". $userN . "'s Game</td>
-									<td>-  Questions </td>
+									<td>". $row['USER_ID_2'] ."'s Game</td>
+									<td>-  Score: ". $row['SCORE'] ." </td>
+									<td> <a type='button' href='spinner/index.php?sid=". $row['SESSION_ID'] ."'>Play</a> </td>
 									</tr>
 									";
 									$count += 1;
