@@ -116,7 +116,11 @@
 					echo"$courseName"." course";
 				?></h1>
 			</div>
-		<center><a type="button" href="spinner/index.php?cid=<?php echo "$cid" ?>" style = "height:90px;width:250px;font-size:50px;margin-bottom:50px;"class="btn btn-success">Play</a></center>
+		<!-- <center><a type="button" href="spinner/index.php?cid=<?php echo "$cid" ?>" style = "height:90px;width:250px;font-size:50px;margin-bottom:50px;"class="btn btn-success">Play</a></center> -->
+		<form action='startSession.php' method='POST'>
+			<input type='hidden' name='cid' value='<?php echo "$cid" ?>'>
+			<center><input type='submit' id='submit' style = 'height:90px;width:250px;font-size:50px;margin-bottom:50px;' value='Play'></center>
+		</form
 			<div id = "tableContainer">
 				<div id="table1">
 					<table id="options">
@@ -182,34 +186,5 @@
 				</div>
 			</div>
 		</div>
-	<script>
-		// Get the modal
-		var modal = document.getElementById('myModal');
-
-		// Get the button that opens the modal
-		var btn = document.getElementById("myBtn");
-
-		// Get the <span> element that closes the modal
-		var span = document.getElementsByClassName("close")[0];
-
-		// When the user clicks the button, open the modal
-		btn.onclick = function() {
-			modal.style.display = "block";
-		}
-
-		// When the user clicks on <span> (x), close the modal
-		span.onclick = function() {
-			modal.style.display = "none";
-		}
-
-		// When the user clicks anywhere outside of the modal, close it
-		window.onclick = function(event) {
-			if (event.target == modal) {
-				modal.style.display = "none";
-			}
-		}
-
-		</script>
-
 	</body>
 </html>

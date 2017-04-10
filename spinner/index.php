@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <?php
   include('../db.php');
+  $sid = $_GET['sid'];
+  $sql = "SELECT * FROM game_session WHERE $sid = SESSION_ID";
+  $result = mysqli_query($conn, $sql);
+  $result = mysqli_fetch_assoc($result);
+  $cid = $result['COURSE_ID'];
+  $urScore = 0;
 ?>
 <html lang="en">
     <head>
@@ -25,14 +31,17 @@
 					<a type="button" href="../ProfilePage.php"><img src="img/profile.png" width="40px" alt="Profile" title="Profile"></a>
                 </div>
             </div>
+			<div class ="row">
+				<div class="col-sm-3" id="urScore">
+					<div class="well">
+						<h1 id='urscore'>Score: <?php echo "$urScore" ?></h1>
+					</div>
+				</div>
+			</div>
             <div class="row">
                 <div class="col-sm-12" id="gameTitle">
                     <?php
-                        //$conn = new mysqli('localhost', 'johnanthonyelett', '', 'triviacrack');
-                        if ($conn->connect_error) {
-                            die("Connection failed: " . $conn->connect_error);
-                        }
-                        $gameinfo = $conn->query("SELECT DISTINCT course.TITLE, categorylist.CATEGORY_NAME, categorylist.CATEGORY_ID FROM course JOIN categorylist ON course.COURSE_ID = categorylist.COURSE_ID WHERE course.COURSE_ID = ".$_GET['cid']);
+                        $gameinfo = $conn->query("SELECT DISTINCT course.TITLE, categorylist.CATEGORY_NAME, categorylist.CATEGORY_ID FROM course JOIN categorylist ON course.COURSE_ID = categorylist.COURSE_ID WHERE course.COURSE_ID = $cid");
                         //$conn->close();
                         $gamename = $gameinfo->fetch_assoc();
                         $gamename = $gamename['TITLE'];
@@ -87,7 +96,7 @@
 <script>
     var disabled = false;
     var numberOfCategories = <?php echo $numberOfCategories ?>;
-
+	var urScore = <?php echo $urScore; ?>;
     function spinWheel() {
         if (!disabled) {
             disabled = true;
@@ -112,18 +121,19 @@
         $.ajax({
             type: "POST",
             url: "questionInfo.php",
-            data: "action=getQuestion&category=" + value + "&courseid=" + <?php echo $_GET['cid']; ?>,
+            data: "action=getQuestion&category=" + value + "&courseid=" + <?php echo $cid; ?>,
             cache: false,
-            dataType: "JSON",
+            dataType: "text",
+			error: function(){
+				document.write("DAMNNNNNN");
+			},
             success: function(result) {
-				document.write(result);
                 document.getElementById("modal-section").innerHTML = result;
                 $('#myModal').modal({
                     backdrop: 'static',
                     keyboard: false
                 });
-				document.write("YES");
-
+				
                 var counter = 30;
                 window.modaltimer = setInterval(function() {
                     document.getElementById('modal-header-timer').innerHTML = counter;
@@ -156,7 +166,7 @@
         $.ajax({
             type: "POST",
             url: "questionInfo.php",
-            data: "action=getAnswer&answerid=" + value + "&questionid=" + question + "&courseid=" + <?php echo $_GET['cid']; ?>,
+            data: "action=getAnswer&answerid=" + value + "&questionid=" + question + "&courseid=" + <?php echo $cid; ?>,
             cache: false,
             dataType: "JSON",
             success: function(result) {
@@ -166,21 +176,23 @@
                     button.style.borderColor = 'green';
                     button.style.color = 'green';
                     button.style.fontWeight = 'bold';
+					urScore += 100;
+					document.getElementById('urscore').innnerHTML = "1000";
+					$('#modal-body-answers').append($("<button type='button' class='btn btn-success' onclick='newRound()'>Continue</button><br/>"));
                 } else {
                     document.getElementById('modal-body-result').style.color = 'red';
                     document.getElementById('modal-body-result').innerHTML = 'Wrong';
                     button.style.borderColor = 'red';
                     button.style.color = 'red';
                     button.style.fontWeight = 'bold';
+					$('#modal-body-answers').append($("<button type='button' class='btn btn-danger' onclick='endRound()'>End Turn</button><br/>"));
                 }
                 $("#modal-body-result").animate({
                     fontSize: '50px'
                 });
-                $('#modal-body-answers').append($("<button type='button' class='btn btn-success' onclick='newRound()'>Continue</button><br/>"));
             }
         });
     }
-
     function newRound() {
         $('#inner-wheel').css({
             WebkitTransition: 'none',
@@ -197,12 +209,17 @@
         $('#inner-wheel').removeAttr('style');
         disabled = false;
     }
-
+	
+	function endRound(){
+		$.ajax({
+            type: "POST",
+            url: "nextTurn.php",
+            data: "sid=" + <?php echo $sid; ?>,
+            cache: false,
+            dataType: "JSON",
+            success: function(result) {                
+            }
+        });
+	}
 
 </script>
-
-<!--
-    TODO:
-        - Center Game Title
-        - Utility Icons - Top Right
--->

@@ -12,10 +12,7 @@
 		
 		require('../db.php');
         $courseid = $_POST['courseid'];
-        $category = $_POST['category'];
-        $colors = ["#1abc9c", "#2ecc71", "#3498db", "#9b59b6", "#f1c40f", "#e67e22", "#e74c3c", "#ecf0f1", "#16a085", "#27ae60", "#2980b9", "#8e44ad", "#f39c12", "#d35400", "#c0392b", "#bdc3c7"];
-		
-		
+        $category = $_POST['category'];		
 		
         $question = $conn->query("SELECT question.QUESTION_ID, question.QUESTION_TEXT FROM question WHERE question.CATEGORY_ID=$category AND question.COURSE_ID=$courseid ORDER BY RAND() LIMIT 1");
         $question = $question->fetch_assoc();
@@ -38,13 +35,10 @@
             $answers .= "<button type='button' class='form-control modal-body-answer-button' value='$answerid'>$answertext</button><br/>";
         }
 
-        /*for($i = 0; $i < 4; $i++){
-            $answers .= "<button type='button' class='form-control modal-body-answer-button' value='$i'>Answer $i</button><br/>";
-        }*/
-echo json_encode($answertext);
-		die();
+//echo json_encode();
+	//die();
 
-        $modal = "<div class='modal fade' id='myModal' role='dialog' value='".$question['QUESTION_ID']."'>
+        $modal = "<div class='modal fade' id='myModal' role='dialog' value='".$questionid."'>
                     <div class='modal-dialog'>
                         <div class='modal-content'>
                             <div class='modal-header' id='modal-header-color' style='background-color: $color;'>
@@ -65,7 +59,10 @@ echo json_encode($answertext);
 
                 </div>
                 </div>";
-        echo json_encode($modal);
+		
+        //echo json_encode($modal);
+		echo ($modal);
+		$conn->close();
     }
 
     function getAnswer(){
@@ -77,7 +74,8 @@ echo json_encode($answertext);
         $checkanswer = $checkanswer->fetch_assoc();
 
         echo json_encode($checkanswer['ANSWER_CORRECT']);
+		$conn->close();
     }
 
-    $conn->close();
+    
 ?>
