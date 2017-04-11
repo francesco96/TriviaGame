@@ -10,7 +10,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$cid= $result['COURSE_ID'];
 		$sql = "UPDATE score SET SCORE = $score WHERE SESSION_ID = $sid AND USER_ID = $uid";
 		mysqli_query($conn, $sql);
-		if($uid == $result['USER_ID_2']){
+		if($score == 1000){
+			$sql = "UPDATE game_session SET IS_OVER='0' WHERE SESSION_ID='$sid'";
+		}else if($uid == $result['USER_ID_2']){
 			$sql = "UPDATE game_session SET USER_ID_WINNER='". $result['USER_ID_1'] ."' WHERE `SESSION_ID`='$sid'";
 		}else {
 			$sql = "UPDATE game_session SET USER_ID_WINNER='". $result['USER_ID_2'] ."' WHERE `SESSION_ID`='$sid'";
