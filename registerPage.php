@@ -30,11 +30,12 @@
 				<div class="col-sm-6 text-center" id="regeistration">
 					<div class="well well-lg">
 						<h2>Register</h2>
+						<?php if(isset($_GET['status']) && $_GET['status'] == "duplicateuser"){echo "<b style='color:red'>A user with that email already exists. Please use another email address.</b>";}?>
 						<br>
 						<form method="post" action="regConf.php">
 							<div class="form-group">
 								<label>E-Mail</label>
-								<input type="text" class="form-control" name="email" placeholder="E-Mail" required>
+								<input type="email" class="form-control" name="email" placeholder="E-Mail" required>
 							</div>
 							<div class="form-group">
 								<label>Name</label>

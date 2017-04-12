@@ -60,7 +60,7 @@
 				<div class="col-sm-6 text-center" id="logging_in">
 					<div class="well well-lg">
 						<h2>Login</h2>
-						<?php if(isset($_GET['status']) && $_GET['status'] == "incorrectlogin"){ echo "<b style='color:red;'>Incorrect Username or Password</b>";}?>
+						<?php if(isset($_GET['status']) && $_GET['status'] == "incorrectlogin"){ echo "<b style='color:red;'>Incorrect Username or Password</b>";} if(isset($_GET['status']) && $_GET['status'] == "creationsuccess"){ echo "<b style='color:green;'>Account Successfully Created. You can now login below.</b>";}?>
 						<br>
 						<form action="loginPage.php" method="POST">
 							<div class="form-group">
