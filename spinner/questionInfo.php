@@ -72,8 +72,13 @@
 
         $checkanswer = $conn->query("SELECT answer.ANSWER_CORRECT FROM answer WHERE answer.QUESTION_ID=$questionid AND ANSWER_ID=$answerid");
         $checkanswer = $checkanswer->fetch_assoc();
-
-        echo json_encode($checkanswer['ANSWER_CORRECT']);
+		if($checkanswer['ANSWER_CORRECT'] == 1){
+			$res = "yes";
+		}else{
+			$res = "no";
+		}
+        //echo json_encode($checkanswer['ANSWER_CORRECT']);
+		echo $res;
 		$conn->close();
     }
 

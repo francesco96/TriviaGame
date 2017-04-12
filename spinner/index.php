@@ -129,9 +129,6 @@
             data: "action=getQuestion&category=" + value + "&courseid=" + <?php echo $cid; ?>,
             cache: false,
             dataType: "text",
-			error: function(){
-				document.write("DAMNNNNNN");
-			},
             success: function(result) {
                 document.getElementById("modal-section").innerHTML = result;
                 $('#myModal').modal({
@@ -173,9 +170,10 @@
             url: "questionInfo.php",
             data: "action=getAnswer&answerid=" + value + "&questionid=" + question + "&courseid=" + <?php echo $cid; ?>,
             cache: false,
-            dataType: "JSON",
+            dataType: "text",
             success: function(result) {
-                if (result == 1) {
+				var rresult = $.trim(result);
+                if (result.indexOf("yes") > -1) {
                     document.getElementById('modal-body-result').style.color = 'green';
                     document.getElementById('modal-body-result').innerHTML = "Correct!";
                     button.style.borderColor = 'green';

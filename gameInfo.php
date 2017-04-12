@@ -92,17 +92,17 @@ Score will be recorded on the leaderboard.
 						if (mysqli_num_rows($result) > 0) {
 							while($row = mysqli_fetch_assoc($result)) {
 								if($row['USER_ID_2'] == $uid){
-									$sql = "SELECT * FROM score WHERE ". $row['SESSION_ID'] ." = score.SESSION_ID AND ". $row['USER_ID_1'] ." = score.USER_ID";
+									$sql = "SELECT * FROM score, user WHERE ". $row['SESSION_ID'] ." = score.SESSION_ID AND ". $row['USER_ID_1'] ." = score.USER_ID AND user.USER_ID = ". $row['USER_ID_1'];
 									$result2 = mysqli_query($conn, $sql);
 									$result2 = mysqli_fetch_assoc($result2);
 								}else {
-									$sql = "SELECT * FROM score WHERE ". $row['SESSION_ID'] ." = score.SESSION_ID AND ". $row['USER_ID_2'] ." = score.USER_ID";
+									$sql = "SELECT * FROM score, user WHERE ". $row['SESSION_ID'] ." = score.SESSION_ID AND ". $row['USER_ID_2'] ." = score.USER_ID AND user.USER_ID = ". $row['USER_ID_2'];
 									$result2 = mysqli_query($conn, $sql);
 									$result2 = mysqli_fetch_assoc($result2);
 								}
 								echo"
 								<tr>
-								<td>". $row['USER_ID_2'] ."'s Game</td>
+								<td>". $result2['USER_NAME'] ."'s Game</td>
 								<td>- Your Score: ". $row['SCORE'] ." </td>
 								<td>- Their Score: ". $result2['SCORE'] ." </td>
 								<td> <a type='button' href='spinner/index.php?sid=". $row['SESSION_ID'] ."'>Play</a> </td>
@@ -125,17 +125,17 @@ Score will be recorded on the leaderboard.
 						if (mysqli_num_rows($result) > 0) {
 							while($row = mysqli_fetch_assoc($result)) {
 								if($row['USER_ID_2'] == $uid){
-									$sql = "SELECT * FROM score WHERE ". $row['SESSION_ID'] ." = score.SESSION_ID AND ". $row['USER_ID_1'] ." = score.USER_ID";
+									$sql = "SELECT * FROM score, user WHERE ". $row['SESSION_ID'] ." = score.SESSION_ID AND ". $row['USER_ID_1'] ." = score.USER_ID AND user.USER_ID = ". $row['USER_ID_1'];
 									$result2 = mysqli_query($conn, $sql);
 									$result2 = mysqli_fetch_assoc($result2);
 								}else {
-									$sql = "SELECT * FROM score WHERE ". $row['SESSION_ID'] ." = score.SESSION_ID AND ". $row['USER_ID_2'] ." = score.USER_ID";
+									$sql = "SELECT * FROM score, user WHERE ". $row['SESSION_ID'] ." = score.SESSION_ID AND ". $row['USER_ID_2'] ." = score.USER_ID AND user.USER_ID = ". $row['USER_ID_2'];
 									$result2 = mysqli_query($conn, $sql);
 									$result2 = mysqli_fetch_assoc($result2);
 								}
 								echo"
 								<tr>
-								<td>". $row['USER_ID_2'] ."'s Game</td>
+								<td>". $result2['USER_NAME'] ."'s Game</td>
 								<td>- Your Score: ". $row['SCORE'] ." </td>
 								<td>- Their Score: ". $result2['SCORE'] ." </td>
 								</tr>
