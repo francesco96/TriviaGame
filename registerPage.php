@@ -46,6 +46,18 @@
 							</div>
 							<input type="submit" value="Register">
 						</form>
+						<script>
+							$("form").submit(function(){
+								if($("input[name=password]").val() != $("input[name=password2]")){
+									alert("Your Passwords Do Not Match");
+									$("input[name=password]").val("");
+									$("input[name=password2]").val("");
+									return false;
+								}else{
+									return true;
+								}
+							});
+						</script>
 					</div>
 				</div>
 			</div>
