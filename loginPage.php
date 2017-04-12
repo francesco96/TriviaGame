@@ -4,17 +4,17 @@
 	$title = 'LoginPage';
 	//Landing page
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-		if($_POST['username'] == "Comp"){
+		if($_POST['email'] == "comp@comp.com"){
 			header("Location: loginPage.php");
 			die();
 		}
-    if(isset($_POST['username']) and isset($_POST['password']) ) {
-        $usr = $_POST['username'];
+    if(isset($_POST['email']) and isset($_POST['password']) ) {
+        $email = $_POST['email'];
         $pass = $_POST['password'];
         $sql =
         "SELECT *
          FROM user
-         WHERE USER_NAME = '$usr'"; //SHA2(?, 256)
+         WHERE USER_EMAIL = '$email'"; //SHA2(?, 256)
 		$result = mysqli_query($conn, $sql);
         if(mysqli_num_rows($result) > 0){
 					$userData = $result->fetch_assoc(); #stores data as array w/ column names as index
@@ -64,8 +64,8 @@
 						<br>
 						<form action="loginPage.php" method="POST">
 							<div class="form-group">
-								<label>Username</label>
-								<input type="text" class="form-control" name="username" placeholder="Email" required>
+								<label>E-Mail</label>
+								<input type="text" class="form-control" name="email" placeholder="Email" required>
 							</div>
 							<div class="form-group">
 								<label>Password</label>
