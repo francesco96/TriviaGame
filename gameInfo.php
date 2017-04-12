@@ -116,7 +116,7 @@ Score will be recorded on the leaderboard.
 			</br>
 
 			<table class='table-striped'>
-				<th alight="right">There Turn</th>
+				<th alight="right">Their Turn</th>
 				<th></th>
 				<?php
 						$sql = "SELECT * FROM game_session, score WHERE game_session.USER_ID_WINNER != $uid AND game_session.IS_OVER = 1 AND game_session.SESSION_ID = score.SESSION_ID AND game_session.COURSE_ID = $cid AND game_session.USER_ID_WINNER != score.USER_ID";
