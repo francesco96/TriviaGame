@@ -4,6 +4,10 @@
 	$title = 'LoginPage';
 	//Landing page
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+		if($_POST['username'] == "Comp"){
+			header("Location: loginPage.php");
+			die();
+		}
     if(isset($_POST['username']) and isset($_POST['password']) ) {
         $usr = $_POST['username'];
         $pass = $_POST['password'];
@@ -21,10 +25,11 @@
             $_SESSION['userId'] = $userData['USER_ID'];
             header("Location: homePage.php");
 					}else{
-						header("Location: loginPage.php");
+						header("Location: loginPage.php?status=incorrectlogin");
 					}
         } else {
             $invalid = true;
+						header("Location: loginPage.php?status=incorrectlogin");
         }
     }
 }
@@ -55,6 +60,7 @@
 				<div class="col-sm-6 text-center" id="logging_in">
 					<div class="well well-lg">
 						<h2>Login</h2>
+						<?php if(isset($_GET['status']) && $_GET['status'] == "incorrectlogin"){ echo "<b style='color:red;'>Incorrect Username or Password</b>";}?>
 						<br>
 						<form action="loginPage.php" method="POST">
 							<div class="form-group">
