@@ -1,3 +1,17 @@
+<!-- 
+Marist College - Copyright
+Marist Fox Trivia
+==========================
+Matthew Blades
+JohnAnthony Eletto
+Francesco Galletti
+Peter Sofronas
+==========================
+
+deleteCourse is created to simply POST a server quest
+to delete a specific course given Course ID = cid.
+-->
+
 <?php
 include('db.php');
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

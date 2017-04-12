@@ -1,11 +1,26 @@
+<!-- 
+Marist College - Copyright
+Marist Fox Trivia
+==========================
+Matthew Blades
+JohnAnthony Eletto
+Francesco Galletti
+Peter Sofronas
+==========================
+
+AddCourse is a page where an administrator or user with
+correct authorization can add a new course to the homepage.
+On the top left, "Hi, ..." displays the user name currently
+logged in locally. Add Course sends the new created course
+to the database.
+-->
 <?php
-	//page title
+	//Displays the page title.
 	$title = 'addCourse';
-	include('db.php');
-	// Add Course
-	$userN = $_SESSION['username'];
-	$userRole = $_SESSION['role'];
-	$userID = $_SESSION['userId'];
+	include('db.php'); // Connects to the db
+	$userN = $_SESSION['username']; // Takes username from db
+	$userRole = $_SESSION['role']; // Takes user role (access)
+	$userID = $_SESSION['userId']; // Takes userID from db
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$errors = array();
 		$cn = $_POST['CourseName'];
@@ -26,9 +41,13 @@
 		}
 	}
 ?>
+
+<!-- HTML CODE TO DISPLAY PAGE STARTS -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
+  	<!-- This controls the black squares when
+  	the user hovers images-->
 	<style>
 	img:hover {
 			color: black;
@@ -38,7 +57,6 @@
 			padding: 0px;
 		Margin - Border - Padding - Content
 	}
-	/* The Modal (background) */
 	.modal {
 			display: none; /* Hidden by default */
 			position: fixed; /* Stay in place */
@@ -52,8 +70,6 @@
 			background-color: rgb(0,0,0); /* Fallback color */
 			background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 	}
-
-	/* Modal Content */
 	.modal-content {
 			background-color: #fefefe;
 			margin: auto;
@@ -61,15 +77,12 @@
 			border: 1px solid #888;
 			width: 80%;
 	}
-
-	/* The Close Button */
 	.close {
 			color: #aaaaaa;
 			float: right;
 			font-size: 25px;
 			font-weight: bold;
 	}
-
 	.close:hover,
 	.close:focus {
 			color: #000;
@@ -80,32 +93,34 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Add Course</title>
 
+    <title>Add Course</title>
 
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link href="style/general.css" rel="stylesheet" type="text/css">
-
-
   </head>
+
   <body>
 	<div class="container">
 		<div class="row">
             <div class="col-sm-6" id="currentUser">
+            	<!-- Displays name of the user in top left corner -->
 				<h3>Hi, <?php echo"$userN" ?></h3>
 			</div>
 			<div class="col-sm-6" id="utilities">
-                <!-- Utility Icons Here -->
+				<!-- Buttons on the top right of the page -->
                 <a type="button" href="homePage.php"><img src="img/home.png" width="40px" alt="Home" title="Home"></a>
 				<a type="button" href="options.php"><img src="img/settings.png" width="40px" alt="Options" title="Options"></a>
 				<a type="button" href="ProfilePage.php"><img src="img/profile.png" width="40px" alt="Profile" title="Profile"></a> <!-- PUT PROFILE PAGE -->
             </div>
         </div>
+        <!-- Page header -->
 		<div class="page-header text-center" id="pg_header">
 			<h1>Add Course<br /></h1>
 		</div>
+	
 		<div class="row">
 			<div class="well well-lg">
 					<br>

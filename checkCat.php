@@ -1,3 +1,18 @@
+<!-- 
+Marist College - Copyright
+Marist Fox Trivia
+==========================
+Matthew Blades
+JohnAnthony Eletto
+Francesco Galletti
+Peter Sofronas
+==========================
+
+checkCat is a page programmed to simply POST a server request
+that just checks for a category.
+-->
+
+
 <?php
 include('db.php');
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

@@ -1,3 +1,18 @@
+<!-- 
+Marist College - Copyright
+Marist Fox Trivia
+==========================
+Matthew Blades
+JohnAnthony Eletto
+Francesco Galletti
+Peter Sofronas
+==========================
+
+deleteStudents simply deletes a student given
+a Student ID = sid.
+-->
+
+
 <?php
 include('db.php');
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
