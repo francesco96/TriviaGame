@@ -102,7 +102,7 @@ Score will be recorded on the leaderboard.
 								}
 								echo"
 								<tr>
-								<td>". $result2['USER_NAME'] ."'s Game</td>
+								<td>Vs. ". $result2['USER_NAME'] ."</td>
 								<td>- Your Score: ". $row['SCORE'] ." </td>
 								<td>- Their Score: ". $result2['SCORE'] ." </td>
 								<td> <a type='button' href='spinner/index.php?sid=". $row['SESSION_ID'] ."'>Play</a> </td>
@@ -119,7 +119,7 @@ Score will be recorded on the leaderboard.
 				<th alight="right">Their Turn</th>
 				<th></th>
 				<?php
-						$sql = "SELECT * FROM game_session, score WHERE game_session.USER_ID_WINNER != $uid AND game_session.IS_OVER = 1 AND game_session.SESSION_ID = score.SESSION_ID AND game_session.COURSE_ID = $cid AND game_session.USER_ID_WINNER != score.USER_ID";
+						$sql = "SELECT * FROM game_session, score WHERE game_session.USER_ID_WINNER != $uid AND game_session.IS_OVER = 1 AND game_session.SESSION_ID = score.SESSION_ID AND game_session.COURSE_ID = $cid AND game_session.USER_ID_WINNER != score.USER_ID AND ($uid = game_session.USER_ID_1 OR $uid = game_session.USER_ID_2) AND (0 != game_session.USER_ID_1 OR 0 != game_session.USER_ID_2)";
 						$result = mysqli_query($conn, $sql);
 						$count = 1;
 						if (mysqli_num_rows($result) > 0) {
@@ -135,7 +135,7 @@ Score will be recorded on the leaderboard.
 								}
 								echo"
 								<tr>
-								<td>". $result2['USER_NAME'] ."'s Game</td>
+								<td>Vs. ". $result2['USER_NAME'] ."</td>
 								<td>- Your Score: ". $row['SCORE'] ." </td>
 								<td>- Their Score: ". $result2['SCORE'] ." </td>
 								</tr>
@@ -167,7 +167,7 @@ Score will be recorded on the leaderboard.
 								}
 								echo"
 								<tr>
-								<td>". $row['USER_ID_2'] ."'s Game</td>
+								<td>Vs. ". $row['USER_ID_2'] ."</td>
 								<td>-  Score: ". $row['SCORE'] ." </td>
 								<td>- Their Score: ". $result2['SCORE'] ." </td>
 								</tr>
