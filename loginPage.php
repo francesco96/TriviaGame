@@ -10,25 +10,28 @@
         $sql =
         "SELECT *
          FROM user
-         WHERE USER_NAME = '$usr'
-         AND USER_PASSWORD = '$pass'"; //SHA2(?, 256)
+         WHERE USER_NAME = '$usr'"; //SHA2(?, 256)
 		$result = mysqli_query($conn, $sql);
         if(mysqli_num_rows($result) > 0){
+					$userData = $result->fetch_assoc(); #stores data as array w/ column names as index
+					if(password_verify($pass, $userData['USER_PASSWORD'])){
             session_start();
-            $userData = $result->fetch_assoc(); #stores data as array w/ column names as index
             $_SESSION['username'] = $userData['USER_NAME'];
             $_SESSION['role'] = $userData['USER_TYPE'];
             $_SESSION['userId'] = $userData['USER_ID'];
             header("Location: homePage.php");
+					}else{
+						header("Location: loginPage.php");
+					}
         } else {
             $invalid = true;
         }
-    }    
-}	
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>  
+  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,9 +42,9 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link href="style/general.css" rel="stylesheet" type="text/css">
- 
+
   </head>
-  <body>	
+  <body>
 	<div class="container">
 		<div class="page-header text-center" id="pg_header">
 			<h1>Marist Fox Trivia</font><br /></h1>
@@ -64,9 +67,11 @@
 							</div>
 							<input type="submit" value="Login">
 						</form>
+						<br/>
+						<a href="registerPage.php">Or Register</a>
 					</div>
 				</div>
-	</div>    
+	</div>
 
   </body>
 </html>
