@@ -31,10 +31,14 @@
 					<div class="well well-lg">
 						<h2>Register</h2>
 						<br>
-						<form method="post" action="newuser.php">
+						<form method="post" action="regConf.php">
 							<div class="form-group">
-								<label>Username</label>
-								<input type="text" class="form-control" name="username" placeholder="Username" required>
+								<label>E-Mail</label>
+								<input type="text" class="form-control" name="email" placeholder="E-Mail" required>
+							</div>
+							<div class="form-group">
+								<label>Name</label>
+								<input type="text" class="form-control" name="username" placeholder="Name" required>
 							</div>
 							<div class="form-group">
 								<label>Password</label>
