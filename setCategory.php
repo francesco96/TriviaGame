@@ -40,16 +40,29 @@
 					<div class="well well-lg">
 						<h2>Categories</h2>
 						<br>
+						<table>
 						<?php
 						$sql = "SELECT * FROM triviacrack.categoryList WHERE COURSE_ID = $cid;";
 							$result = mysqli_query($conn, $sql);
                             if (mysqli_num_rows($result) > 0) {
 								while($row = mysqli_fetch_assoc($result)) {
 									$numCat +=1;
-								echo "<p>".$row['CATEGORY_NAME']."</p>";
+								echo "
+									<tr>
+										<td>".$row['CATEGORY_NAME']."</td>
+										<td align='center'>
+										<form action='deleteCat.php' method='POST'>
+										<input type='hidden' name='cat_id' value='$row[CATEGORY_ID]'>
+										<input type='hidden' name='cid' value='$cid'>
+										<input type='submit' id='delete' value='Delete'>
+										</form>
+										</td>
+									</tr>
+								";
 								}
 							}
 						?>
+						</table>
 						<form action="setCategory.php?cid=<?php echo"$cid" ?>" method="POST">
 							<label>New Category:</label>
 							<div class="row">
@@ -62,11 +75,11 @@
 							</div>
 						</form>
 						<br>
-						<form action="catChaeck.php" method="POST">
+						<!-- <form action="catChaeck.php" method="POST">
 						<input type="hidden" value="<?php echo"$numCat"; ?>" name="numcat">
 						<input type="submit" value="Done">
-						</form>
-						<?php //echo"<a href='ManageCourse.php?cid=".$cid."' class='btn btn-primary' role='button'>Done</a>"; ?>
+						</form> -->
+						<?php echo"<a href='ManageCourse.php?cid=".$cid."' class='btn btn-primary' role='button'>Done</a>"; ?>
 					</div>
 				</div>
 	</div>    

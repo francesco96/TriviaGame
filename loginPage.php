@@ -4,31 +4,39 @@
 	$title = 'LoginPage';
 	//Landing page
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if(isset($_POST['username']) and isset($_POST['password']) ) {
-        $usr = $_POST['username'];
+		if($_POST['email'] == "comp@comp.com"){
+			header("Location: loginPage.php");
+			die();
+		}
+    if(isset($_POST['email']) and isset($_POST['password']) ) {
+        $email = $_POST['email'];
         $pass = $_POST['password'];
         $sql =
         "SELECT *
          FROM user
-         WHERE USER_NAME = '$usr'
-         AND USER_PASSWORD = '$pass'"; //SHA2(?, 256)
+         WHERE USER_EMAIL = '$email'"; //SHA2(?, 256)
 		$result = mysqli_query($conn, $sql);
         if(mysqli_num_rows($result) > 0){
+					$userData = $result->fetch_assoc(); #stores data as array w/ column names as index
+					if(password_verify($pass, $userData['USER_PASSWORD'])){
             session_start();
-            $userData = $result->fetch_assoc(); #stores data as array w/ column names as index
             $_SESSION['username'] = $userData['USER_NAME'];
             $_SESSION['role'] = $userData['USER_TYPE'];
             $_SESSION['userId'] = $userData['USER_ID'];
             header("Location: homePage.php");
+					}else{
+						header("Location: loginPage.php?status=incorrectlogin");
+					}
         } else {
             $invalid = true;
+						header("Location: loginPage.php?status=incorrectlogin");
         }
-    }    
-}	
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>  
+  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,9 +47,9 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link href="style/general.css" rel="stylesheet" type="text/css">
- 
+
   </head>
-  <body>	
+  <body>
 	<div class="container">
 		<div class="page-header text-center" id="pg_header">
 			<h1>Marist Fox Trivia</font><br /></h1>
@@ -52,11 +60,12 @@
 				<div class="col-sm-6 text-center" id="logging_in">
 					<div class="well well-lg">
 						<h2>Login</h2>
+						<?php if(isset($_GET['status']) && $_GET['status'] == "incorrectlogin"){ echo "<b style='color:red;'>Incorrect Username or Password</b>";} if(isset($_GET['status']) && $_GET['status'] == "creationsuccess"){ echo "<b style='color:green;'>Account Successfully Created. You can now login below.</b>";}?>
 						<br>
 						<form action="loginPage.php" method="POST">
 							<div class="form-group">
-								<label>Username</label>
-								<input type="text" class="form-control" name="username" placeholder="Email" required>
+								<label>E-Mail</label>
+								<input type="text" class="form-control" name="email" placeholder="Email" required>
 							</div>
 							<div class="form-group">
 								<label>Password</label>
@@ -64,9 +73,11 @@
 							</div>
 							<input type="submit" value="Login">
 						</form>
+						<br/>
+						<a href="registerPage.php">Or Register</a>
 					</div>
 				</div>
-	</div>    
+	</div>
 
   </body>
 </html>

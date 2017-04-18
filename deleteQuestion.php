@@ -1,3 +1,18 @@
+<!-- 
+Marist College - Copyright
+Marist Fox Trivia
+==========================
+Matthew Blades
+JohnAnthony Eletto
+Francesco Galletti
+Peter Sofronas
+==========================
+
+deleteQuestion simply deletes a question given
+a Question ID = qid.
+-->
+
+
 <?php
 include('db.php');
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

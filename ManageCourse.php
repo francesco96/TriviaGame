@@ -12,6 +12,10 @@
 		$errors = array();
 		$q = $_POST['Question'];
 		$category = $_POST['Category'];
+		$sql = "SELECT * FROM categorylist WHERE CATEGORY_NAME = '$category' AND COURSE_ID = $cid;";
+		$result = mysqli_query($conn, $sql);
+		$result = mysqli_fetch_assoc($result);
+		$category = $result['CATEGORY_ID'];
 		$a = $_POST['Answer'];
 		$o2 = $_POST['Option_2'];
 		$o3 = $_POST['Option_3'];
@@ -19,7 +23,7 @@
 		$sql = "";
 		if($q){
 			if($category){
-				$sql = "INSERT INTO triviacrack.question (QUESTION_TEXT, QUESTION_CORRECT, TIMES_ASKED, CATEGORY, COURSE_ID) VALUES ('$q', '0', '0', '$category', '$cid')";
+				$sql = "INSERT INTO triviacrack.question (QUESTION_TEXT, QUESTION_CORRECT, TIMES_ASKED, CATEGORY_ID, COURSE_ID) VALUES ('$q', '0', '0', '$category', '$cid')";
 				mysqli_query($conn, $sql);
 				$sql ="";
 				$q_id = $conn->insert_id;
@@ -153,11 +157,12 @@
 					</div>
 				<div class="col-sm-12 text-center">
 							<a type="button" id="myBtn" class="btn btn-success">+ Add Question</a>
-							<a type="button" class="btn btn-success">+ Add Category</a>
+							<a type="button" class="btn btn-success" href="<?php echo"setCategory.php?cid=$cid" ?>">+ Add Category</a>
 							<a type="button" id="editName" href="<?php echo"editCourse.php?cid=$cid"; ?>" class="btn btn-success">Edit: Name, Description</a>
+							<a type="button" id="Edit Students" href="<?php echo"editStudents.php?cid=$cid"; ?>" class="btn btn-success"> Edit Students </a>
 				</div>
 				<br>
-				<table class="table-striped" width="%100">
+				<table class="table-striped" width="100%">
 					<tr>
 						<th>Questions</th>
 						<th>Category</th>
@@ -166,7 +171,7 @@
 					</tr>
 					<form action='' method='post'>
 					<?php
-								$sql = "SELECT * FROM question, answer WHERE question.COURSE_ID = $cid AND question.QUESTION_ID = answer.QUESTION_ID AND answer.ANSWER_CORRECT = 1";
+								$sql = "SELECT * FROM question, answer, categorylist WHERE question.COURSE_ID = $cid AND question.CATEGORY_ID = categorylist.CATEGORY_ID AND question.QUESTION_ID = answer.QUESTION_ID AND answer.ANSWER_CORRECT = 1";
 								$result = mysqli_query($conn, $sql);
 								$count = 1;
 								if (mysqli_num_rows($result) > 0) {
@@ -174,7 +179,7 @@
 										echo"
 										<tr>
 											<td>$count. $row[QUESTION_TEXT]</td>
-											<td>$row[CATEGORY]</td>
+											<td>$row[CATEGORY_NAME]</td>
 											<td>$row[ANSWER_TEXT]</td>
 											<td align='center'>
 											<form action='deleteQuestion.php' method='POST'>
