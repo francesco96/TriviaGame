@@ -16,12 +16,12 @@
 	width:100%;
 	height:100%;
 	text-align: center;
-	
-	-webkit-transition: all 6s cubic-bezier(0,.99,.44,.99);
-	-moz-transition:    all 6s cubic-bezier(0,.99,.44,.99);
-	-o-transition:      all 6s cubic-bezier(0,.99,.44,.99);
-	-ms-transition:     all 6s cubic-bezier(0,.99,.44,.99);
-	transition:         all 6s cubic-bezier(0,.99,.44,.99);	
+
+	-webkit-transition: all 5s cubic-bezier(0,.99,.44,.99);
+	-moz-transition:    all 5s cubic-bezier(0,.99,.44,.99);
+	-o-transition:      all 5s cubic-bezier(0,.99,.44,.99);
+	-ms-transition:     all 5s cubic-bezier(0,.99,.44,.99);
+	transition:         all 5s cubic-bezier(0,.99,.44,.99);
 }
 
 .noTransition{
@@ -29,7 +29,7 @@
 	-moz-transition:    all none;
 	-o-transition:      all none;
 	-ms-transition:     all none;
-	transition:         all none;	
+	transition:         all none;
 }
 
 
@@ -63,22 +63,22 @@
 	box-shadow:rgba(0,0,0,0.1) 0px 3px 0px;
 	z-index:1000;
 	cursor:pointer;
-  
-    -webkit-user-select: none; 
-    -moz-user-select: none;    
-    -ms-user-select: none;     
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     -o-user-select: none;
     user-select: none;
-    
+
     left: 182px;
     top: 182px;
-    
+
     background-color: white;
 }
 
 
 #spin:after{
-	content:"SPIN";	
+	content:"SPIN";
 	text-align:center;
 	line-height:136px;
 	color:#CCC;
@@ -110,9 +110,9 @@
 	margin:-54px 0 0 -54px;
 	border-radius:50%;
 	z-index:999;
-	background-color: rgb(255,255,255);	
+	background-color: rgb(255,255,255);
 }
 
 #spin:active:after{
-	font-size:30px;	
+	font-size:30px;
 }

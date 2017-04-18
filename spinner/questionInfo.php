@@ -1,5 +1,5 @@
 <?php
-	
+
     switch($_POST['action']){
         case 'getQuestion':
             getQuestion();
@@ -9,16 +9,16 @@
             break;
     }
     function getQuestion(){
-		
+
 		require('../db.php');
         $courseid = $_POST['courseid'];
-        $category = $_POST['category'];		
-		
-        $question = $conn->query("SELECT question.QUESTION_ID, question.QUESTION_TEXT FROM question WHERE question.CATEGORY_ID=$category AND question.COURSE_ID=$courseid ORDER BY RAND() LIMIT 1");
+        $category = $_POST['category'];
+
+        $question = $conn->query("SELECT question.QUESTION_ID, question.QUESTION_TEXT, categorylist.CATEGORY_NAME FROM question JOIN categorylist on question.CATEGORY_ID = categorylist.CATEGORY_ID WHERE question.CATEGORY_ID=$category AND question.COURSE_ID=$courseid ORDER BY RAND() LIMIT 1");
         $question = $question->fetch_assoc();
 
-		
-        $color = "Red";
+
+        $color = $_POST['color'];
         $questionText = $question['QUESTION_TEXT'];
         $questionid = $question['QUESTION_ID'];
 
@@ -42,7 +42,7 @@
                     <div class='modal-dialog'>
                         <div class='modal-content'>
                             <div class='modal-header' id='modal-header-color' style='background-color: $color;'>
-                                <p class='modal-title' id='modal-header-category'>$category ".$_POST['category']."</p>
+                                <p class='modal-title' id='modal-header-category'>".$question['CATEGORY_NAME']."</p>
                                 <p id='modal-header-timer'>30</p>
                             </div>
                         <div style='clear: both;'></div>
@@ -51,6 +51,7 @@
           		                <p id='modal-body-question'>$questionText</p>
           		                <p id='modal-body-result'></p>
           	                </div>
+														<br/>
                         <div id='modal-body-answers'>$answers</div>
                     </div>
                     <div class='modal-footer'>
@@ -59,7 +60,7 @@
 
                 </div>
                 </div>";
-		
+
         //echo json_encode($modal);
 		echo ($modal);
 		$conn->close();
@@ -82,5 +83,5 @@
 		$conn->close();
     }
 
-    
+
 ?>

@@ -10,7 +10,7 @@
   $sql= "SELECT * FROM score WHERE $sid = SESSION_ID AND USER_ID = $uid";
   $result = mysqli_query($conn, $sql);
   $result = mysqli_fetch_assoc($result);
-  
+
   $urScore = $result['SCORE'];
 ?>
 <html lang="en">
@@ -107,7 +107,7 @@
             disabled = true;
 
             var randomDegree = Math.floor(Math.random() * 360) + 1080;
-            document.getElementById('inner-wheel').style.transform = 'rotate(' + randomDegree + 'deg)'; 	
+            document.getElementById('inner-wheel').style.transform = 'rotate(' + randomDegree + 'deg)';
             var degreesPerSection = 360 / numberOfCategories;
 
             var degreeChange = randomDegree % 360;
@@ -117,16 +117,18 @@
             if (section == numberOfCategories + 1) {
                 section = 1;
             }
-            window.setTimeout(getQuestion, 7000, section);
+            window.setTimeout(getQuestion, 6000, section);
         }
     }
 
     function getQuestion(category) {
         var value = document.getElementById(category).getAttribute('value');
+        var color = $("#"+category).css("border-color");
+        color = color.substr(0, color.indexOf(')')+1);
         $.ajax({
             type: "POST",
             url: "questionInfo.php",
-            data: "action=getQuestion&category=" + value + "&courseid=" + <?php echo $cid; ?>,
+            data: "action=getQuestion&category=" + value + "&color="+color+"&courseid=" + <?php echo $cid; ?>,
             cache: false,
             dataType: "text",
             success: function(result) {
@@ -135,7 +137,7 @@
                     backdrop: 'static',
                     keyboard: false
                 });
-				
+
                 var counter = 30;
                 window.modaltimer = setInterval(function() {
                     document.getElementById('modal-header-timer').innerHTML = counter;
@@ -189,7 +191,7 @@
                     button.style.color = 'red';
                     button.style.fontWeight = 'bold';
 					$('#modal-body-answers').append($("<form action='nextTurn.php' method='POST'><input type='submit' id='endTurn' value='End Turn'><input type='hidden' name='sid' value='<?php echo $sid; ?>'><input type='hidden' name='score' value='" + urScore + "'></form>"));
-					
+
 					//<button type='button' class='btn btn-danger' onclick='endRound()'>End Turn</button><br/>"));
                 }
                 $("#modal-body-result").animate({
@@ -208,7 +210,7 @@
         });
 		urScore += 100;
 		document.getElementById('test').innerHTML = "<h1>Score: " + urScore + "</h1>";
-		
+
         document.getElementById('inner-wheel').style.transform = 'none';
 
         $('#myModal').modal('hide');
@@ -216,7 +218,7 @@
         $('#inner-wheel').removeAttr('style');
         disabled = false;
     }
-	
+
 	function endRound(){
 		$.ajax({
             type: "POST",
@@ -224,7 +226,7 @@
             data: "sid=" + <?php echo $sid; ?>,
             cache: false,
             dataType: "JSON",
-            success: function(result) {                
+            success: function(result) {
             }
         });
 	}
