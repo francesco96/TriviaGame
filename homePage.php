@@ -81,8 +81,9 @@
 			<div class="col-sm-6" id="utilities">
                 <!-- Utility Icons Here -->
                 <a type="button" href="homePage.php"><img src="img/home.png" width="40px" alt="Home" title="Home"></a>
-				<a type="button" href="options.php"><img src="img/settings.png" width="40px" alt="Options" title="Options"></a>
 				<a type="button" href="ProfilePage.php"><img src="img/profile.png" width="40px" alt="Profile" title="Profile"></a> <!-- PUT PROFILE PAGE -->
+				<a type="button" href="options.php"><img src="img/settings.png" width="40px" alt="Options" title="Options"></a>
+
                <!--  <img src="img/settings.png" width="40px" alt="Settings" title="Settings"> -->
             </div>
         </div>

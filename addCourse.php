@@ -1,4 +1,4 @@
-<!-- 
+<!--
 Marist College - Copyright
 Marist Fox Trivia
 ==========================
@@ -112,15 +112,15 @@ to the database.
 			<div class="col-sm-6" id="utilities">
 				<!-- Buttons on the top right of the page -->
                 <a type="button" href="homePage.php"><img src="img/home.png" width="40px" alt="Home" title="Home"></a>
-				<a type="button" href="options.php"><img src="img/settings.png" width="40px" alt="Options" title="Options"></a>
 				<a type="button" href="ProfilePage.php"><img src="img/profile.png" width="40px" alt="Profile" title="Profile"></a> <!-- PUT PROFILE PAGE -->
+				<a type="button" href="options.php"><img src="img/settings.png" width="40px" alt="Options" title="Options"></a>
             </div>
         </div>
         <!-- Page header -->
 		<div class="page-header text-center" id="pg_header">
 			<h1>Add Course<br /></h1>
 		</div>
-	
+
 		<div class="row">
 			<div class="well well-lg">
 					<br>

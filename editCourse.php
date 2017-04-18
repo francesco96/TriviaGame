@@ -1,4 +1,4 @@
-<!-- 
+<!--
 Marist College - Copyright
 Marist Fox Trivia
 ==========================
@@ -9,7 +9,7 @@ Peter Sofronas
 ==========================
 
 editCourse is a page where the authorized user
-can edit a specific course, re-entering the name 
+can edit a specific course, re-entering the name
 or description, for example.
 -->
 
@@ -31,7 +31,7 @@ or description, for example.
 			$sql = "UPDATE triviacrack.course SET TITLE='$cn', DESCRIPTION='$d' WHERE COURSE_ID='$cid';";
 			$result = mysqli_query($conn, $sql);
 			header("Location: ManageCourse.php?cid=$cid");
-			}}else {		
+			}}else {
 			$errors[] ='Enter in a Name and Description';
 		}
 	}
@@ -52,7 +52,7 @@ or description, for example.
 	<link href="style/general.css" rel="stylesheet" type="text/css">
   </head>
 
-  <body>	
+  <body>
 	<div class="container">
 		<div class="row">
             <div class="col-sm-6" id="currentUser">
@@ -62,8 +62,9 @@ or description, for example.
 			<div class="col-sm-6" id="utilities">
                 <!-- Displays buttons on the top right corner-->
                 <a type="button" href="homePage.php"><img src="img/home.png" width="40px" alt="Home" title="Home"></a>
-				<a type="button" href="options.php"><img src="img/settings.png" width="40px" alt="Options" title="Options"></a>
 				<a type="button" href="homePage.php"><img src="img/profile.png" width="40px" alt="Profile" title="Profile"></a> <!-- PUT PROFILE PAGE -->
+				<a type="button" href="options.php"><img src="img/settings.png" width="40px" alt="Options" title="Options"></a>
+
             </div>
         </div>
         <!-- Page Header -->
@@ -77,14 +78,14 @@ or description, for example.
 						<div class="col-sm-12 text-center">
 							<label>Course Name</label>
 						</div>
-						<?php  
+						<?php
 							$sql = "SELECT * FROM triviacrack.course WHERE COURSE_ID = $cid;";
 							$result = mysqli_query($conn, $sql);
 							$row = mysqli_fetch_assoc($result);
 						?>
 					<input type='text' class='form-control' name='CourseName' value="<?php echo"$row[TITLE]"; ?>" required>
 
-					<div class="row">	
+					<div class="row">
 						<div class="col-sm-12 text-center">
 							<label>Description</label>
 						</div>
@@ -93,7 +94,7 @@ or description, for example.
 					<div class="row">
 						<div class="col-sm-12 text-center">
 							<textarea rows="8" class="form-control no-resize" id="description" name="description"><?php echo"$row[DESCRIPTION]"; ?></textarea>
-						</div>	
+						</div>
 					</div>
 
 					<div class="row">
@@ -110,7 +111,7 @@ or description, for example.
 					<br>
 			</div>
 		</div>
-	</div>    
+	</div>
 
 
   </body>

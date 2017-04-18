@@ -53,8 +53,9 @@ Score will be recorded on the leaderboard.
 
 				<!-- Displays the buttons on the top right corner -->
 				<a type="button" href="homePage.php"><img src="img/home.png" width="40px" alt="Home" title="Home"></a>
-				<a type="button" href="options.php"><img src="img/settings.png" width="40px" alt="Options" title="Options"></a>
 				<a type="button" href="ProfilePage.php"><img src="img/profile.png" width="40px" alt="Profile" title="Profile"></a> <!-- PUT PROFILE PAGE -->
+				<a type="button" href="options.php"><img src="img/settings.png" width="40px" alt="Options" title="Options"></a>
+
 				</div>
 			</div>
 
