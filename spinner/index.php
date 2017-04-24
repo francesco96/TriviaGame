@@ -7,11 +7,15 @@
   $result = mysqli_query($conn, $sql);
   $result = mysqli_fetch_assoc($result);
   $cid = $result['COURSE_ID'];
-  $sql= "SELECT * FROM score WHERE $sid = SESSION_ID AND USER_ID = $uid";
-  $result = mysqli_query($conn, $sql);
-  $result = mysqli_fetch_assoc($result);
+  if($uid == $result['USER_ID_1']){
+	  $tid = $result['USER_ID_2'];
+  } else {
+	  $tid = $result['USER_ID_1'];
+  }
+	
+  
 
-  $urScore = $result['SCORE'];
+ // $urScore = $result['SCORE'];
 ?>
 <html lang="en">
     <head>
@@ -37,9 +41,39 @@
                 </div>
             </div>
 			<div class ="row">
-				<div class="col-sm-3" id="urScore">
-					<div class="well">
-						<div id='test'><h1>Score: <?php echo "$urScore" ?></h1></div>
+				<div class="col-sm-4" id="urScore">
+					
+				<div class="well">
+					<div style="text-align: center;">
+					<?php
+						$sql= "SELECT * FROM score, categorylist WHERE $sid = score.SESSION_ID AND score.USER_ID = $uid AND score.CATEGORY_ID = categorylist.CATEGORY_ID";
+						$result = mysqli_query($conn, $sql);
+						if(mysqli_num_rows($result) > 0){
+							while($row = mysqli_fetch_assoc($result)) {
+								echo "<button class ='button' disabled> ". $row['CATEGORY_NAME'] ."</button> \n";
+							}
+						}
+					?>
+					</div>
+					</div>
+				</div>
+				<div class="col-sm-4" id="emptyScore"></div>
+				<div class="col-sm-4" id="theirScore">
+					<?php
+					if($tid != 0){
+						echo"<div class='well'>
+							<div style='text-align: center;'>";
+					}
+					 
+						$sql= "SELECT * FROM score, categorylist WHERE $sid = score.SESSION_ID AND score.USER_ID = $tid AND score.CATEGORY_ID = categorylist.CATEGORY_ID";
+						$result = mysqli_query($conn, $sql);
+						if(mysqli_num_rows($result) > 0){
+							while($row = mysqli_fetch_assoc($result)) {
+								echo "<button class ='button' disabled> ". $row['CATEGORY_NAME'] ."</button> \n";
+							}
+						}
+					?>
+					</div>
 					</div>
 				</div>
 			</div>
@@ -101,7 +135,6 @@
 <script>
     var disabled = false;
     var numberOfCategories = <?php echo $numberOfCategories ?>;
-	var urScore = <?php echo $urScore; ?>;
     function spinWheel() {
         if (!disabled) {
             disabled = true;
@@ -151,7 +184,8 @@
     		            document.getElementById('modal-body-result').style.color='red';
     		            document.getElementById('modal-body-result').innerHTML = "Time's Up!";
     		            $("#modal-body-result").animate({fontSize: '50px'});
-    		            $('#modal-body-answers').append($("<button type='button' class='btn btn-success' onclick='newRound()'>Continue</button><br/>"));
+						$('#modal-body-answers').append($("<form action='nextTurn.php' method='POST'><input type='submit' id='endTurn' value='End Turn'><input type='hidden' name='sid' value='<?php echo $sid; ?>'><input type='hidden' name='correct' value ='1'><input type='hidden' name='tid' value ='<?php echo $tid; ?>'></form>"));
+    		            //$('#modal-body-answers').append($("<button type='button' class='btn btn-success' onclick='newRound()'>Continue</button><br/>"));
                     }
                 }, 1000);
                 $(".modal-body-answer-button").click(function() {
@@ -181,8 +215,7 @@
                     button.style.borderColor = 'green';
                     button.style.color = 'green';
                     button.style.fontWeight = 'bold';
-					//urScore += 100;
-					//document.getElementById('test').innnerHTML = urScore;
+					//$('#modal-body-answers').append($("<form action='nextTurn.php' method='POST'><input type='submit' id='nextTurn' value='Next Turn'><input type='hidden' name='sid' value='<?php echo $sid; ?>'><input type='hidden' name='correct' value ='1'><input type='hidden' name='tid' value ='<?php echo $tid; ?>'></form>"));
 					$('#modal-body-answers').append($("<button type='button' class='btn btn-success' onclick='newRound()'>Continue</button><br/>"));
                 } else {
                     document.getElementById('modal-body-result').style.color = 'red';
@@ -190,7 +223,7 @@
                     button.style.borderColor = 'red';
                     button.style.color = 'red';
                     button.style.fontWeight = 'bold';
-					$('#modal-body-answers').append($("<form action='nextTurn.php' method='POST'><input type='submit' id='endTurn' value='End Turn'><input type='hidden' name='sid' value='<?php echo $sid; ?>'><input type='hidden' name='score' value='" + urScore + "'></form>"));
+					$('#modal-body-answers').append($("<form action='nextTurn.php' method='POST'><input type='submit' id='endTurn' value='End Turn'><input type='hidden' name='sid' value='<?php echo $sid; ?>'><input type='hidden' name='correct' value ='0'><input type='hidden' name='tid' value ='<?php echo $tid; ?>'></form>"));
 
 					//<button type='button' class='btn btn-danger' onclick='endRound()'>End Turn</button><br/>"));
                 }
@@ -208,14 +241,54 @@
             OTransition: 'none',
             transition: 'none'
         });
-		urScore += 100;
-		document.getElementById('test').innerHTML = "<h1>Score: " + urScore + "</h1>";
-
-        document.getElementById('inner-wheel').style.transform = 'none';
-
-        $('#myModal').modal('hide');
+		$('#myModal').modal('hide');
         document.getElementById('modal-section').innerHTML = "";
-        $('#inner-wheel').removeAttr('style');
+	$.ajax({
+            type: "POST",
+            url: "nextTurn.php",
+            data: "sid=" + <?php echo $sid; ?> + "&correct=1&tid=" + <?php echo $tid; ?>,
+            cache: false,
+            dataType: "text",
+			success: function(result) {
+            document.getElementById("modal-section").innerHTML = result;
+                $('#myModal').modal({
+                    backdrop: 'static',
+                    keyboard: false
+                });
+				var counter = 30;
+                window.modaltimer = setInterval(function() {
+                    document.getElementById('modal-header-timer').innerHTML = counter;
+                    // Display 'counter' wherever you want to display it.
+                    if (counter != 0) {
+                        counter--;
+                    } else {
+                        window.clearInterval(window.modaltimer);
+
+                        $(".modal-body-answer-button"). attr('disabled', 'disabled');
+    		            document.getElementById('modal-body-result').style.color='red';
+    		            document.getElementById('modal-body-result').innerHTML = "Time's Up!";
+    		            $("#modal-body-result").animate({fontSize: '50px'});
+						$('#modal-body-answers').append($("<form action='nextTurn.php' method='POST'><input type='submit' id='endTurn' value='End Turn'><input type='hidden' name='sid' value='<?php echo $sid; ?>'><input type='hidden' name='correct' value ='1'><input type='hidden' name='tid' value ='<?php echo $tid; ?>'></form>"));
+    		            //$('#modal-body-answers').append($("<button type='button' class='btn btn-success' onclick='newRound()'>Continue</button><br/>"));
+                    }
+                }, 1000);
+                $(".modal-body-answer-button").click(function() {
+                    window.clearInterval(window.modaltimer);
+
+                    var questionid = document.getElementById("myModal").getAttribute('value');
+                   // checkAnswer(this, this.value, questionid);
+                });
+            },
+
+        });
+		//document.getElementById('test').innerHTML = "<h1>Score: " + urScore + "</h1>";
+
+
+        //document.getElementById('inner-wheel').style.transform = 'none';
+
+        //$('#myModal').modal('hide');
+        //document.getElementById('modal-section').innerHTML = "";
+        //$('#inner-wheel').removeAttr('style');
         disabled = false;
     }
 
