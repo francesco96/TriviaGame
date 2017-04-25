@@ -3,7 +3,7 @@ include ('db.php');
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$userID = $_SESSION['userId'];
 	$cid = $_POST['cid'];
-	$sql = "SELECT * FROM game_session WHERE USER_ID_2 = 0 AND USER_ID_1 != $userID LIMIT 1 AND USER_ID_WINNER = 0";
+	$sql = "SELECT * FROM game_session WHERE USER_ID_2 = 0 AND USER_ID_1 != $userID AND USER_ID_WINNER = 0 LIMIT 1";
 	$result = mysqli_query($conn, $sql);
 	$sql = "SELECT * FROM categorylist WHERE $cid = COURSE_ID";
 	$result2 = mysqli_query($conn, $sql);
