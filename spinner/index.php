@@ -222,7 +222,7 @@
                     button.style.color = 'green';
                     button.style.fontWeight = 'bold';
 					if(numCount >= 4){
-						$('#modal-body-answers').append($("<form action='nextTurn.php' method='POST'><input type='submit' id='nextTurn' value='Next Turn'><input type='hidden' name='sid' value='<?php echo $sid; ?>'><input type='hidden' name='correct' value ='1'><input type='hidden' name='tid' value ='<?php echo $tid; ?>'></form>"));
+						$('#modal-body-answers').append($("<form action='nextTurn.php' method='POST'><input type='submit' id='nextTurn' value='Next Turn'><input type='hidden' name='sid' value='<?php echo $sid; ?>'><input type='hidden' name='category' value=" + catNum  + "><input type='hidden' name='correct' value ='1'><input type='hidden' name='tid' value ='<?php echo $tid; ?>'></form>"));
 					}else {
 						$('#modal-body-answers').append($("<button type='button' class='btn btn-success' onclick='newRound()'>Continue</button><br/>"));
 					}
@@ -273,7 +273,7 @@
                 });
                 $(".modal-body-answer-button").click(function() {
                     var questionid = document.getElementById("myModal").getAttribute('value');
-                    getQuestion(this.getAttribute('value'));
+                    getQuestion(this.getAttribute('id'));
                 });
             }
 		});

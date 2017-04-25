@@ -155,9 +155,9 @@ Score will be recorded on the leaderboard.
 						$result = mysqli_query($conn, $sql);
 						$count = 1;
 						if (mysqli_num_rows($result) > 0) {
-							$cid = $row['COURSE_ID'];
-							$sid = $row['SESSION_ID'];
 							while($row = mysqli_fetch_assoc($result)) {
+								$cid = $row['COURSE_ID'];
+								$sid = $row['SESSION_ID'];
 								if($row['USER_ID_2'] == $uid){
 									$sql = "SELECT * FROM user WHERE user.USER_ID = ". $row['USER_ID_1'];
 									$result2 = mysqli_query($conn, $sql);
@@ -182,6 +182,8 @@ Score will be recorded on the leaderboard.
 										<button> ". $row2['CATEGORY_NAME']  ."</button>
 										";
 									}
+								}else {
+									echo "no tokens";
 								}}else {
 									echo "no tokens";
 								}
@@ -197,6 +199,8 @@ Score will be recorded on the leaderboard.
 										<button> ". $row3['CATEGORY_ID']  ."</button>
 										";
 									}
+								}else {
+									echo "no tokens";
 								}
 								}else{
 									echo "no tokens";

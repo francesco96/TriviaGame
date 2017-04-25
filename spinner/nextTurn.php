@@ -37,11 +37,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			mysqli_query($conn, $sql);
 			$sql = "SELECT * FROM categorylist WHERE COURSE_ID = $cid";
 			$result = mysqli_query($conn, $sql);
-			$i = 0;	
+			$i = 1;	
 			if (mysqli_num_rows($result) > 0) {
 				while($row = mysqli_fetch_assoc($result)) {
 					$choices .= "<button type='button' class='form-control modal-body-answer-button' id='$i' value='". $row['CATEGORY_ID'] ."'>". $row['CATEGORY_NAME'] ."</button><br/>";
-					$i ++;
+					$i++;
 				}
 			}
 			$modal = "<div class='modal fade' id='myModal' role='dialog' value='Pick a category'>
