@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			$sql = "UPDATE game_session SET USER_ID_WINNER = ". $tid ." AND NUMBER_CORRECT = 0 WHERE SESSION_ID='$sid'";
 			mysqli_query($conn, $sql);
 			$numCorrect = 0;
-			header("Location: ../gameinfo.php?cid=$cid");
+			header("Location: ../gameInfo.php?cid=$cid");
 		}else {
 			$numCorrect ++;
 		}
