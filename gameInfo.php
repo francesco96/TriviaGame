@@ -85,27 +85,33 @@ Score will be recorded on the leaderboard.
 				<th></th>
 				<th></th>
 				<?php
-						$sql = "SELECT * FROM game_session, score, categorylist WHERE categorylist.CATEGORY_ID = score.CATEGORY_ID AND game_session.USER_ID_WINNER = $uid AND game_session.IS_OVER = 1 AND game_session.SESSION_ID = score.SESSION_ID AND game_session.COURSE_ID = $cid AND game_session.USER_ID_WINNER = score.USER_ID";
+						$sql = "SELECT * FROM game_session WHERE game_session.USER_ID_WINNER = $uid AND game_session.IS_OVER = 1 AND game_session.COURSE_ID = $cid";
+						
 						$result = mysqli_query($conn, $sql);
 						$count = 1;
 						if (mysqli_num_rows($result) > 0) {
 							while($row = mysqli_fetch_assoc($result)) {
+								$cid = $row['COURSE_ID'];
+								$sid = $row['SESSION_ID'];
 								if($row['USER_ID_2'] == $uid){
-									$sql = "SELECT * FROM score, user, categorylist WHERE categorylist.CATEGORY_ID = score.CATEGORY_ID AND ". $row['SESSION_ID'] ." = score.SESSION_ID AND ". $row['USER_ID_1'] ." = score.USER_ID AND user.USER_ID = ". $row['USER_ID_1'];
+									$sql = "SELECT * FROM user WHERE user.USER_ID = ". $row['USER_ID_1'];
 									$result2 = mysqli_query($conn, $sql);
 									$result2 = mysqli_fetch_assoc($result2);
+									$tid = $result2['USER_ID'];
 								}else {
-									$sql = "SELECT * FROM score, user, categorylist WHERE categorylist.CATEGORY_ID = score.CATEGORY_ID AND ". $row['SESSION_ID'] ." = score.SESSION_ID AND ". $row['USER_ID_2'] ." = score.USER_ID AND user.USER_ID = ". $row['USER_ID_2'];
+									$sql = "SELECT * FROM user WHERE user.USER_ID = ". $row['USER_ID_2'];
 									$result2 = mysqli_query($conn, $sql);
 									$result2 = mysqli_fetch_assoc($result2);
+									$tid = $result2['USER_ID'];
 								}
 								echo"
 								<tr>
-								<td>Vs. ". $result2['USER_NAME'] ."</td>
+								<td>Vs. $tid</td>
 								<td>- Your Tokens: ";
-								if($result){
-								if(mysqli_num_rows($result) > 0){
-									while($row2 = mysqli_fetch_assoc($result)){
+								$sql = "SELECT * FROM score, categorylist WHERE categorylist.CATEGORY_ID = score.CATEGORY_ID AND USER_ID = $uid AND SESSION_ID = $sid AND HAS = 1";
+								$scoreResult = mysqli_query($conn, $sql);
+								if(mysqli_num_rows($scoreResult) > 0){
+									while($row2 = mysqli_fetch_assoc($scoreResult)){
 										echo"
 										<button> ". $row2['CATEGORY_NAME']  ."</button>
 										";
@@ -113,18 +119,20 @@ Score will be recorded on the leaderboard.
 								}else {
 									echo "no tokens";
 								}
-								}
 								echo"
 								</td>
 								<td>- Their Tokens: ";
-								if($result2){
-								if(mysqli_num_rows($result2) > 0){
-									while($row3 = mysqli_fetch_assoc($result2)){
+								$sql = "SELECT * FROM score, categorylist WHERE categorylist.CATEGORY_ID = score.CATEGORY_ID AND USER_ID = $tid AND SESSION_ID = $sid AND HAS = 1";
+								$scoreResult2 = mysqli_query($conn, $sql);
+								//if($scoreResult2){
+								if(mysqli_num_rows($scoreResult2) > 0){
+									while($row3 = mysqli_fetch_assoc($scoreResult2)){
 										echo"
-										<button> ". $row3['CATEGORY_NAME']  ."</button>
+										<button> ". $row3['CATEGORY_ID']  ."</button>
 										";
 									}
-								}}else{
+								//}
+								}else{
 									echo "no tokens";
 								}
 								echo"
@@ -143,27 +151,33 @@ Score will be recorded on the leaderboard.
 				<th alight="right">Their Turn</th>
 				<th></th>
 				<?php
-						$sql = "SELECT * FROM game_session, score, categorylist WHERE categorylist.CATEGORY_ID = score.CATEGORY_ID AND game_session.USER_ID_WINNER != $uid AND game_session.USER_ID_WINNER != 0 AND game_session.IS_OVER = 1 AND game_session.SESSION_ID = score.SESSION_ID AND game_session.COURSE_ID = $cid AND game_session.USER_ID_WINNER != score.USER_ID AND ($uid = game_session.USER_ID_1 OR $uid = game_session.USER_ID_2) AND (0 != game_session.USER_ID_1 OR 0 != game_session.USER_ID_2)";
+						$sql = "SELECT * FROM game_session WHERE game_session.USER_ID_WINNER != $uid AND game_session.USER_ID_WINNER != 0 AND game_session.IS_OVER = 1 AND game_session.COURSE_ID = $cid AND ($uid = game_session.USER_ID_1 OR $uid = game_session.USER_ID_2) AND (0 != game_session.USER_ID_1 OR 0 != game_session.USER_ID_2)";
 						$result = mysqli_query($conn, $sql);
 						$count = 1;
 						if (mysqli_num_rows($result) > 0) {
+							$cid = $row['COURSE_ID'];
+							$sid = $row['SESSION_ID'];
 							while($row = mysqli_fetch_assoc($result)) {
 								if($row['USER_ID_2'] == $uid){
-									$sql = "SELECT * FROM score, user, categorylist WHERE categorylist.CATEGORY_ID = score.CATEGORY_ID AND ". $row['SESSION_ID'] ." = score.SESSION_ID AND ". $row['USER_ID_1'] ." = score.USER_ID AND user.USER_ID = ". $row['USER_ID_1'];
+									$sql = "SELECT * FROM user WHERE user.USER_ID = ". $row['USER_ID_1'];
 									$result2 = mysqli_query($conn, $sql);
 									$result2 = mysqli_fetch_assoc($result2);
+									$tid = $result2['USER_ID'];
 								}else {
-									$sql = "SELECT * FROM score, user, categorylist WHERE categorylist.CATEGORY_ID = score.CATEGORY_ID AND ". $row['SESSION_ID'] ." = score.SESSION_ID AND ". $row['USER_ID_2'] ." = score.USER_ID AND user.USER_ID = ". $row['USER_ID_2'];
+									$sql = "SELECT * FROM user WHERE user.USER_ID = ". $row['USER_ID_2'];
 									$result2 = mysqli_query($conn, $sql);
 									$result2 = mysqli_fetch_assoc($result2);
+									$tid = $result2['USER_ID'];
 								}
 								echo"
 								<tr>
 								<td>Vs. ". $result2['USER_NAME'] ."</td>
 								<td>- Your Tokens: ";
-								if($result){
-								if(mysqli_num_rows($result) > 0){
-									while($row2 = mysqli_fetch_assoc($result)){
+								$sql = "SELECT * FROM score, categorylist WHERE categorylist.CATEGORY_ID = score.CATEGORY_ID AND USER_ID = $uid AND SESSION_ID = $sid AND HAS = 1";
+								$scoreResult = mysqli_query($conn, $sql);
+								if($scoreResult){
+								if(mysqli_num_rows($scoreResult) > 0){
+									while($row2 = mysqli_fetch_assoc($scoreResult)){
 										echo"
 										<button> ". $row2['CATEGORY_NAME']  ."</button>
 										";
@@ -173,7 +187,21 @@ Score will be recorded on the leaderboard.
 								}
 								echo"
 								</td>
-								<td>- Their Tokens: 
+								<td>- Their Tokens: ";
+								$sql = "SELECT * FROM score, categorylist WHERE categorylist.CATEGORY_ID = score.CATEGORY_ID AND USER_ID = $tid AND SESSION_ID = $sid AND HAS = 1";
+								$scoreResult2 = mysqli_query($conn, $sql);
+								if($scoreResult2){
+								if(mysqli_num_rows($scoreResult2) > 0){
+									while($row3 = mysqli_fetch_assoc($scoreResult2)){
+										echo"
+										<button> ". $row3['CATEGORY_ID']  ."</button>
+										";
+									}
+								}
+								}else{
+									echo "no tokens";
+								}
+								echo"
 								</td>
 								</tr>
 								";
@@ -188,9 +216,11 @@ Score will be recorded on the leaderboard.
 				<th alight="right">Past Games</th>
 				<th></th>
 				<?php
-						$sql = "SELECT * FROM game_session, score WHERE game_session.USER_ID_WINNER = $uid AND game_session.IS_OVER = 0 AND game_session.SESSION_ID = score.SESSION_ID AND game_session.COURSE_ID = $cid";
+						$sql = "SELECT * FROM game_session WHERE IS_OVER = 0 AND COURSE_ID = $cid AND (USER_ID_1 = $uid OR .USER_ID_2 = $uid)";
 						$result = mysqli_query($conn, $sql);
 						$count = 1;
+						if($result){
+							/*
 						if (mysqli_num_rows($result) > 0) {
 							while($row = mysqli_fetch_assoc($result)) {
 									if($row['USER_ID_2'] == $uid){
@@ -211,6 +241,7 @@ Score will be recorded on the leaderboard.
 								";
 								$count += 1;
 							}
+						}*/
 						}
 				?>
 			</table>
