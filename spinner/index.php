@@ -7,6 +7,7 @@
   $result = mysqli_query($conn, $sql);
   $result = mysqli_fetch_assoc($result);
   $cid = $result['COURSE_ID'];
+  $numC = $result['NUMBER_CORRECT'];
   if($uid == $result['USER_ID_1']){
 	  $tid = $result['USER_ID_2'];
   } else {
@@ -46,7 +47,7 @@
 				<div class="well">
 					<div style="text-align: center;">
 					<?php
-						$sql= "SELECT * FROM score, categorylist WHERE $sid = score.SESSION_ID AND score.USER_ID = $uid AND score.CATEGORY_ID = categorylist.CATEGORY_ID";
+						$sql= "SELECT * FROM score, categorylist WHERE $sid = score.SESSION_ID AND score.USER_ID = $uid AND score.CATEGORY_ID = categorylist.CATEGORY_ID AND score.has = 1";
 						$result = mysqli_query($conn, $sql);
 						if(mysqli_num_rows($result) > 0){
 							while($row = mysqli_fetch_assoc($result)) {
@@ -65,7 +66,7 @@
 							<div style='text-align: center;'>";
 					}
 					 
-						$sql= "SELECT * FROM score, categorylist WHERE $sid = score.SESSION_ID AND score.USER_ID = $tid AND score.CATEGORY_ID = categorylist.CATEGORY_ID";
+						$sql= "SELECT * FROM score, categorylist WHERE $sid = score.SESSION_ID AND score.USER_ID = $tid AND score.CATEGORY_ID = categorylist.CATEGORY_ID AND score.has = 1";
 						$result = mysqli_query($conn, $sql);
 						if(mysqli_num_rows($result) > 0){
 							while($row = mysqli_fetch_assoc($result)) {
@@ -134,11 +135,13 @@
 
 <script>
     var disabled = false;
-    var numberOfCategories = <?php echo $numberOfCategories ?>;
+    var numberOfCategories = <?php echo $numberOfCategories; ?>;
+	var numCount = <?php echo $numC; ?>;
+	var catNum;
     function spinWheel() {
-        if (!disabled) {
+		if (!disabled) {
             disabled = true;
-
+			$('#inner-wheel').removeAttr('style');
             var randomDegree = Math.floor(Math.random() * 360) + 1080;
             document.getElementById('inner-wheel').style.transform = 'rotate(' + randomDegree + 'deg)';
             var degreesPerSection = 360 / numberOfCategories;
@@ -156,6 +159,7 @@
 
     function getQuestion(category) {
         var value = document.getElementById(category).getAttribute('value');
+		catNum = value;
         var color = $("#"+category).css("border-color");
         color = color.substr(0, color.indexOf(')')+1);
         $.ajax({
@@ -208,15 +212,20 @@
             cache: false,
             dataType: "text",
             success: function(result) {
+			
 				var rresult = $.trim(result);
                 if (result.indexOf("yes") > -1) {
+					numCount ++;
                     document.getElementById('modal-body-result').style.color = 'green';
                     document.getElementById('modal-body-result').innerHTML = "Correct!";
                     button.style.borderColor = 'green';
                     button.style.color = 'green';
                     button.style.fontWeight = 'bold';
-					//$('#modal-body-answers').append($("<form action='nextTurn.php' method='POST'><input type='submit' id='nextTurn' value='Next Turn'><input type='hidden' name='sid' value='<?php echo $sid; ?>'><input type='hidden' name='correct' value ='1'><input type='hidden' name='tid' value ='<?php echo $tid; ?>'></form>"));
-					$('#modal-body-answers').append($("<button type='button' class='btn btn-success' onclick='newRound()'>Continue</button><br/>"));
+					if(numCount >= 4){
+						$('#modal-body-answers').append($("<form action='nextTurn.php' method='POST'><input type='submit' id='nextTurn' value='Next Turn'><input type='hidden' name='sid' value='<?php echo $sid; ?>'><input type='hidden' name='correct' value ='1'><input type='hidden' name='tid' value ='<?php echo $tid; ?>'></form>"));
+					}else {
+						$('#modal-body-answers').append($("<button type='button' class='btn btn-success' onclick='newRound()'>Continue</button><br/>"));
+					}
                 } else {
                     document.getElementById('modal-body-result').style.color = 'red';
                     document.getElementById('modal-body-result').innerHTML = 'Wrong';
@@ -230,10 +239,12 @@
                 $("#modal-body-result").animate({
                     fontSize: '50px'
                 });
-            }
-        });
+            
+			}
+        });        
     }
     function newRound() {
+		
         $('#inner-wheel').css({
             WebkitTransition: 'none',
             MozTransition: 'none',
@@ -243,53 +254,30 @@
         });
 		$('#myModal').modal('hide');
         document.getElementById('modal-section').innerHTML = "";
+		document.getElementById('inner-wheel').style.transform = 'none';
 	$.ajax({
             type: "POST",
             url: "nextTurn.php",
-            data: "sid=" + <?php echo $sid; ?> + "&correct=1&tid=" + <?php echo $tid; ?>,
+            data: "sid=" + <?php echo $sid; ?> + "&correct=1&tid=" + <?php echo $tid; ?> + "&category=" + catNum,
             cache: false,
             dataType: "text",
 			success: function(result) {
-            document.getElementById("modal-section").innerHTML = result;
-                $('#myModal').modal({
+				document.getElementById("modal-section").innerHTML = result;
+                if(result == ""){
+					
+					location.replace("10.10.7.88:8080/TriviaCrack/gameInfo.php?cid=<?php echo $cid ?>")
+				}
+				$('#myModal').modal({
                     backdrop: 'static',
                     keyboard: false
                 });
-				var counter = 30;
-                window.modaltimer = setInterval(function() {
-                    document.getElementById('modal-header-timer').innerHTML = counter;
-                    // Display 'counter' wherever you want to display it.
-                    if (counter != 0) {
-                        counter--;
-                    } else {
-                        window.clearInterval(window.modaltimer);
-
-                        $(".modal-body-answer-button"). attr('disabled', 'disabled');
-    		            document.getElementById('modal-body-result').style.color='red';
-    		            document.getElementById('modal-body-result').innerHTML = "Time's Up!";
-    		            $("#modal-body-result").animate({fontSize: '50px'});
-						$('#modal-body-answers').append($("<form action='nextTurn.php' method='POST'><input type='submit' id='endTurn' value='End Turn'><input type='hidden' name='sid' value='<?php echo $sid; ?>'><input type='hidden' name='correct' value ='1'><input type='hidden' name='tid' value ='<?php echo $tid; ?>'></form>"));
-    		            //$('#modal-body-answers').append($("<button type='button' class='btn btn-success' onclick='newRound()'>Continue</button><br/>"));
-                    }
-                }, 1000);
                 $(".modal-body-answer-button").click(function() {
-                    window.clearInterval(window.modaltimer);
-
                     var questionid = document.getElementById("myModal").getAttribute('value');
-                   // checkAnswer(this, this.value, questionid);
+                    getQuestion(this.getAttribute('value'));
                 });
-            },
-
-        });
-		//document.getElementById('test').innerHTML = "<h1>Score: " + urScore + "</h1>";
-
-
-        //document.getElementById('inner-wheel').style.transform = 'none';
-
-        //$('#myModal').modal('hide');
-        //document.getElementById('modal-section').innerHTML = "";
-        //$('#inner-wheel').removeAttr('style');
-        disabled = false;
+            }
+		});
+		disabled = false;	   
     }
 
 	function endRound(){
