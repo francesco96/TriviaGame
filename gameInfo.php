@@ -75,7 +75,7 @@ Score will be recorded on the leaderboard.
 
 		<form action='startSession.php' method='POST'>
 			<input type='hidden' name='cid' value='<?php echo "$cid" ?>'>
-			<center><input type='submit' id='submit' style = 'height:90px;width:350px;font-size:50px;margin-bottom:50px;' value='New Game'></center>
+			<center><input type='submit' name="newGame" id='newGame' style = 'height:90px;width:350px;font-size:50px;margin-bottom:50px;' value='New Game'></center>
 		</form>
 
 		<div class='col-sm-12'>

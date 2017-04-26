@@ -30,7 +30,17 @@ body{
     -webkit-border-radius: 5px;
     border-radius: 5px; 
 }
-
+#newGame {
+	font-family: CartoonRelief;
+	padding:5.5px 15px; 
+    background: Green;
+	font-size: 16px;
+	color:white;
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
 #delete:hover {
     padding:5.5px 15px; 
     background:#C12828;
@@ -47,11 +57,15 @@ table{
 p{
 	font-family: Arial;
 }
+input{
+	font-family: Arial;
+}
 th{
 	text-align: center;
 	font-family: CartoonRelief;
 	font-size: 40px;
 }
+
 h1{
 	font-family: CartoonRelief; 
 	color: Black;
