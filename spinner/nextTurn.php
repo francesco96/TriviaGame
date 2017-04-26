@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		if($numCorrect == 4){
 			$tokens ++;
 			$sql = "UPDATE score SET HAS = 1 WHERE SESSION_ID='$sid' AND CATEGORY_ID = '$catId' AND USER_ID = '$uid'";
-			echo $sql;
+			//echo $sql;
 			mysqli_query($conn, $sql);
 			//$sql = "UPDATE game_session SET NUMBER_CORRECT = $numCorrect WHERE SESSION_ID='$sid'";
 			//mysqli_query($conn, $sql);
@@ -50,12 +50,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		}else if ($numCorrect == 3){
 			$sql = "UPDATE game_session SET NUMBER_CORRECT = $numCorrect WHERE SESSION_ID='$sid'";
 			mysqli_query($conn, $sql);
-			$sql = "SELECT * FROM categorylist, score WHERE categorylist.COURSE_ID = $cid AND score.USER_ID = $uid AND score.HAS = 0 AND score.SESSION_ID = $sid AND score.CATEGORY_ID = categorylist.CATEGORY_ID";
+			$sql = "SELECT * FROM categorylist, score WHERE categorylist.COURSE_ID = $cid AND score.USER_ID = $uid AND score.SESSION_ID = $sid AND score.CATEGORY_ID = categorylist.CATEGORY_ID";
 			$result = mysqli_query($conn, $sql);
 			$i = 1;	
 			if (mysqli_num_rows($result) > 0) {
 				while($row = mysqli_fetch_assoc($result)) {
-					$choices .= "<button type='button' class='form-control modal-body-answer-button' id='$i' value='". $row['CATEGORY_ID'] ."'>". $row['CATEGORY_NAME'] ."</button><br/>";
+					if($row['HAS'] == 0){
+						$choices .= "<button type='button' class='form-control modal-body-answer-button' id='$i' value='". $row['CATEGORY_ID'] ."'onClick='getQuestion(this.id)'>". $row['CATEGORY_NAME'] ."</button><br/>";
+					}
 					$i++;
 				}
 			}

@@ -158,6 +158,7 @@
 
     function getQuestion(category) {
         var value = document.getElementById(category).getAttribute('value');
+		console.log(value);
 		catNum = value;
         var color = $("#"+category).css("border-color");
         color = color.substr(0, color.indexOf(')')+1);
@@ -271,8 +272,8 @@
                     keyboard: false
                 });
                 $(".modal-body-answer-button").click(function() {
-                    var questionid = document.getElementById("myModal").getAttribute('value');
-                    getQuestion(this.getAttribute('id'));
+                    //var questionid = document.getElementById("myModal").getAttribute('value');
+                    //getQuestion(this.getAttribute('id'));
                 });
             }
 		});
