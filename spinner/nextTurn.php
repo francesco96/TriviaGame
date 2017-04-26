@@ -42,8 +42,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				header("Location: ../winner.php");
 			mysqli_query($conn, $sql);
 			}else {
-				$sql = "UPDATE game_session SET USER_ID_WINNER = ". $tid ." WHERE SESSION_ID='$sid'";
-				mysqli_query($conn, $sql);
+				//$sql = "UPDATE game_session SET USER_ID_WINNER = ". $tid ." WHERE SESSION_ID='$sid'";
+				//mysqli_query($conn, $sql);
 				header("Location: index.php?sid=$sid");
 			}
 			
