@@ -42,13 +42,14 @@
                 </div>
             </div>
 			<div class ="row">
-				<div class="col-sm-4" id="urScore">
+				<div class="col-sm-3" id="urScore">
 					
 				<div class="well">
 					<div style="text-align: center;">
 					<?php
 						$sql= "SELECT * FROM score, categorylist WHERE $sid = score.SESSION_ID AND score.USER_ID = $uid AND score.CATEGORY_ID = categorylist.CATEGORY_ID AND score.has = 1";
 						$result = mysqli_query($conn, $sql);
+						echo "<h2>Your Tokens: </h2>";
 						if(mysqli_num_rows($result) > 0){
 							while($row = mysqli_fetch_assoc($result)) {
 								echo "<button class ='button' disabled> ". $row['CATEGORY_NAME'] ."</button> \n";
@@ -58,28 +59,11 @@
 					</div>
 					</div>
 				</div>
-				<div class="col-sm-4" id="emptyScore"></div>
-				<div class="col-sm-4" id="theirScore">
-					<?php
-					if($tid != 0){
-						echo"<div class='well'>
-							<div style='text-align: center;'>";
-					}
-					 
-						$sql= "SELECT * FROM score, categorylist WHERE $sid = score.SESSION_ID AND score.USER_ID = $tid AND score.CATEGORY_ID = categorylist.CATEGORY_ID AND score.has = 1";
-						$result = mysqli_query($conn, $sql);
-						if(mysqli_num_rows($result) > 0){
-							while($row = mysqli_fetch_assoc($result)) {
-								echo "<button class ='button' disabled> ". $row['CATEGORY_NAME'] ."</button> \n";
-							}
-						}
-					?>
-					</div>
-					</div>
-				</div>
-			</div>
-            <div class="row">
-                <div class="col-sm-12" id="gameTitle">
+				
+			<!-- </div> -->
+           
+            <div class="col-sm-6" id="gameTitle">
+				<div class="row">
                     <?php
                         $gameinfo = $conn->query("SELECT DISTINCT course.TITLE, categorylist.CATEGORY_NAME, categorylist.CATEGORY_ID FROM course JOIN categorylist ON course.COURSE_ID = categorylist.COURSE_ID WHERE course.COURSE_ID = $cid");
                         //$conn->close();
@@ -88,12 +72,9 @@
                     ?>
                     <h1><?php echo $gamename; ?></h1>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-3">
-                    <!-- Spinner Section Left Side -->
-                </div>
-                <div class="col-sm-6">
+            <!-- </div> -->
+            <!-- <div class="row"> -->
+                <!-- <div class="col-sm-4">-->
                     <div id="wheel">
                         <div id="inner-wheel">
                             <?php
@@ -122,10 +103,28 @@
                             <div id="inner-spin"></div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-3">
+            </div> 
+				<div class="col-sm-3" id="theirScore">
+					<?php
+						echo"<div class='well'>
+							<div style='text-align: center;'>";
+					
+					 
+						$sql= "SELECT * FROM score, categorylist WHERE $sid = score.SESSION_ID AND score.USER_ID = $tid AND score.CATEGORY_ID = categorylist.CATEGORY_ID AND score.has = 1";
+						$result = mysqli_query($conn, $sql);
+						echo "<h2>Their Tokens: </h2>";
+						if(mysqli_num_rows($result) > 0){
+							while($row = mysqli_fetch_assoc($result)) {
+								echo "<button class ='button' disabled> ". $row['CATEGORY_NAME'] ."</button> \n";
+							}
+						}
+					?>
+					</div>
+					</div>
+				</div>
+                
                     <!-- Spinner Section Right Side -->
-                </div>
+                
             </div>
             <h1 id="test"><!-- Used for testing purposes --></h1>
             <div id="modal-section"><!-- The Question Popup Will Be Generated In This Section --></div>
@@ -188,7 +187,7 @@
     		            document.getElementById('modal-body-result').style.color='red';
     		            document.getElementById('modal-body-result').innerHTML = "Time's Up!";
     		            $("#modal-body-result").animate({fontSize: '50px'});
-						$('#modal-body-answers').append($("<form action='nextTurn.php' method='POST'><input type='submit' id='endTurn' value='End Turn'><input type='hidden' name='sid' value='<?php echo $sid; ?>'><input type='hidden' name='correct' value ='1'><input type='hidden' name='tid' value ='<?php echo $tid; ?>'></form>"));
+						$('#modal-body-answers').append($("<form action='nextTurn.php' method='POST'><input type='submit' id='endTurn' value='End Turn'><input type='hidden' name='category' value=" + catNum  + "><input type='hidden' name='sid' value='<?php echo $sid; ?>'><input type='hidden' name='correct' value ='0'><input type='hidden' name='tid' value ='<?php echo $tid; ?>'></form>"));
     		            //$('#modal-body-answers').append($("<button type='button' class='btn btn-success' onclick='newRound()'>Continue</button><br/>"));
                     }
                 }, 1000);
@@ -232,7 +231,7 @@
                     button.style.borderColor = 'red';
                     button.style.color = 'red';
                     button.style.fontWeight = 'bold';
-					$('#modal-body-answers').append($("<form action='nextTurn.php' method='POST'><input type='submit' id='endTurn' value='End Turn'><input type='hidden' name='sid' value='<?php echo $sid; ?>'><input type='hidden' name='correct' value ='0'><input type='hidden' name='tid' value ='<?php echo $tid; ?>'></form>"));
+					$('#modal-body-answers').append($("<form action='nextTurn.php' method='POST'><input type='submit' id='endTurn' value='End Turn'><input type='hidden' name='sid' value='<?php echo $sid; ?>'><input type='hidden' name='category' value=" + catNum  + "><input type='hidden' name='correct' value ='0'><input type='hidden' name='tid' value ='<?php echo $tid; ?>'></form>"));
 
 					//<button type='button' class='btn btn-danger' onclick='endRound()'>End Turn</button><br/>"));
                 }

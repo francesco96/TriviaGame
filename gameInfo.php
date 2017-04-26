@@ -75,7 +75,7 @@ Score will be recorded on the leaderboard.
 
 		<form action='startSession.php' method='POST'>
 			<input type='hidden' name='cid' value='<?php echo "$cid" ?>'>
-			<center><input type='submit' id='submit' style = 'height:90px;width:250px;font-size:50px;margin-bottom:50px;' value='Play'></center>
+			<center><input type='submit' id='submit' style = 'height:90px;width:350px;font-size:50px;margin-bottom:50px;' value='New Game'></center>
 		</form>
 
 		<div class='col-sm-12'>
@@ -106,14 +106,14 @@ Score will be recorded on the leaderboard.
 								}
 								echo"
 								<tr>
-								<td>Vs. $tid</td>
+								<td>Vs. ". $result2['USER_NAME'] ."</td>
 								<td>- Your Tokens: ";
 								$sql = "SELECT * FROM score, categorylist WHERE categorylist.CATEGORY_ID = score.CATEGORY_ID AND USER_ID = $uid AND SESSION_ID = $sid AND HAS = 1";
 								$scoreResult = mysqli_query($conn, $sql);
 								if(mysqli_num_rows($scoreResult) > 0){
 									while($row2 = mysqli_fetch_assoc($scoreResult)){
 										echo"
-										<button> ". $row2['CATEGORY_NAME']  ."</button>
+										<button class ='button' disabled> ". $row2['CATEGORY_NAME']  ."</button>
 										";
 									}
 								}else {
@@ -128,7 +128,8 @@ Score will be recorded on the leaderboard.
 								if(mysqli_num_rows($scoreResult2) > 0){
 									while($row3 = mysqli_fetch_assoc($scoreResult2)){
 										echo"
-										<button> ". $row3['CATEGORY_ID']  ."</button>
+}
+										<button class ='button' disabled> ". $row3['CATEGORY_NAME']  ."</button>
 										";
 									}
 								//}
@@ -179,7 +180,8 @@ Score will be recorded on the leaderboard.
 								if(mysqli_num_rows($scoreResult) > 0){
 									while($row2 = mysqli_fetch_assoc($scoreResult)){
 										echo"
-										<button> ". $row2['CATEGORY_NAME']  ."</button>
+										
+										<button class ='button' disabled> ". $row2['CATEGORY_NAME']  ."</button>
 										";
 									}
 								}else {
@@ -196,7 +198,7 @@ Score will be recorded on the leaderboard.
 								if(mysqli_num_rows($scoreResult2) > 0){
 									while($row3 = mysqli_fetch_assoc($scoreResult2)){
 										echo"
-										<button> ". $row3['CATEGORY_ID']  ."</button>
+										<button class ='button' disabled> ". $row3['CATEGORY_ID']  ."</button>
 										";
 									}
 								}else {
@@ -220,32 +222,33 @@ Score will be recorded on the leaderboard.
 				<th alight="right">Past Games</th>
 				<th></th>
 				<?php
-						$sql = "SELECT * FROM game_session WHERE IS_OVER = 0 AND COURSE_ID = $cid AND (USER_ID_1 = $uid OR .USER_ID_2 = $uid)";
+						$sql = "SELECT * FROM game_session WHERE IS_OVER = 0 AND COURSE_ID = $cid AND (USER_ID_1 = $uid OR USER_ID_2 = $uid)";
 						$result = mysqli_query($conn, $sql);
 						$count = 1;
 						if($result){
-							/*
 						if (mysqli_num_rows($result) > 0) {
 							while($row = mysqli_fetch_assoc($result)) {
-									if($row['USER_ID_2'] == $uid){
-									$sql = "SELECT * FROM score WHERE ". $row['SESSION_ID'] ." = score.SESSION_ID AND ". $row['USER_ID_1'] ." = score.USER_ID";
+								if($row['USER_ID_2'] == $uid){
+									$sql = "SELECT * FROM user WHERE user.USER_ID = ". $row['USER_ID_1'];
 									$result2 = mysqli_query($conn, $sql);
 									$result2 = mysqli_fetch_assoc($result2);
+									$tid = $result2['USER_ID'];
 								}else {
-									$sql = "SELECT * FROM score WHERE ". $row['SESSION_ID'] ." = score.SESSION_ID AND ". $row['USER_ID_2'] ." = score.USER_ID";
+									$sql = "SELECT * FROM user WHERE user.USER_ID = ". $row['USER_ID_2'];
 									$result2 = mysqli_query($conn, $sql);
 									$result2 = mysqli_fetch_assoc($result2);
+									$tid = $result2['USER_ID'];
 								}
 								echo"
 								<tr>
-								<td>Vs. ". $row['USER_ID_2'] ."</td>
+								<td>Vs. ". $result2['USER_NAME'] ."</td>
 								<td>-  Score: </td>
 								<td>- Their Score: </td>
 								</tr>
 								";
 								$count += 1;
 							}
-						}*/
+						}
 						}
 				?>
 			</table>
