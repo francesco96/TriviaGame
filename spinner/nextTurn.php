@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			if($tokens == $maxTokens){
 				$sql = "UPDATE game_session SET IS_OVER = 0 WHERE SESSION_ID='$sid'";
 				mysqli_query($conn, $sql);
-				header("Location: ../winner.php");
+				header("Location: ../winner.php?cid=$sid");
 			mysqli_query($conn, $sql);
 			}else {
 				//$sql = "UPDATE game_session SET USER_ID_WINNER = ". $tid ." WHERE SESSION_ID='$sid'";

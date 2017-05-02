@@ -8,6 +8,7 @@
   $result = mysqli_fetch_assoc($result);
   $cid = $result['COURSE_ID'];
   $numC = $result['NUMBER_CORRECT'];
+  $colors = ["#1abc9c", "#2ecc71", "#3498db", "#9b59b6", "#f1c40f", "#e67e22", "#e74c3c", "#ecf0f1", "#16a085", "#27ae60", "#2980b9", "#8e44ad", "#f39c12", "#d35400", "#c0392b", "#bdc3c7"];
   if($uid == $result['USER_ID_1']){
 	  $tid = $result['USER_ID_2'];
   } else {
@@ -47,12 +48,16 @@
 				<div class="well">
 					<div style="text-align: center;">
 					<?php
-						$sql= "SELECT * FROM score, categorylist WHERE $sid = score.SESSION_ID AND score.USER_ID = $uid AND score.CATEGORY_ID = categorylist.CATEGORY_ID AND score.has = 1";
+						$sql= "SELECT * FROM score, categorylist WHERE $sid = score.SESSION_ID AND score.USER_ID = $uid AND score.CATEGORY_ID = categorylist.CATEGORY_ID";
 						$result = mysqli_query($conn, $sql);
 						echo "<h2>Your Tokens: </h2>";
 						if(mysqli_num_rows($result) > 0){
+							$t = 0;
 							while($row = mysqli_fetch_assoc($result)) {
-								echo "<button class ='button' disabled> ". $row['CATEGORY_NAME'] ."</button> \n";
+								$t++;
+								if(($row['HAS']) == 1){
+									echo "<button class ='button' style = 'background-color:$colors[$t];border-radius: 60px;' disabled> ". $row['CATEGORY_NAME'] ."</button> \n";
+								}
 							}
 						}
 					?>
@@ -79,7 +84,6 @@
                         <div id="inner-wheel">
                             <?php
                                 $numberOfCategories = $gameinfo->num_rows;
-                                $colors = ["#1abc9c", "#2ecc71", "#3498db", "#9b59b6", "#f1c40f", "#e67e22", "#e74c3c", "#ecf0f1", "#16a085", "#27ae60", "#2980b9", "#8e44ad", "#f39c12", "#d35400", "#c0392b", "#bdc3c7"];
                                 $apothem = 250;
                                 $base = (2 * $apothem) * tan(deg2rad(180 / $numberOfCategories));
                                 $borderWidth = "border-width:" . $apothem . "px " . ($base / 2) . "px 0 " . ($base / 2) . "px;";
@@ -110,12 +114,16 @@
 							<div style='text-align: center;'>";
 					
 					 
-						$sql= "SELECT * FROM score, categorylist WHERE $sid = score.SESSION_ID AND score.USER_ID = $tid AND score.CATEGORY_ID = categorylist.CATEGORY_ID AND score.has = 1";
+						$sql= "SELECT * FROM score, categorylist WHERE $sid = score.SESSION_ID AND score.USER_ID = $tid AND score.CATEGORY_ID = categorylist.CATEGORY_ID";
 						$result = mysqli_query($conn, $sql);
 						echo "<h2>Their Tokens: </h2>";
 						if(mysqli_num_rows($result) > 0){
+							$t = 0;
 							while($row = mysqli_fetch_assoc($result)) {
-								echo "<button class ='button' disabled> ". $row['CATEGORY_NAME'] ."</button> \n";
+								$t++;
+								if(($row['HAS']) == 1){
+									echo "<button class ='button' style = 'background-color:$colors[$t];border-radius: 60px;' disabled> ". $row['CATEGORY_NAME'] ."</button> \n";
+								}
 							}
 						}
 					?>
@@ -188,7 +196,7 @@
     		            document.getElementById('modal-body-result').style.color='red';
     		            document.getElementById('modal-body-result').innerHTML = "Time's Up!";
     		            $("#modal-body-result").animate({fontSize: '50px'});
-						$('#modal-body-answers').append($("<form action='nextTurn.php' method='POST'><input type='submit' id='endTurn' value='End Turn'><input type='hidden' name='category' value=" + catNum  + "><input type='hidden' name='sid' value='<?php echo $sid; ?>'><input type='hidden' name='correct' value ='0'><input type='hidden' name='tid' value ='<?php echo $tid; ?>'></form>"));
+						$('#modal-body-answers').append($("<form action='nextTurn.php' method='POST'><input type='submit' id='endTurn' value='Continue'><input type='hidden' name='category' value=" + catNum  + "><input type='hidden' name='sid' value='<?php echo $sid; ?>'><input type='hidden' name='correct' value ='0'><input type='hidden' name='tid' value ='<?php echo $tid; ?>'></form>"));
     		            //$('#modal-body-answers').append($("<button type='button' class='btn btn-success' onclick='newRound()'>Continue</button><br/>"));
                     }
                 }, 1000);
@@ -222,7 +230,7 @@
                     button.style.color = 'green';
                     button.style.fontWeight = 'bold';
 					if(numCount >= 4){
-						$('#modal-body-answers').append($("<form action='nextTurn.php' method='POST'><input type='submit' id='nextTurn' value='Next Turn'><input type='hidden' name='sid' value='<?php echo $sid; ?>'><input type='hidden' name='category' value=" + catNum  + "><input type='hidden' name='correct' value ='1'><input type='hidden' name='tid' value ='<?php echo $tid; ?>'></form>"));
+						$('#modal-body-answers').append($("<form action='nextTurn.php' method='POST'><input type='submit' id='nextTurn' value='Continue'><input type='hidden' name='sid' value='<?php echo $sid; ?>'><input type='hidden' name='category' value=" + catNum  + "><input type='hidden' name='correct' value ='1'><input type='hidden' name='tid' value ='<?php echo $tid; ?>'></form>"));
 					}else {
 						$('#modal-body-answers').append($("<button type='button' class='btn btn-success' onclick='newRound()'>Continue</button><br/>"));
 					}

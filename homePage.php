@@ -98,13 +98,14 @@
 							$gamePics = ['img/marist_pic3.jpg', 'img/marist_pic2.jpg', 'img/marist_pic.jpg'];
                             if (mysqli_num_rows($result) > 0) {
 								while($row = mysqli_fetch_assoc($result)) {
+									
 									echo "
 									<div class='col-sm-6 col-md-3'>
 										<div class='thumbnail'>
 										<img src= 'img/marist_pic3.jpg'>
 											<div class='caption'>
 												<h3>".$row['TITLE']."</h3>
-												<p>".$row['DESCRIPTION']."</p>
+												<p>". substr($row['DESCRIPTION'],0,100) ."...</p>
 												<p><div class='col-sm-3'>
 													<a href='gameInfo.php?cid=".$row['COURSE_ID']."' class='btn btn-success' role='button'>Play</a>
 												</div>";
