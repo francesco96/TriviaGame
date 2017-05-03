@@ -22,19 +22,20 @@ Peter Sofronas
 	$sql = "SELECT * FROM game_session Where SESSION_ID = $sid";
 	$result = mysqli_query($conn, $sql);
 	$result = mysqli_fetch_assoc($result);
-	$cid = $result['COURSE_ID'];
+	$cid = $result['COURSE_ID']; //Gets the course ID
+	//selects the other user information
 	if($result['USER_ID_2'] == $uid){
 		$sql = "SELECT * FROM user WHERE user.USER_ID = ". $result['USER_ID_1'];
 		$result2 = mysqli_query($conn, $sql);
 		$result2 = mysqli_fetch_assoc($result2);
-		$tid = $result2['USER_ID'];
-		$tname = $result2['USER_NAME'];
+		$tid = $result2['USER_ID']; //Gets the other user ID
+		$tname = $result2['USER_NAME']; //Gets the other username
 	}else {
 		$sql = "SELECT * FROM user WHERE user.USER_ID = ". $result['USER_ID_2'];
 		$result2 = mysqli_query($conn, $sql);
 		$result2 = mysqli_fetch_assoc($result2);
-		$tid = $result2['USER_ID'];
-		$tname = $result2['USER_NAME'];
+		$tid = $result2['USER_ID']; //Gets the other user ID
+		$tname = $result2['USER_NAME']; //Gets the other username
 	}
 	?>
 
