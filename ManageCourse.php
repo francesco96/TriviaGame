@@ -291,7 +291,7 @@
 									</div>
 								</div>
 							</div>
-						<a type="button" href="homepage.php" class="btn btn-success">Done</a>
+						<a type="button" href="homePage.php" class="btn btn-success">Done</a>
 			</div>
 		</div>
 		</div>
