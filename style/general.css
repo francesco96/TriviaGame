@@ -1,4 +1,4 @@
-@font-face { font-family: CartoonRelief; src: url('Bushaff.otf'); } 
+@font-face { font-family: CartoonRelief; src: url('CartoonRelief.ttf'); }
 		/*img:hover {
    			color: black;
    			border: 0.1px solid #e5e5e5;
@@ -32,7 +32,7 @@ body{
 }
 #newGame {
 	font-family: CartoonRelief;
-	padding:5.5px 15px; 
+	padding:5.5px 15px;
     background: Green;
 	font-size: 16px;
 	color:white;

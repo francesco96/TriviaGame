@@ -1,4 +1,4 @@
-@font-face { font-family: CartoonRelief; src: url('CartoonRelief.ttf'); } 
+@font-face { font-family: CartoonRelief; src: url('Bushaff.otf'); }
 
 body{
 	font-face: "Comic sans MS";
@@ -9,7 +9,7 @@ body{
     background-position: center;
     background-size: cover;
 	max-height: 300vh;
-    min-height: 100vh;    
+    min-height: 100vh;
 }
 .text-vertical-center {
     display: table-cell;
