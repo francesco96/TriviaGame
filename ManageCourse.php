@@ -291,7 +291,20 @@
 									</div>
 								</div>
 							</div>
-						<a type="button" href="homePage.php" class="btn btn-success">Done</a>
+						<div class="col-sm-12" align="center">
+						<?php						
+						if(6 > 5){ //checks to see if there is a question for each category
+							echo"
+								<p>Please Put Atleast One Question For Ever Category</p>
+							";
+						}else {
+						echo "
+						<a type='button' href='homePage.php' class='btn btn-primary'>Done</a>
+						";
+						}
+						?>
+						</div>
+						</br>
 			</div>
 		</div>
 		</div>
