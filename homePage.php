@@ -109,7 +109,7 @@
 												<p><div class='col-sm-3'>
 													<a href='gameInfo.php?cid=".$row['COURSE_ID']."' class='btn btn-success' role='button'>Play</a>
 												</div>";
-											if($userRole < 1){
+											if($userRole < 1 && $row['USER_ID'] == $userID){
 												echo"
 												<div class='col-sm-3'>
 													<a href='ManageCourse.php?cid=".$row['COURSE_ID']."' class='btn btn-primary' role='button'>Edit</a>
@@ -121,10 +121,11 @@
 													</form>
 												</div>
 												</p>
-												<br>
+												
 												";
 											}
 											echo"
+											<br>
 											</div>
 										</div>
 									</div>";

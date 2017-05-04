@@ -79,7 +79,17 @@
 						<input type="hidden" value="<?php echo"$numCat"; ?>" name="numcat">
 						<input type="submit" value="Done">
 						</form> -->
-						<?php echo"<a href='ManageCourse.php?cid=".$cid."' class='btn btn-primary' role='button'>Done</a>"; ?>
+						
+						<?php 
+						if($numCat >= 3){
+							echo"
+							<a href='ManageCourse.php?cid=".$cid."' class='btn btn-primary' role='button'>Done</a>";
+						}else {
+							echo"
+							<p>Please Enter Atleast 3 Categories </p>
+							";
+						}
+						?>
 					</div>
 				</div>
 	</div>    

@@ -30,6 +30,16 @@ body{
     -webkit-border-radius: 5px;
     border-radius: 5px;
 }
+#done {
+	padding:5.5px 15px;
+    background: #3366ff;
+	font-size: 16px;
+	color: white;
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
 #newGame {
 	font-family: CartoonRelief;
 	padding:5.5px 15px;
@@ -53,6 +63,7 @@ body{
 }
 table{
 	width: 100%;
+	font-family: Arial;
 }
 p{
 	font-family: Arial;
@@ -62,7 +73,7 @@ input{
 }
 th{
 	text-align: center;
-	font-family: CartoonRelief;
+	font-family: Arial;
 	font-size: 40px;
 }
 
