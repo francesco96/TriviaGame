@@ -25,11 +25,12 @@ to the database.
 		$errors = array();
 		$cn = $_POST['CourseName'];
 		$d = $_POST['description'];
+		$n = rand(0,7);
 		$sql = "";
 		echo"$cn $d";
 		if($cn){
 			if($d){
-			$sql = "INSERT INTO triviacrack.course (TITLE, USER_ID, DESCRIPTION) VALUES ('$cn', '2', '$d')";
+			$sql = "INSERT INTO triviacrack.course (TITLE, USER_ID, DESCRIPTION, IMAGE) VALUES ('$cn', '2', '$d', '$n')";
 			mysqli_query($conn, $sql);
 			$cid = $conn->insert_id;
 			header("Location:setCategory.php?cid=$cid");

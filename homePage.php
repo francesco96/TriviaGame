@@ -5,7 +5,7 @@
 	$userN = $_SESSION['username'];
 	$userRole = $_SESSION['role'];
 	$userID = $_SESSION['userId'];
-	$gamePics = ['img/marist_pic.jpg', 'img/marist_pic4.jpg', 'img/Dyson.jpg', 'img/Fontaine.jpg', 'img/Library.jpg', 'img/Lowell Thomas.jpg', 'img/Rotunda.jpg' ];
+	$gamePics = ['img/marist_pic.jpg', 'img/marist_pic4.jpg', 'img/Dyson.jpg', 'img/Fontaine.jpg', 'img/Library.jpg', 'img/Lowell Thomas.jpg', 'img/Rotunda.jpg', 'img/marist_pic3.jpg' ];
 	//Landing page
 ?>
 <!DOCTYPE html>
