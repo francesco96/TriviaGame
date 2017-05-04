@@ -126,9 +126,8 @@
                   <tr>
                     <td>$row[USER_NAME]</td>
                     <td align='center'>
-                    <form action='addStudents.php' method='POST'>
+                    <form action='reportcard.php' method='POST'>
                     <input type='hidden' name='uid' value='$row[USER_ID]'>
-                    <input type='hidden' name='cid' value='$cid'>
                     <input type='submit' id='add' value='Add'>
                     </form>
                     </td>

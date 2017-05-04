@@ -2,8 +2,8 @@
 	//page title
 	$title = 'ManageCourse';
 	include('db.php');
-	//session_start()
-	$userN = $_SESSION['username'];
+	$userN = $_SESSION['username']; // Gets the username
+	$uid = $_SESSION['userId']; // Gets the userID
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -91,17 +91,26 @@
 						<br>
 						<form>
 							<table>
-							  <tr>
-									<!-- select COURSE_NAME, FROM triviacrack.course WHERE USER_ID = -->
-							    <th width="90px">Class</th>
-							    <th width="110px">Games Played</th> <!-- -->
-							    <th width="90px">Win Rate</th>
-							    <th width="90px">In Class</th>
-							    <th width="150px">On-Going Games</th>
-							  </tr>
-							  <tr align="center">
-							    <td>PHY 101</td>
-							    <td>30</td>
+						  <tr>
+								<!-- select COURSE_NAME, FROM triviacrack.course WHERE USER_ID = -->
+						    <th width="90px">Class</th>
+						    <th width="110px">Games Played</th> <!-- -->
+						    <th width="90px">Win Rate</th>
+						    <th width="90px">In Class</th>
+						    <th width="150px">On-Going Games</th>
+						  </tr>
+						  <tr align="center">
+								<?php
+									echo "<td>";
+									$sql = "SELECT COURSE_ID FROM course WHERE USER_ID = $uid ";
+									$result = mysqli_query($conn, $sql);
+									while($row = mysqli_fetch_assoc($result)) {
+										$uid = $row['COURSE_ID'];
+									}
+									echo ($uid);
+									echo "</td>";
+									?>
+								<td>30</td>
 							    <td>72%</td>
 							    <td>YES</td>
 							    <td>NO</td>
