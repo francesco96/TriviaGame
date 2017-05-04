@@ -4,6 +4,16 @@
 	include('db.php');
 	$userN = $_SESSION['username']; // Gets the username
 	$uid = $_SESSION['userId']; // Gets the userID
+	if(isset($_POST['passwordReset'])){
+		$uinfo = $conn->query("SELECT USER_PASSWORD FROM USER WHERE USER_ID=$uid");
+		$uinfo = $uinfo->fetch_assoc();
+		$passwordSuccess = false;
+		if(password_verify($_POST['currentPassword'], $uinfo['USER_PASSWORD'])){
+			$passwordSuccess = true;
+			$newPassword = password_hash($_POST["newPassword"], PASSWORD_DEFAULT);
+			$conn->query("UPDATE USER SET USER_PASSWORD = '$newPassword' WHERE USER_ID=$uid");
+		}
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -88,6 +98,15 @@
 		</div>
 		<div class="row">
 			<div class="well well-lg">
+				<?php
+					if(isset($_POST['passwordReset']) && $passwordSuccess == true){
+						echo "<div class='alert alert-success'><strong>Success!</strong> Your password has been reset.</div>";
+					}else if(isset($_POST['passwordReset']) && $passwordSuccess == false){
+						echo "<div class='alert alert-danger'><strong>Sorry,</strong> you entered the wrong password.</div>";
+					}
+				 ?>
+				<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#passwordModal">Reset Your Password</button>
+				<a href="logout.php"><button type="button" class="btn btn-success">Logout</button></a>
 						<br>
 							<table>
 							  <tr>
@@ -117,9 +136,37 @@
 							</tr>
 							</table>
 
-							<div id="myModal" class="modal">
+							<div class="modal fade" id="passwordModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Reset Your Password</h4>
+        </div>
+        <div class="modal-body">
+          <form action="ProfilePage.php" method="post">
+						<div class="form-group">
+							<label for="currentPassword">Your Current Password</label>
+							<input class="form-control" type="password" name="currentPassword" placeholder="Current Password">
+						</div>
+						<div>
+							<label for="newPassword">Your New Password</label>
+							<input class="form-control" type="password" name="newPassword" placeholder="New Password">
+						</div>
+						<div class="form-group">
 
 						</div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-default" name="passwordReset">Save</button>
+        </div>
+				</form>
+      </div>
+
+    </div>
+  </div>
 					</div>
 		</div>
 	</div>
