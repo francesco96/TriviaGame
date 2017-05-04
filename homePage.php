@@ -5,6 +5,7 @@
 	$userN = $_SESSION['username'];
 	$userRole = $_SESSION['role'];
 	$userID = $_SESSION['userId'];
+	$gamePics = ['img/marist_pic.jpg', 'img/marist_pic4.jpg', 'img/Dyson.jpg', 'img/Fontaine.jpg', 'img/Library.jpg', 'img/Lowell Thomas.jpg', 'img/Rotunda.jpg' ];
 	//Landing page
 ?>
 <!DOCTYPE html>
@@ -95,18 +96,17 @@
                             $sql = "SELECT * FROM triviacrack.course;";
 							$result = mysqli_query($conn, $sql);
 							$numberOfGames = mysqli_num_rows($result);
-							$gamePics = ['img/marist_pic3.jpg', 'img/marist_pic2.jpg', 'img/marist_pic.jpg'];
                             if (mysqli_num_rows($result) > 0) {
 								while($row = mysqli_fetch_assoc($result)) {
-									
+									$pic = $row['IMAGE'];
 									echo "
 									<div class='col-sm-6 col-md-3'>
 										<div class='thumbnail'>
-										<img src= 'img/marist_pic3.jpg'>
+										<img src= '$gamePics[$pic]'>
 											<div class='caption'>
 												<h3>".$row['TITLE']."</h3>
-												<p>". substr($row['DESCRIPTION'],0,100) ."...</p>
-												<p><div class='col-sm-3'>
+												<p>". substr($row['DESCRIPTION'],0,50) ."...</p>
+												<div class='col-sm-3'>
 													<a href='gameInfo.php?cid=".$row['COURSE_ID']."' class='btn btn-success' role='button'>Play</a>
 												</div>";
 											if($userRole < 1 && $row['USER_ID'] == $userID){
@@ -120,7 +120,7 @@
 													<input type='submit' id='delete' value='Delete'>
 													</form>
 												</div>
-												</p>
+												
 												
 												";
 											}
