@@ -44,7 +44,7 @@ or description, for example.
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Add Course</title>
+    <title>Edit Course</title>
 
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -69,7 +69,7 @@ or description, for example.
         </div>
         <!-- Page Header -->
 		<div class="page-header text-center" id="pg_header">
-			<h1>Manage Course<br /></h1>
+			<h1>Edit Course<br /></h1>
 		</div>
 		<div class="row">
 			<div class="well well-lg">
