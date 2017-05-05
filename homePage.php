@@ -92,13 +92,13 @@
 		</div>
 		<div class="row">
 		<?php
-                            $sql = "SELECT * FROM triviacrack.course;";
+              $sql = "SELECT * FROM triviacrack.course;";
 							$result = mysqli_query($conn, $sql);
 							$numberOfGames = mysqli_num_rows($result);
 							$gamePics = ['img/marist_pic3.jpg', 'img/marist_pic2.jpg', 'img/marist_pic.jpg'];
                             if (mysqli_num_rows($result) > 0) {
 								while($row = mysqli_fetch_assoc($result)) {
-									
+
 									echo "
 									<div class='col-sm-6 col-md-3'>
 										<div class='thumbnail'>
@@ -121,7 +121,7 @@
 													</form>
 												</div>
 												</p>
-												
+
 												";
 											}
 											echo"

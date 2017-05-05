@@ -64,7 +64,7 @@
 
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link href="style/general.css" rel="stylesheet" type="text/css">
 
 
@@ -88,39 +88,36 @@
 		</div>
 		<div class="row">
 			<div class="well well-lg">
-						<br>
-							<table>
-							  <tr>
-									<!-- select COURSE_NAME, FROM triviacrack.course WHERE USER_ID = -->
-							    <th width="90px">Class</th>
-							    <th width="110px">Games Played</th> <!-- -->
-							    <th width="90px">Win Rate</th>
-							    <th width="90px">In Class</th>
-							    <th width="150px">On-Going Games</th>
-							  </tr>
-								<?php
-									$conn->query("SET @user_id = ".$_SESSION['userId'].";");
-									$profileInfo = $conn->query("SELECT COURSE.TITLE, COUNT(GAME_SESSION.SESSION_ID) AS GAMES_PLAYED, (COUNT(CASE GAME_SESSION.USER_ID_WINNER WHEN @user_id THEN 1 ELSE NULL END)/COUNT(GAME_SESSION.SESSION_ID))*100 AS WIN_RATE, (SELECT CASE WHEN TAKES.USER_ID IS NOT NULL THEN 'YES' ELSE 'NO' END FROM TAKES WHERE COURSE.COURSE_ID = TAKES.COURSE_ID AND TAKES.USER_ID=@user_id) AS TAKES, COUNT(CASE GAME_SESSION.IS_OVER WHEN 0 THEN 1 ELSE NULL END) AS ONGOING_GAMES FROM COURSE JOIN GAME_SESSION ON COURSE.COURSE_ID = GAME_SESSION.COURSE_ID WHERE GAME_SESSION.USER_ID_1 = @user_id OR GAME_SESSION.USER_ID_2 = @user_id;");
-
-									for($i = 0; $i < $profileInfo->num_rows; $i++){
-										$profileInfo->data_seek($i);
-										$info = $profileInfo->fetch_assoc();
-										echo "<tr align='center'>";
-										echo "<td>".$info['TITLE']."</td>";
-										echo "<td>".$info['GAMES_PLAYED']."</td>";
-										echo "<td>".$info['WIN_RATE']."<span style='font-family: arial;'>%</span></td>";
-										echo "<td>".$info['TAKES']."</td>";
-										echo "<td>".$info['ONGOING_GAMES']."</td>";
-										echo "</tr>";
-									}
-								?>
-							</tr>
-							</table>
-
-							<div id="myModal" class="modal">
-
-						</div>
-					</div>
+			<br>
+			<table>
+				<tr>
+				<!-- select COURSE_NAME, FROM triviacrack.course WHERE USER_ID = -->
+					<th width="90px">Class</th>
+					<th width="110px">Games Played</th> <!-- -->
+					<th width="90px">Win Rate</th>
+					<th width="90px">In Class</th>
+					<th width="150px">On-Going Games</th>
+				</tr>
+				<?php
+					$conn->query("SET @user_id = ".$_SESSION['userId'].";");
+					$profileInfo = $conn->query("SELECT COURSE.TITLE, COUNT(GAME_SESSION.SESSION_ID) AS GAMES_PLAYED, (COUNT(CASE GAME_SESSION.USER_ID_WINNER WHEN @user_id THEN 1 ELSE NULL END)/COUNT(GAME_SESSION.SESSION_ID))*100 AS WIN_RATE, (SELECT CASE WHEN TAKES.USER_ID IS NOT NULL THEN 'YES' ELSE 'NO' END FROM TAKES WHERE COURSE.COURSE_ID = TAKES.COURSE_ID AND TAKES.USER_ID=@user_id) AS TAKES, COUNT(CASE GAME_SESSION.IS_OVER WHEN 0 THEN 1 ELSE NULL END) AS ONGOING_GAMES FROM COURSE JOIN GAME_SESSION ON COURSE.COURSE_ID = GAME_SESSION.COURSE_ID WHERE GAME_SESSION.USER_ID_1 = @user_id OR GAME_SESSION.USER_ID_2 = @user_id;");
+					for($i = 0; $i < $profileInfo->num_rows; $i++){
+						$profileInfo->data_seek($i);
+						$info = $profileInfo->fetch_assoc();
+						echo "<tr align='center'>";
+						echo "<td>".$info['TITLE']."</td>";
+						echo "<td>".$info['GAMES_PLAYED']."</td>";
+						echo "<td>".$info['WIN_RATE']."<span style='font-family: arial;'>%</span></td>";
+						echo "<td>".$info['TAKES']."</td>";
+						echo "<td>".$info['ONGOING_GAMES']."</td>";
+						echo "</tr>";
+					}
+				?>
+				</tr>
+			</table>
+				<div id="myModal" class="modal">
+				</div>
+			</div>
 		</div>
 	</div>
 
