@@ -104,7 +104,7 @@
 										<div class='thumbnail'>
 										<img src= '$gamePics[$pic]'>
 											<div class='caption'>
-												<h3>".$row['TITLE']."</h3>
+												<h3>".substr($row['TITLE'],0,15)."</h3>
 												<p>". substr($row['DESCRIPTION'],0,50) ."...</p>
 												<div class='col-sm-3'>
 													<a href='gameInfo.php?cid=".$row['COURSE_ID']."' class='btn btn-success' role='button'>Play</a>
