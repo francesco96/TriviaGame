@@ -107,6 +107,11 @@
 				 ?>
 				<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#passwordModal">Reset Your Password</button>
 				<a href="logout.php"><button type="button" class="btn btn-success">Logout</button></a>
+				<?php
+				 	if($_SESSION['role'] == 0){
+						echo '<a href="reportcard.php"><button type="button btn-info" class="btn btn-success">Reports</button></a>';
+					}
+				?>
 						<br>
 							<table>
 							  <tr>
@@ -114,7 +119,11 @@
 							    <th width="90px">Class</th>
 							    <th width="110px">Games Played</th> <!-- -->
 							    <th width="90px">Win Rate</th>
-							    <th width="90px">In Class</th>
+									<?php
+									 	if($_SESSION['role'] != 0){
+											echo "<th width='90px'>In Class</th>";
+										}
+									 ?>
 							    <th width="150px">On-Going Games</th>
 							  </tr>
 								<?php
@@ -128,7 +137,15 @@
 										echo "<td>".$info['TITLE']."</td>";
 										echo "<td>".$info['GAMES_PLAYED']."</td>";
 										echo "<td>".$info['WIN_RATE']."<span style='font-family: arial;'>%</span></td>";
-										echo "<td>".$info['TAKES']."</td>";
+										if($_SESSION['role'] != 0){
+											echo "<td>";
+											if($info['TAKES']!='YES'){
+												echo "NO";
+											}else{
+												echo "YES";
+											}
+											echo "</td>";
+										}
 										echo "<td>".$info['ONGOING_GAMES']."</td>";
 										echo "</tr>";
 									}
