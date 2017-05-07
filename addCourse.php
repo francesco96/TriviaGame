@@ -30,7 +30,7 @@ to the database.
 		echo"$cn $d";
 		if($cn){
 			if($d){
-			$sql = "INSERT INTO triviacrack.course (TITLE, USER_ID, DESCRIPTION, IMAGE) VALUES ('$cn', '2', '$d', '$n')";
+			$sql = "INSERT INTO triviacrack.course (TITLE, USER_ID, DESCRIPTION, IMAGE) VALUES ('$cn', '$userID', '$d', '$n')";
 			mysqli_query($conn, $sql);
 			$cid = $conn->insert_id;
 			header("Location:setCategory.php?cid=$cid");
