@@ -32,7 +32,6 @@
   		    background-color: rgb(0,0,0); /* Fallback color */
   		    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
   		}
-
   		/* Modal Content */
   		.modal-content {
   		    background-color: #fefefe;
@@ -41,7 +40,6 @@
   		    border: 1px solid #888;
   		    width: 80%;
   		}
-
   		/* The Close Button */
   		.close {
   		    color: #aaaaaa;
@@ -49,7 +47,6 @@
   		    font-size: 25px;
   		    font-weight: bold;
   		}
-
   		.close:hover,
   		.close:focus {
   		    color: #000;
@@ -70,8 +67,8 @@
 	  <div class="container">
 		<div class="row">
       <div class="col-sm-6" id="currentUser">
-  			</div>
-  			<div class="col-sm-6" id="utilities">
+  		</div>
+  		<div class="col-sm-6" id="utilities">
           <!-- Utility Icons Here -->
           <a type="button" href="homePage.php"><img src="img/home.png" width="40px" alt="Home" title="Home"></a>
   				<a type="button" href="ProfilePage.php"><img src="img/profile.png" width="40px" alt="Profile" title="Profile"></a> <!-- PUT PROFILE PAGE -->
@@ -96,12 +93,12 @@
     				</tr>
     				<?php
     					$conn->query("SET @user_id = ".$_SESSION['userId'].";");
-    					$profileInfo = $conn->query("SELECT COURSE.TITLE, COUNT(GAME_SESSION.SESSION_ID) AS GAMES_PLAYED, (COUNT(CASE GAME_SESSION.USER_ID_WINNER WHEN @user_id THEN 1 ELSE NULL END)/COUNT(GAME_SESSION.SESSION_ID))*100 AS WIN_RATE FROM COURSE JOIN GAME_SESSION ON COURSE.COURSE_ID = GAME_SESSION.COURSE_ID WHERE GAME_SESSION.USER_ID_1 = @user_id OR GAME_SESSION.USER_ID_2 = @user_id;");
-    					for($i = 0; $i < $profileInfo->num_rows; $i++){
+    					$profileInfo = $conn->query("SELECT DISTINCT USER.USER_NAME, COURSE.TITLE, COUNT(COURSE.COURSE_ID) AS GAMES_PLAYED, (COUNT(CASE GAME_SESSION.USER_ID_WINNER WHEN @user_id THEN 1 ELSE NULL END)/COUNT(GAME_SESSION.SESSION_ID))*100 AS WIN_RATE FROM USER, COURSE JOIN GAME_SESSION ON COURSE.COURSE_ID = GAME_SESSION.COURSE_ID WHERE (USER.USER_ID = GAME_SESSION.USER_ID_1 OR USER.USER_ID = GAME_SESSION.USER_ID_2) AND USER.USER_NAME <> 'Comp' AND GAME_SESSION.COURSE_ID = 1 GROUP BY GAME_SESSION.SESSION_ID, USER.USER_ID;");
+							for($i = 0; $i < $profileInfo->num_rows; $i++){
     						$profileInfo->data_seek($i);
     						$info = $profileInfo->fetch_assoc();
     						echo "<tr align='center'>";
-                echo "<td>".$info['TITLE']."</td>";
+                echo "<td>".$info['USER_NAME']."</td>";
     						echo "<td>".$info['TITLE']."</td>";
     						echo "<td>".$info['GAMES_PLAYED']."</td>";
     						echo "<td>".$info['WIN_RATE']."<span style='font-family: arial;'>%</span></td>";
