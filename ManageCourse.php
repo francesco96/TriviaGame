@@ -131,9 +131,9 @@
 			</div>
 			<div class="col-sm-6" id="utilities">
                 <!-- Utility Icons Here -->
-                <a type="button" href="homePage.php"><img src="img/home.png" width="40px" alt="Home" title="Home"></a>
+              <!--  <a type="button" href="homePage.php"><img src="img/home.png" width="40px" alt="Home" title="Home"></a>
 				<a type="button" href="ProfilePage.php"><img src="img/profile.png" width="40px" alt="Profile" title="Profile"></a> <!-- PUT PROFILE PAGE -->
-				<a type="button" href="options.php"><img src="img/settings.png" width="40px" alt="Options" title="Options"></a>
+				<!-- <a type="button" href="options.php"><img src="img/settings.png" width="40px" alt="Options" title="Options"></a> -->
 
             </div>
         </div>
@@ -292,6 +292,7 @@
 								</div>
 							</div>
 						<div class="col-sm-12" align="center">
+						<div class="col-sm-6" align="center">
 						<?php						
 						if(6 > 5){ //checks to see if there is a question for each category
 							echo"
@@ -303,6 +304,18 @@
 						";
 						}
 						?>
+						</div>
+						<div class="col-sm-6" align="center">
+						<!-- <a type='button' href='homePage.php' class='btn btn-danger'>Cancel</a> -->
+						<?php
+						echo"
+						<form action='deleteCourse.php' method='POST'>
+							<input type='hidden' name='cid' value='$cid'>
+							<input type='submit' id='delete' value='Cancel'>
+						</form>
+						";
+						?>
+						</div>
 						</div>
 						</br>
 			</div>
