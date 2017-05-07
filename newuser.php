@@ -12,8 +12,8 @@ if(isset($_POST['email']) && isset($_POST['code'])){
     $conn->query("DELETE FROM pendinguser WHERE email='$email'");
     $conn->close();
     header("Location: loginPage.php?status=creationsuccess");
+  }else{
+    header("Location: index.php");
   }
-}else{
-  header("Location: index.php");
 }
  ?>
