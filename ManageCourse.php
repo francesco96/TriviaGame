@@ -293,8 +293,14 @@
 							</div>
 						<div class="col-sm-12" align="center">
 						<div class="col-sm-6" align="center">
-						<?php						
-						if(6 > 5){ //checks to see if there is a question for each category
+						<?php	
+							$sql = "SELECT * FROM categorylist WHERE categorylist.COURSE_ID = $cid";
+							$result = mysqli_query($conn, $sql);
+							$totalCat = mysqli_num_rows($result);
+							$sql = "SELECT DISTINCT CATEGORY_ID FROM question WHERE COURSE_ID = $cid";
+							$result = mysqli_query($conn, $sql);
+							$curCat = mysqli_num_rows($result); 
+						if($totalCat > $curCat){ //checks to see if there is a question for each category
 							echo"
 								<p>Please Put Atleast One Question For Ever Category</p>
 							";
