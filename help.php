@@ -517,5 +517,6 @@
     />
 </p>
 <div>
+<?php include( 'footer.php' ); ?>
     <br/>
 </div>

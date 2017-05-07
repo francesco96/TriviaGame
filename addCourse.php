@@ -114,7 +114,7 @@ to the database.
 				<!-- Buttons on the top right of the page -->
                 <a type="button" href="homePage.php"><img src="img/home.png" width="40px" alt="Home" title="Home"></a>
 				<a type="button" href="ProfilePage.php"><img src="img/profile.png" width="40px" alt="Profile" title="Profile"></a> <!-- PUT PROFILE PAGE -->
-				<a type="button" href="options.php"><img src="img/settings.png" width="40px" alt="Options" title="Options"></a>
+				<a type="button" href="help.php"><img src="img/help.png" width="40px" alt="Help" title="Help"></a>
             </div>
         </div>
         <!-- Page header -->
@@ -154,5 +154,6 @@ to the database.
 			</div>
 		</div>
 	</div>
+	<?php include( 'footer.php' ); ?>
   </body>
 </html>

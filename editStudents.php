@@ -119,6 +119,6 @@ can edit a specific student and his/her access to pages.
 					</div>
 				</div>
 	</div>    
-
+	<?php include( 'footer.php' ); ?>
   </body>
 </html>
