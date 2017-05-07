@@ -81,105 +81,100 @@
 		</div>
 		<div class="row">
 			<div class="well well-lg">
-        <p dir="ltr">
+        <p dir="ltr" align="center">
             USER GUIDE - Marist Fox Trivia
             <br/>
             <br/>
         </p>
-        <p dir="ltr">
+        <p dir="ltr" align="center">
             Table of Contents
         </p>
-        <p dir="ltr">
+        <p dir="ltr" align="center"><b>
             1 Basics
-        </p>
-        <p dir="ltr">
+        </b></p>
+        <p dir="ltr" align="center">
             1.1 Introduction
             &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
             2
         </p>
-        <p dir="ltr">
+        <p dir="ltr" align="center">
             1.2 Landing Page
             &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
             2
         </p>
-        <p dir="ltr">
+        <p dir="ltr" align="center">
             1.3 Login Page
             &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
             3
         </p>
-        <p dir="ltr">
+        <p dir="ltr" align="center">
             1.4 Register Page
             &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
             4
         </p>
-        <p dir="ltr">
+        <p dir="ltr" align="center"><b>
             2 Main Pages
-        </p>
-        <p dir="ltr">
+        </b></p>
+        <p dir="ltr" align="center">
             2.1 Home Page
             &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
             5
         </p>
-        <p dir="ltr">
+        <p dir="ltr" align="center">
             2.11 Home Page Admin
             &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
             6
         </p>
-        <p dir="ltr">
+        <p dir="ltr" align="center">
             2.2 Game Page
             &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
             7
         </p>
-        <p dir="ltr">
+        <p dir="ltr" align="center"><b>
             3 Actual Game Pages
-        </p>
-        <p dir="ltr">
+        </b></p>
+        <p dir="ltr" align="center">
             3.1 Spinner Page
             &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
             8
         </p>
-        <p dir="ltr">
+        <p dir="ltr" align="center">
             3.2 Question Page
             &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
             9
         </p>
-        <p dir="ltr">
+        <p dir="ltr" align="center">
             3.3 Profile Page
             &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
             10
         </p>
-        <p dir="ltr">
+        <p dir="ltr" align="center"><b>
             4 Edit Pages
-        </p>
-        <p dir="ltr">
+        </b></p>
+        <p dir="ltr" align="center">
             4.1 Manage Course Page
             &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
             11
         </p>
-        <p dir="ltr">
+        <p dir="ltr" align="center">
             4.2 Set Categories Page
             &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
             12
         </p>
-        <p dir="ltr">
+        <p dir="ltr" align="center">
             4.21 Students
             &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
             13
         </p>
-        <p dir="ltr">
+        <p dir="ltr" align="center">
             4.3 Add Course Page
             &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
             14
         </p>
-        <p dir="ltr">
-            TODO
-        </p>
-        <p dir="ltr">
-            Check where UPDATE is written
-        </p>
-        <p dir="ltr">
+        <br>
+        <p dir="ltr" align="center"><b>
             Basics
-        </p>
+        </b></p>
         <p dir="ltr">
             1.1 Introduction
         </p>
@@ -197,6 +192,7 @@
             />
             to start playing.
         </p>
+        <br/>
         <br/>
         <p dir="ltr">
             1.2 Landing Page
@@ -226,8 +222,6 @@
         </p>
         <br/>
         <br/>
-        <br/>
-        <br/>
         <p dir="ltr">
             1.3 Login Page
         </p>
@@ -249,9 +243,6 @@
         </p>
         <br/>
         <br/>
-        <br/>
-        <br/>
-        <br/>
         <p dir="ltr">
             1.4 Register Page
         </p>
@@ -263,6 +254,7 @@
             on the database.
         </p>
         <br/>
+        <br/>
         <p dir="ltr">
             <img
                 src="https://lh3.googleusercontent.com/HkqlleRsoZgXAGyKpWCREO0OmINCMJgmFpINmNDLJsCFLin-GIKKPWcYGj85tb9uEyTkIZw2c9Szn6nGvMP8mHg8UHwPq-JPW1l4q_3PdzoTyMmR96nhkBHCSd_p3G-8wwtwLTRt"
@@ -271,9 +263,9 @@
             />
         </p>
         <br/>
-        <p dir="ltr">
+        <p dir="ltr"><b>
             Main Pages
-        </p>
+        </b></p>
         <br/>
         <p dir="ltr">
             2.1 Home Page UPDATE PHOTO
@@ -312,6 +304,7 @@
             />
         </p>
         <br/>
+        <br/>
         <p dir="ltr">
             2.11 Home Page for Admin UPDATE PHOTO
         </p>
@@ -342,7 +335,6 @@
                 height="360"
             />
         </p>
-        <br/>
         <br/>
         <br/>
         <p dir="ltr">
@@ -387,9 +379,11 @@
             />
         </p>
         <br/>
-        <p dir="ltr">
+        <br/>
+        <br/>
+        <p dir="ltr"><b>
             Actual Game Pages
-        </p>
+        </b></p>
         <p dir="ltr">
             3.1 Spinner Page UPDATE PAGE WITH BETTER GRAPHICS AND CLOSER PIC
         </p>
@@ -412,6 +406,8 @@
                 height="360"
             />
         </p>
+        <br/>
+        <br/>
         <p dir="ltr">
             3.2 Question Page UPDATE PAGE WITH CLOSER PIC
         </p>
@@ -432,7 +428,6 @@
                 height="360"
             />
         </p>
-        <br/>
         <br/>
         <p dir="ltr">
             3.3 Profile Page
@@ -455,9 +450,10 @@
             />
         </p>
         <br/>
-        <p dir="ltr">
+        <p dir="ltr" align="center"><b>
             Edit Pages
-        </p>
+        </b></p>
+        <br/>
         <p dir="ltr">
             4.1 Manage Course Page UPDATE DELETE BUTTON AND SCREENSHOT
         </p>
