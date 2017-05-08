@@ -93,7 +93,7 @@
     				</tr>
     				<?php
     					$conn->query("SET @user_id = ".$_SESSION['userId'].";");
-    					$profileInfo = $conn->query("SELECT DISTINCT USER.USER_NAME, COURSE.TITLE, COUNT(COURSE.COURSE_ID) AS GAMES_PLAYED, (COUNT(CASE GAME_SESSION.USER_ID_WINNER WHEN @user_id THEN 1 ELSE NULL END)/COUNT(GAME_SESSION.SESSION_ID))*100 AS WIN_RATE FROM USER, COURSE JOIN GAME_SESSION ON COURSE.COURSE_ID = GAME_SESSION.COURSE_ID WHERE (USER.USER_ID = GAME_SESSION.USER_ID_1 OR USER.USER_ID = GAME_SESSION.USER_ID_2) AND USER.USER_NAME <> 'Comp' AND GAME_SESSION.COURSE_ID = 1 GROUP BY GAME_SESSION.SESSION_ID, USER.USER_ID;");
+    					$profileInfo = $conn->query("SELECT DISTINCT USER.USER_NAME, COURSE.TITLE, COUNT(COURSE.COURSE_ID) AS GAMES_PLAYED, (COUNT(CASE GAME_SESSION.USER_ID_WINNER WHEN @user_id THEN 1 ELSE NULL END)/COUNT(GAME_SESSION.SESSION_ID))*100 AS WIN_RATE, COUNT(CASE SCORE.HAS WHEN 1 THEN 1 ELSE NULL END) AS TOKENS FROM USER, COURSE JOIN GAME_SESSION ON COURSE.COURSE_ID = GAME_SESSION.COURSE_ID JOIN SCORE ON GAME_SESSION.SESSION_ID = SCORE.SESSION_ID WHERE (USER.USER_ID = GAME_SESSION.USER_ID_1 OR USER.USER_ID = GAME_SESSION.USER_ID_2) AND USER.USER_NAME <> 'Comp' GROUP BY GAME_SESSION.SESSION_ID, USER.USER_ID;");
 							for($i = 0; $i < $profileInfo->num_rows; $i++){
     						$profileInfo->data_seek($i);
     						$info = $profileInfo->fetch_assoc();
@@ -102,8 +102,10 @@
     						echo "<td>".$info['TITLE']."</td>";
     						echo "<td>".$info['GAMES_PLAYED']."</td>";
     						echo "<td>".$info['WIN_RATE']."<span style='font-family: arial;'>%</span></td>";
+								echo "<td>".$info['TOKENS']."</td>";
     						echo "</tr>";
     					}
+							// <a href = "/ProfilePage
     				?>
     				</tr>
     			</table>
@@ -116,3 +118,4 @@
 	<?php include('footer.php');?>
   </body>
 </html>
+//filtering
