@@ -116,7 +116,7 @@
 													<a href='ManageCourse.php?cid=".$row['COURSE_ID']."' class='btn btn-primary' role='button'>Edit</a>
 												</div>
 												<div class='col-sm-3'>
-													<form action='deleteCourse.php' method='POST'>
+													<form action='deleteCourse.php' method='POST' onsubmit='return confirm(\"Are you sure that you want to delete this game?\");'>
 													<input type='hidden' name='cid' value='".$row['COURSE_ID']."'>
 													<input type='submit' id='delete' value='Delete'>
 													</form>
