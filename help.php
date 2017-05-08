@@ -86,9 +86,9 @@
             <br/>
             <br/>
         </p>
-        <p dir="ltr" align="center">
+        <p dir="ltr" align="center"><b>
             Table of Contents
-        </p>
+        </b></p>
         <p dir="ltr" align="center"><b>
             1 Basics
         </b></p>
@@ -99,7 +99,7 @@
         </p>
         <p dir="ltr" align="center">
             1.2 Landing Page
-            &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
+            &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
             2
         </p>
         <p dir="ltr" align="center">
@@ -109,7 +109,7 @@
         </p>
         <p dir="ltr" align="center">
             1.4 Register Page
-            &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
+            &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
             4
         </p>
         <p dir="ltr" align="center"><b>
@@ -122,7 +122,7 @@
         </p>
         <p dir="ltr" align="center">
             2.11 Home Page Admin
-            &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
+            &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
             6
         </p>
         <p dir="ltr" align="center">
@@ -145,7 +145,7 @@
         </p>
         <p dir="ltr" align="center">
             3.3 Profile Page
-            &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
+            &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
             10
         </p>
         <p dir="ltr" align="center"><b>
@@ -163,7 +163,7 @@
         </p>
         <p dir="ltr" align="center">
             4.21 Students
-            &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
+            &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
             13
         </p>
         <p dir="ltr" align="center">
@@ -175,7 +175,7 @@
         <p dir="ltr" align="center"><b>
             Basics
         </b></p>
-        <p dir="ltr">
+        <p dir="ltr" id="1.1">
             1.1 Introduction
         </p>
         <p dir="ltr">
@@ -194,7 +194,7 @@
         </p>
         <br/>
         <br/>
-        <p dir="ltr">
+        <p dir="ltr" id="1.2">
             1.2 Landing Page
         </p>
         <p dir="ltr">
@@ -213,7 +213,7 @@
             />
             whether the user has already an account registered in the website or not.
         </p>
-        <p dir="ltr">
+        <p dir="ltr" align="center">
             <img
                 src="https://lh5.googleusercontent.com/WepYWdYJnTc4ZorWCXzbBGJmM56dl8WXXEoJlbt68EDTp2H4ZN5qlufsrL629k-JGgDfPOOBknCQ1jIokmrqx5goWgpsSK1wGsymrLE_qsOKEjXenMIjxxbE-hTBCFPKVRbw4tCQ"
                 width="502"
@@ -222,7 +222,7 @@
         </p>
         <br/>
         <br/>
-        <p dir="ltr">
+        <p dir="ltr" id="1.3">
             1.3 Login Page
         </p>
         <p dir="ltr">
@@ -234,7 +234,7 @@
             Clicking on Or Register will bring the user to the Register Page.
         </p>
         <br/>
-        <p dir="ltr">
+        <p dir="ltr" align="center">
             <img
                 src="https://lh5.googleusercontent.com/jA2Y890GyNbpN5G9DzByHqyJB7UJAR11j1gIbxXFryaFb1QsOsDHCsrn0tIjKnsOQBvdYr--XGxpi4PhpSs6gdMTWrelpRUtSf7oAdTzmExydZ3ACOLVtm2MdKFDiGCqpyervWMF"
                 width="624"
@@ -243,10 +243,10 @@
         </p>
         <br/>
         <br/>
-        <p dir="ltr">
+        <br/>
+        <p dir="ltr" id="1.4">
             1.4 Register Page
         </p>
-        <br/>
         <p dir="ltr">
             The Register Page is similar to the Login Page, it displays a box where the
             user will have to put her E-mail, username, and password in order to
@@ -255,7 +255,7 @@
         </p>
         <br/>
         <br/>
-        <p dir="ltr">
+        <p dir="ltr"  align="center">
             <img
                 src="https://lh3.googleusercontent.com/HkqlleRsoZgXAGyKpWCREO0OmINCMJgmFpINmNDLJsCFLin-GIKKPWcYGj85tb9uEyTkIZw2c9Szn6nGvMP8mHg8UHwPq-JPW1l4q_3PdzoTyMmR96nhkBHCSd_p3G-8wwtwLTRt"
                 width="624"
@@ -263,12 +263,12 @@
             />
         </p>
         <br/>
-        <p dir="ltr"><b>
+        <p dir="ltr" align="center"><b>
             Main Pages
         </b></p>
         <br/>
-        <p dir="ltr">
-            2.1 Home Page UPDATE PHOTO
+        <p dir="ltr" id="2.1">
+            2.1 Home Page
         </p>
         <br/>
         <p dir="ltr">
@@ -296,7 +296,7 @@
             button will take the user to the Option Page.
         </p>
         <br/>
-        <p dir="ltr">
+        <p dir="ltr" align="center">
             <img
                 src="https://lh4.googleusercontent.com/m3TUvsyPwiWfW7ffe-t8Eyv2eeDNVp6v7dV_PTdcwWEZe6s8GhZZ17YlpGQ7RlHf9-mMp14vwUsWIjJTBlCsd1t2WfMgF7AQfTqlSN8nUAKY7408z5NcqKnpll8mekOUhrG8tPfo"
                 width="624"
@@ -305,8 +305,8 @@
         </p>
         <br/>
         <br/>
-        <p dir="ltr">
-            2.11 Home Page for Admin UPDATE PHOTO
+        <p dir="ltr" id="2.11">
+            2.11 Home Page for Admin
         </p>
         <br/>
         <p dir="ltr">
@@ -328,7 +328,7 @@
             will be brought to AddCourse Page.
         </p>
         <br/>
-        <p dir="ltr">
+        <p dir="ltr" align="center">
             <img
                 src="https://lh4.googleusercontent.com/_uaqG-B3HRgotBFvidpqaOC6AtzR7FacILyHUze0f_qKhSzD5FZLJMEWRG1YdM84DtckuRWJeI_kut3Lr1bEaPu6yVfvvFLrKd-7OYRXS2GG8ZcOLwG3t8P4bgXxNY5U7XNiVvZg"
                 width="624"
@@ -337,8 +337,8 @@
         </p>
         <br/>
         <br/>
-        <p dir="ltr">
-            2.2 Game Page UPDATE PHOTOS WITH LOTS OF GAMES
+        <p dir="ltr" id="2.2">
+            2.2 Game Page
         </p>
         <br/>
         <p dir="ltr">
@@ -371,7 +371,7 @@
             />
             to start a new game.
         </p>
-        <p dir="ltr">
+        <p dir="ltr" align="center">
             <img
                 src="https://lh4.googleusercontent.com/O8iGH9mSl7V3MQl6FIpevIYqUoPl2o2MoxVQv4mVV02XBY47-w0LljGOCzRbnJ5lufoKlFZZr25XkkSTc7_98ry6vEazwBUvWRZBnpFYGTon1P1VimJrHRU_KHGzUCDYvCR983A9"
                 width="624"
@@ -381,11 +381,11 @@
         <br/>
         <br/>
         <br/>
-        <p dir="ltr"><b>
+        <p dir="ltr" align="center"><b>
             Actual Game Pages
         </b></p>
-        <p dir="ltr">
-            3.1 Spinner Page UPDATE PAGE WITH BETTER GRAPHICS AND CLOSER PIC
+        <p dir="ltr" id="3.1">
+            3.1 Spinner Page
         </p>
         <br/>
         <p dir="ltr">
@@ -399,7 +399,7 @@
             is running will not make the user lose her turn.
         </p>
         <br/>
-        <p dir="ltr">
+        <p dir="ltr" align="center">
             <img
                 src="https://lh6.googleusercontent.com/ji6HAPNoHsKtK8g4qM2ZXz0f37PxsFwgIcRJud9LuM9iytnAVQ0uOT31XjZ1xv8ICqFkFD_H0LhQdBI2xsqho9Maw1LDyCx_Pjh_w0PE4S54PmcxyJikTXocsX4fWNw11JCl6TAO"
                 width="624"
@@ -408,8 +408,8 @@
         </p>
         <br/>
         <br/>
-        <p dir="ltr">
-            3.2 Question Page UPDATE PAGE WITH CLOSER PIC
+        <p dir="ltr" id="3.2">
+            3.2 Question Page
         </p>
         <br/>
         <p dir="ltr">
@@ -421,7 +421,7 @@
             the Game Page.
         </p>
         <br/>
-        <p dir="ltr">
+        <p dir="ltr" align="center">
             <img
                 src="https://lh5.googleusercontent.com/hzuiVsCb6qF7md46nrYMlneh4cT5Qa7LVMoArKhdpGiPa8o_RiwbIGdbXKQZHvB1f9fg6snkPkgqip6k1Mh3vwg0aorWrQSearzEFlUJnF55QmCThbSMogYu1052eVJurJADvDSo"
                 width="624"
@@ -429,7 +429,7 @@
             />
         </p>
         <br/>
-        <p dir="ltr">
+        <p dir="ltr" id="3.3">
             3.3 Profile Page
         </p>
         <br/>
@@ -442,7 +442,7 @@
             of such student.
         </p>
         <br/>
-        <p dir="ltr">
+        <p dir="ltr" align="center">
             <img
                 src="https://lh5.googleusercontent.com/_Hj-7Ok6jAyAa4S-guWsmbew4TuFknDYr99H7FGhyCMM2kDtJ9o_TTLyskpg3FPZ5LsRU5hCO8auV6hTvxx_-C9NQ6i4STRITA5bZnCky8c3aPXq7lImUKzW38yLJ-BDR7kAXNwl"
                 width="624"
@@ -454,8 +454,8 @@
             Edit Pages
         </b></p>
         <br/>
-        <p dir="ltr">
-            4.1 Manage Course Page UPDATE DELETE BUTTON AND SCREENSHOT
+        <p dir="ltr" id="4.1">
+            4.1 Manage Course Page
         </p>
         <br/>
         <p dir="ltr">
@@ -495,7 +495,7 @@
             lets the admin edit the students currently enrolled in the classroom.
         </p>
         <br/>
-        <p dir="ltr">
+        <p dir="ltr" align="center">
             <img
                 src="https://lh4.googleusercontent.com/yZ8T2Wnu0xkFflH8A5nF_8ZUWMN8G5guUStk-jXFRbFCN8xdpg5sNw19eOjG4ztf9lijHr2J3sDxlYiq1V6T5T5fjflld356kmTp5_pdcsI9ML3FJvdvmKHKgVG8c9ouP1bbnXCk"
                 width="624"
@@ -505,10 +505,8 @@
         <br/>
         <br/>
         <br/>
-        <br/>
-        <br/>
-        <p dir="ltr">
-            4.2 Set Categories Page UPDATE SCREENSHOT
+        <p dir="ltr" id="4.2">
+            4.2 Set Categories Page
         </p>
         <br/>
         <p dir="ltr">
@@ -528,15 +526,15 @@
             too long, which would end up being chaotic and confusing for the end user
             (students).
         </p>
-        <p dir="ltr">
+        <p dir="ltr" align="center">
             <img
                 src="https://lh3.googleusercontent.com/s9rGatUQ7s34zTOu_vdlN2eWjTEfRQbZpjzF68A-QT5sJzVnnFQtZBcN0RBrFVx7Ps7bhkc2dAJShoPS_YqNEgFXin0-SOhPpjlWYZyd0LXngJhjouEK63bGS8V_5cfDPaJ-ygtI"
                 width="624"
                 height="421"
             />
         </p>
-        <p dir="ltr">
-            4.21 Manage Students UPDATE SCREENSHOT
+        <p dir="ltr" id="4.21">
+            4.21 Manage Students
         </p>
         <br/>
         <p dir="ltr">
@@ -554,7 +552,7 @@
             trying to find.
         </p>
         <br/>
-        <p dir="ltr">
+        <p dir="ltr" align="center">
             <img
                 src="https://lh3.googleusercontent.com/aNDVAKrJ5lS8Jjf5gtrYUDF3An7Dwa0Yg6b9YKzvvFQU2bX5xcDI82rE11h1ddFOX4uwmXEK7TsbfNn3P-Wa7SGG7Dw7XfoRYpKkr85TYQ7RfV2ZcZRqM4mYdKsyy5ISy3MiYYwl"
                 width="315"
@@ -563,22 +561,7 @@
         </p>
         <br/>
         <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <p dir="ltr">
+        <p dir="ltr" id="4.3">
             4.3 Add Course Page
         </p>
         <br/>
@@ -588,7 +571,7 @@
             user can click on Add Course to add the course to the database.
         </p>
         <br/>
-        <p dir="ltr">
+        <p dir="ltr" align="center">
             <img
                 src="https://lh4.googleusercontent.com/rCZt7nP1CeftkPhdrW-CcviBO_3U6UYmlVgk5TjdwxbfjlhhgFzqRF8JaR2fN9aud-BC2rxskYkvjhbMjS-6A40kfHc50phR4Bj4WHoAmz5sOrg9Z_kuxj-BfekL-MU4a9emDiul"
                 width="624"
@@ -599,13 +582,11 @@
         <?php include( 'footer.php' ); ?>
             <br/>
         </div>
-      </div>
-
-    </div>
-  </div>
-					</div>
+      		</div>
+    		</div>
+  			</div>
+			</div>
 		</div>
 	</div>
-	<?php include 'footer.php'; ?>
   </body>
 </html>

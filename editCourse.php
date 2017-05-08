@@ -63,7 +63,7 @@ or description, for example.
                 <!-- Displays buttons on the top right corner-->
                 <a type="button" href="homePage.php"><img src="img/home.png" width="40px" alt="Home" title="Home"></a>
 				<a type="button" href="homePage.php"><img src="img/profile.png" width="40px" alt="Profile" title="Profile"></a>
-				<a type="button" href="help.php"><img src="img/help.png" width="40px" alt="Help" title="Help"></a>
+				<a type="button" href="help.php#4.1"><img src="img/help.png" width="40px" alt="Help" title="Help"></a>
 
             </div>
         </div>

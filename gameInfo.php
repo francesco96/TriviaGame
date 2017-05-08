@@ -53,7 +53,7 @@ Score will be recorded on the leaderboard.
 				<div class="col-sm-6" id="utilities">
 
 				<!-- Displays the buttons on the top right corner -->
-				<a type="button" href="homePage.php"><img src="img/home.png" width="40px" alt="Home" title="Home"></a>
+				<a type="button" href="homePage.php#2.2"><img src="img/home.png" width="40px" alt="Home" title="Home"></a>
 				<a type="button" href="ProfilePage.php"><img src="img/profile.png" width="40px" alt="Profile" title="Profile"></a> <!-- PUT PROFILE PAGE -->
 				<a type="button" href="help.php"><img src="img/help.png" width="40px" alt="Help" title="Help"></a>
 
