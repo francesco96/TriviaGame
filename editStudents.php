@@ -1,4 +1,4 @@
-<!-- 
+<!--
 Marist College - Copyright
 Marist Fox Trivia
 ==========================
@@ -16,17 +16,17 @@ can edit a specific student and his/her access to pages.
 	include('db.php'); // Connects to the db
 	$numCat = 0; // Keeps track of the category Number
 	$title = 'Edit Students'; // Title of the page
-	$cid = $_GET ["cid"]; //Get CourseID from the db	
+	$cid = $_GET ["cid"]; //Get CourseID from the db
 ?>
 <!-- START HTML CODE -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>  
+  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Set Category</title>
+    <title>Manage Students</title>
 
     <link rel="icon" type="image/png" href="img/foxTriviaIcon.png"/>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -35,7 +35,7 @@ can edit a specific student and his/her access to pages.
 	<link href="style/general.css" rel="stylesheet" type="text/css">
   </head>
 
-  <body>	
+  <body>
 	<div class="container">
 		<div class="page-header text-center" id="pg_header">
 			<h1>Set Categories</font><br /></h1>
@@ -114,12 +114,12 @@ can edit a specific student and his/her access to pages.
 							}
 						}
 						?>
-						
+
 						<br>
 						<?php echo"<a href='ManageCourse.php?cid=".$cid."' class='btn btn-primary' role='button'>Done</a>"; ?>
 					</div>
 				</div>
-	</div>    
+	</div>
 	<?php include( 'footer.php' ); ?>
   </body>
 </html>
