@@ -79,7 +79,7 @@
         </div>
       </div>
 		  <div class="page-header text-center" id="pg_header">
-			<h1>Students</h1>
+			<h1>Student Reports</h1>
 		</div>
 		<div class="row">
 			<div class="well well-lg">
