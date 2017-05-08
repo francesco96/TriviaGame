@@ -137,7 +137,7 @@
 										echo "<tr align='center'>";
 										echo "<td>".$info['TITLE']."</td>";
 										echo "<td>".$info['GAMES_PLAYED']."</td>";
-										echo "<td>".$info['WIN_RATE']."<span style='font-family: arial;'>%</span></td>";
+										echo "<td>".round($info['WIN_RATE'],1)."<span style='font-family: arial;'>%</span></td>";
 										if($_SESSION['role'] != 0){
 											echo "<td>";
 											if($info['TAKES']!='YES'){
