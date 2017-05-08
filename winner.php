@@ -129,6 +129,7 @@ Peter Sofronas
 							}
 						?>	
 					</div>
+					<a type="button" href="gameInfo.php?cid=<?php echo$cid?>">Done</a>
 				</div>
 			</div>	
 		</div>
