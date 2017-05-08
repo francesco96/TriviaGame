@@ -5,6 +5,7 @@
 	//session_start()
 	$userN = $_SESSION['username'];
   $uid = $_SESSION['userId']; // Gets the userID
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -91,11 +92,12 @@
               <th width="90px">Class</th>
     					<th width="110px">Games Played</th> <!-- -->
     					<th width="90px">Win Rate</th>
-    					<th width="90px">Tokens</th>
     				</tr>
     				<?php
-    					$conn->query("SET @user_id = ".$_SESSION['userId'].";");
-    					$profileInfo = $conn->query("SELECT DISTINCT USER.USER_NAME, COURSE.TITLE, COUNT(COURSE.COURSE_ID) AS GAMES_PLAYED, (COUNT(CASE GAME_SESSION.USER_ID_WINNER WHEN @user_id THEN 1 ELSE NULL END)/COUNT(GAME_SESSION.SESSION_ID))*100 AS WIN_RATE FROM USER, COURSE JOIN GAME_SESSION ON COURSE.COURSE_ID = GAME_SESSION.COURSE_ID WHERE (USER.USER_ID = GAME_SESSION.USER_ID_1 OR USER.USER_ID = GAME_SESSION.USER_ID_2) AND USER.USER_NAME <> 'Comp' AND GAME_SESSION.COURSE_ID = 1 GROUP BY GAME_SESSION.SESSION_ID, USER.USER_ID;");
+							$query1 = "SELECT DISTINCT USER.USER_NAME, COURSE.TITLE, COUNT(COURSE.COURSE_ID) AS GAMES_PLAYED, COUNT(CASE GAME_SESSION.USER_ID_WINNER WHEN USER.USER_NAME THEN 1 ELSE NULL END)/COUNT(GAME_SESSION.SESSION_ID)*100 AS WIN_RATE FROM USER, COURSE JOIN GAME_SESSION ON COURSE.COURSE_ID = GAME_SESSION.COURSE_ID WHERE (USER.USER_ID = GAME_SESSION.USER_ID_1 OR USER.USER_ID = GAME_SESSION.USER_ID_2) ";
+							$query2 = "AND USER.USER_NAME <> 'Comp' AND USER.USER_ID IN (SELECT USER.USER_ID FROM TAKES WHERE TAKES.COURSE_ID=GAME_SESSION.COURSE_ID) AND COURSE.USER_ID = $uid GROUP BY GAME_SESSION.SESSION_ID, USER.USER_ID ORDER BY COURSE.TITLE";
+							$query = $query1.$query2;
+    					$profileInfo = $conn->query($query);
 							for($i = 0; $i < $profileInfo->num_rows; $i++){
     						$profileInfo->data_seek($i);
     						$info = $profileInfo->fetch_assoc();
