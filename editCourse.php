@@ -88,13 +88,13 @@ or description, for example.
 
 					<div class="row">
 						<div class="col-sm-12 text-center">
-							<label>Description</label>
+							<label>Description - Max 255 characters</label>
 						</div>
 					</div>
 
 					<div class="row">
 						<div class="col-sm-12 text-center">
-							<textarea rows="8" class="form-control no-resize" id="description" name="description"><?php echo"$row[DESCRIPTION]"; ?></textarea>
+							<textarea rows="8" class="form-control no-resize" id="description" name="description" maxlength="255"><?php echo"$row[DESCRIPTION]"; ?></textarea>
 						</div>
 					</div>
 
