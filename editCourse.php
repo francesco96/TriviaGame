@@ -46,6 +46,7 @@ or description, for example.
 
     <title>Edit Course</title>
 
+    <link rel="icon" type="image/png" href="img/foxTriviaIcon.png"/>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -63,7 +64,7 @@ or description, for example.
                 <!-- Displays buttons on the top right corner-->
                 <a type="button" href="homePage.php"><img src="img/home.png" width="40px" alt="Home" title="Home"></a>
 				<a type="button" href="homePage.php"><img src="img/profile.png" width="40px" alt="Profile" title="Profile"></a>
-				<a type="button" href="help.php"><img src="img/help.png" width="40px" alt="Help" title="Help"></a>
+				<a type="button" href="help.php#4.1"><img src="img/help.png" width="40px" alt="Help" title="Help"></a>
 
             </div>
         </div>
@@ -87,13 +88,13 @@ or description, for example.
 
 					<div class="row">
 						<div class="col-sm-12 text-center">
-							<label>Description</label>
+							<label>Description - Max 255 characters</label>
 						</div>
 					</div>
 
 					<div class="row">
 						<div class="col-sm-12 text-center">
-							<textarea rows="8" class="form-control no-resize" id="description" name="description"><?php echo"$row[DESCRIPTION]"; ?></textarea>
+							<textarea rows="8" class="form-control no-resize" id="description" name="description" maxlength="255"><?php echo"$row[DESCRIPTION]"; ?></textarea>
 						</div>
 					</div>
 

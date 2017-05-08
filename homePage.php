@@ -63,9 +63,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Login/Register</title>
+    <title>Fox Trivia</title>
 
 
+    <link rel="icon" type="image/png" href="img/foxTriviaIcon.png"/>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -83,7 +84,7 @@
                 <!-- Utility Icons Here -->
                 <a type="button" href="homePage.php"><img src="img/home.png" width="40px" alt="Home" title="Home"></a>
 				<a type="button" href="ProfilePage.php"><img src="img/profile.png" width="40px" alt="Profile" title="Profile"></a> <!-- PUT PROFILE PAGE -->
-				<a type="button" href="help.php"><img src="img/help.png" width="40px" alt="Help" title="Help"></a>
+				<a type="button" href="help.php#2.1"><img src="img/help.png" width="40px" alt="Help" title="Help"></a>
 
                <!--  <img src="img/settings.png" width="40px" alt="Settings" title="Settings"> -->
             </div>
@@ -115,7 +116,7 @@
 													<a href='ManageCourse.php?cid=".$row['COURSE_ID']."' class='btn btn-primary' role='button'>Edit</a>
 												</div>
 												<div class='col-sm-3'>
-													<form action='deleteCourse.php' method='POST'>
+													<form action='deleteCourse.php' method='POST' onsubmit='return confirm(\"Are you sure that you want to delete this game?\");'>
 													<input type='hidden' name='cid' value='".$row['COURSE_ID']."'>
 													<input type='submit' id='delete' value='Delete'>
 													</form>
@@ -136,7 +137,7 @@
 				<div class='thumbnail'>
 					<a type='button' href='addCourse.php'><img src='img/plusSign.jpg' width='500px' alt='addGame' title='addGame'></a>
 					<!--<img src='img/plusSign.jpg'>-->
-					<div class='caption'>
+					<div class='caption' align='center'>
 						<h3>Add a Game</h3>
 					</div>
 				</div>

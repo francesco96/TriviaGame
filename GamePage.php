@@ -53,6 +53,7 @@
 
         <title><!-- Title Of Game Here - PHP --></title>
 
+        <link rel="icon" type="image/png" href="img/foxTriviaIcon.png"/>
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="style/spinnerStyle.css">
         <link rel="stylesheet" type="text/css" href="style/modalStyle.css">
@@ -67,7 +68,7 @@
                     <!-- Utility Icons Here -->
                      <a type="button" href="homePage.php"><img src="img/home.png" width="40px" alt="Home" title="Home"></a>
           <a type="button" href="ProfilePage.php"><img src="img/profile.png" width="40px" alt="Profile" title="Profile"></a> <!-- PUT PROFILE PAGE -->
-          <a type="button" href="help.php"><img src="img/help.png" width="40px" alt="Help" title="Help"></a>
+          <a type="button" href="help.php#2.2"><img src="img/help.png" width="40px" alt="Help" title="Help"></a>
 
                 </div>
             </div>

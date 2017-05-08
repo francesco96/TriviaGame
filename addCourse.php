@@ -30,7 +30,7 @@ to the database.
 		echo"$cn $d";
 		if($cn){
 			if($d){
-			$sql = "INSERT INTO triviacrack.course (TITLE, USER_ID, DESCRIPTION, IMAGE) VALUES ('$cn', '2', '$d', '$n')";
+			$sql = "INSERT INTO triviacrack.course (TITLE, USER_ID, DESCRIPTION, IMAGE) VALUES ('$cn', '$userID', '$d', '$n')";
 			mysqli_query($conn, $sql);
 			$cid = $conn->insert_id;
 			header("Location:setCategory.php?cid=$cid");
@@ -97,6 +97,7 @@ to the database.
 
     <title>Add Course</title>
 
+    <link rel="icon" type="image/png" href="img/foxTriviaIcon.png"/>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -114,7 +115,7 @@ to the database.
 				<!-- Buttons on the top right of the page -->
                 <a type="button" href="homePage.php"><img src="img/home.png" width="40px" alt="Home" title="Home"></a>
 				<a type="button" href="ProfilePage.php"><img src="img/profile.png" width="40px" alt="Profile" title="Profile"></a> <!-- PUT PROFILE PAGE -->
-				<a type="button" href="help.php"><img src="img/help.png" width="40px" alt="Help" title="Help"></a>
+				<a type="button" href="help.php#4.3"><img src="img/help.png" width="40px" alt="Help" title="Help"></a>
             </div>
         </div>
         <!-- Page header -->

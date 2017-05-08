@@ -18,7 +18,7 @@ Peter Sofronas
 	$sid = $_GET["sid"]; //Gets the courseID
 	$uid = $_SESSION['userId']; // Gets the userID
 	$colors = ["#1abc9c", "#2ecc71", "#3498db", "#9b59b6", "#f1c40f", "#e67e22", "#e74c3c", "#ecf0f1", "#16a085", "#27ae60", "#2980b9", "#8e44ad", "#f39c12", "#d35400", "#c0392b", "#bdc3c7"];
-	
+
 	$sql = "SELECT * FROM game_session Where SESSION_ID = $sid";
 	$result = mysqli_query($conn, $sql);
 	$result = mysqli_fetch_assoc($result);
@@ -50,6 +50,7 @@ Peter Sofronas
 
 		<title>Winner</title>
 
+		<link rel="icon" type="image/png" href="img/foxTriviaIcon.png"/>
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -126,10 +127,12 @@ Peter Sofronas
 							}else{
 								echo "<p style='color:red; align=center;'>no tokens</p>";
 							}
-						?>	
+						?>
 					</div>
+
+					<div style="width: 100%; text-align: center;"><a href="gameInfo.php?cid=<?php echo$cid?>" style="text-align: center;"><buton class='btn btn-success'>Done</button></a></div>
 				</div>
-			</div>	
+			</div>
 		</div>
 		<?php include( 'footer.php' ); ?>
 	</body>

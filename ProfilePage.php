@@ -72,6 +72,7 @@
     <title>Profile Page</title>
 
 
+    <link rel="icon" type="image/png" href="img/foxTriviaIcon.png"/>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -89,7 +90,7 @@
                 <!-- Utility Icons Here -->
                 <a type="button" href="homePage.php"><img src="img/home.png" width="40px" alt="Home" title="Home"></a>
 				<a type="button" href="ProfilePage.php"><img src="img/profile.png" width="40px" alt="Profile" title="Profile"></a> <!-- PUT PROFILE PAGE -->
-				<a type="button" href="help.php"><img src="img/help.png" width="40px" alt="Help" title="Help"></a>
+				<a type="button" href="help.php#3.3"><img src="img/help.png" width="40px" alt="Help" title="Help"></a>
 
             </div>
         </div>
@@ -107,6 +108,11 @@
 				 ?>
 				<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#passwordModal">Reset Your Password</button>
 				<a href="logout.php"><button type="button" class="btn btn-success">Logout</button></a>
+				<?php
+				 	if($_SESSION['role'] == 0){
+						echo '<a href="reportcard.php"><button type="button btn-info" class="btn btn-success">Reports</button></a>';
+					}
+				?>
 						<br>
 							<table>
 							  <tr>
@@ -114,7 +120,11 @@
 							    <th width="90px">Class</th>
 							    <th width="110px">Games Played</th> <!-- -->
 							    <th width="90px">Win Rate</th>
-							    <th width="90px">In Class</th>
+									<?php
+									 	if($_SESSION['role'] != 0){
+											echo "<th width='90px'>In Class</th>";
+										}
+									 ?>
 							    <th width="150px">On-Going Games</th>
 							  </tr>
 								<?php
@@ -127,8 +137,16 @@
 										echo "<tr align='center'>";
 										echo "<td>".$info['TITLE']."</td>";
 										echo "<td>".$info['GAMES_PLAYED']."</td>";
-										echo "<td>".$info['WIN_RATE']."<span style='font-family: arial;'>%</span></td>";
-										echo "<td>".$info['TAKES']."</td>";
+										echo "<td>".round($info['WIN_RATE'],1)."<span style='font-family: arial;'>%</span></td>";
+										if($_SESSION['role'] != 0){
+											echo "<td>";
+											if($info['TAKES']!='YES'){
+												echo "NO";
+											}else{
+												echo "YES";
+											}
+											echo "</td>";
+										}
 										echo "<td>".$info['ONGOING_GAMES']."</td>";
 										echo "</tr>";
 									}
