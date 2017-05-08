@@ -53,6 +53,7 @@
 
         <title><!-- Title Of Game Here - PHP --></title>
 
+        <link rel="icon" type="image/png" href="img/foxTriviaIcon.png"/>
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="style/spinnerStyle.css">
         <link rel="stylesheet" type="text/css" href="style/modalStyle.css">
