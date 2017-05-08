@@ -251,8 +251,8 @@ Score will be recorded on the leaderboard.
 								echo"
 								<tr>
 								<td>Vs. ". $result2['USER_NAME'] ."</td>
-								<td>-  Score: </td>
-								<td>- Their Score: </td>
+								<td>- Your Tokens: </td>
+								<td>- Their Tokens: </td>
 								</tr>
 								";
 								$count += 1;
