@@ -137,7 +137,7 @@
 				<div class='thumbnail'>
 					<a type='button' href='addCourse.php'><img src='img/plusSign.jpg' width='500px' alt='addGame' title='addGame'></a>
 					<!--<img src='img/plusSign.jpg'>-->
-					<div class='caption'>
+					<div class='caption' align='center'>
 						<h3>Add a Game</h3>
 					</div>
 				</div>
