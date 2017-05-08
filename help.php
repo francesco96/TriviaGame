@@ -310,9 +310,9 @@
         <br/>
         <p dir="ltr" align="center">
             <img
-                src="https://lh4.googleusercontent.com/m3TUvsyPwiWfW7ffe-t8Eyv2eeDNVp6v7dV_PTdcwWEZe6s8GhZZ17YlpGQ7RlHf9-mMp14vwUsWIjJTBlCsd1t2WfMgF7AQfTqlSN8nUAKY7408z5NcqKnpll8mekOUhrG8tPfo"
+                src="https://lh6.googleusercontent.com/-RU0pifZeXolUktdpAZPQvZtTDCCxvyKUICuYWZEq2wwwSSrhqTN0Hs5oXhVGQUZ_nTf2C_bUjhhpYmNFwneaV5Ss0qeMEqQB3cEE09ZUkiNIwMsg7Aft0FvmJZ9LidSUXlq3d7E"
                 width="624"
-                height="361"
+                height="369"
             />
         </p>
         <br/>
@@ -343,9 +343,9 @@
         <br/>
         <p dir="ltr" align="center">
             <img
-                src="https://lh4.googleusercontent.com/_uaqG-B3HRgotBFvidpqaOC6AtzR7FacILyHUze0f_qKhSzD5FZLJMEWRG1YdM84DtckuRWJeI_kut3Lr1bEaPu6yVfvvFLrKd-7OYRXS2GG8ZcOLwG3t8P4bgXxNY5U7XNiVvZg"
+                src="https://lh3.googleusercontent.com/IjxsOz-hUnYIos3YY1IoLTi2zxpoVROWgS8wdZD7kEYMK3r34eezhL1q2nuw6op3suIXKwVcjLhiMT6gEUCa7-HKIzKrLNy5i0Pxc7Uvpj4bly3v-THrKODPmWbDQ2bIEY_BC78J"
                 width="624"
-                height="360"
+                height="307"
             />
         </p>
         <br/>
@@ -387,9 +387,9 @@
         </p>
         <p dir="ltr" align="center">
             <img
-                src="https://lh4.googleusercontent.com/O8iGH9mSl7V3MQl6FIpevIYqUoPl2o2MoxVQv4mVV02XBY47-w0LljGOCzRbnJ5lufoKlFZZr25XkkSTc7_98ry6vEazwBUvWRZBnpFYGTon1P1VimJrHRU_KHGzUCDYvCR983A9"
+                src="https://lh3.googleusercontent.com/aAqV6SdzHS0A3cnJg_DMX0fUNw0d6xHv9UiLlmGs2oL0ub0YRdupuJIuKjkzTqM77cgCKhVp5FQQgrq-VyI7A8z-ev4W52ZzoZ_xQJZjngAqPxFdS_49nzXROFp3Xm1988qLGGkU"
                 width="624"
-                height="361"
+                height="437"
             />
         </p>
         <br/>
@@ -410,7 +410,9 @@
             Clicking on Spin will make the wheel spin. On whatever chapter it stops on,
             that will be the chosen chapter. A question randomly chosen from the
             database will pop up (see Question Page). Leaving this page while the game
-            is running will not make the user lose her turn.
+            is running will not make the user lose her turn. In case the wrong course name
+            is displayed on top, simply use the back arrow and go re-click on the game to enter
+            the correct course game. 
         </p>
         <br/>
         <p dir="ltr" align="center">
@@ -461,9 +463,9 @@
         <br/>
         <p dir="ltr" align="center">
             <img
-                src="https://lh5.googleusercontent.com/_Hj-7Ok6jAyAa4S-guWsmbew4TuFknDYr99H7FGhyCMM2kDtJ9o_TTLyskpg3FPZ5LsRU5hCO8auV6hTvxx_-C9NQ6i4STRITA5bZnCky8c3aPXq7lImUKzW38yLJ-BDR7kAXNwl"
+                src="https://lh5.googleusercontent.com/kK9jqA_YAgLIT056uM4K27Rwz85YG1N7jVcBSBMcRfMVhfnxrDhDMgYJkUYSRWgz9MzDrKjHYrz_IzM0QdulvDFE3xnrcxBecaTcHFaYJNWAF3osLsd9hUuQ_V5F0cHdnQp-kTFA"
                 width="624"
-                height="268"
+                height="295"
             />
         </p>
         <br/>
@@ -578,9 +580,9 @@
         <br/>
         <p dir="ltr" align="center">
             <img
-                src="https://lh3.googleusercontent.com/aNDVAKrJ5lS8Jjf5gtrYUDF3An7Dwa0Yg6b9YKzvvFQU2bX5xcDI82rE11h1ddFOX4uwmXEK7TsbfNn3P-Wa7SGG7Dw7XfoRYpKkr85TYQ7RfV2ZcZRqM4mYdKsyy5ISy3MiYYwl"
-                width="315"
-                height="235"
+                src="https://lh3.googleusercontent.com/RTLUfEDZhLdXS7_DkIvBxNVDU7DYlH-qOfRr6t7HFh881hD_cVWMg2lufXlzZwpJzYJVva0iT9vcbC9qK-LgoYSdj_po2Z7Np4e96zF7aK-vJJgzVhctHzmL_1eML8z2ye477ixq"
+                width="624"
+                height="387"
             />
         </p>
         <br/>
