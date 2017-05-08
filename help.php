@@ -34,6 +34,16 @@
 		    width: 80%;
 		}
 
+        .line_break{
+            display: block;
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+            margin-left: auto;
+            margin-right: auto;
+            border-style: inset;
+            border-width: 1px;
+        }
+
 		/* The Close Button */
 		.close {
 		    color: #aaaaaa;
@@ -52,7 +62,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Profile Page</title>
+    <title>User Guide</title>
 
 
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -77,101 +87,94 @@
             </div>
         </div>
 		<div class="page-header text-center" id="pg_header">
-			<h1>Help</h1>
+			<h1>User Guide</h1>
 		</div>
 		<div class="row">
 			<div class="well well-lg">
-        <p dir="ltr" align="center">
-            USER GUIDE - Marist Fox Trivia
-            <br/>
-            <br/>
-        </p>
         <p dir="ltr" align="center"><b>
             Table of Contents
         </b></p>
+        <br/>
+        
         <p dir="ltr" align="center"><b>
             1 Basics
         </b></p>
-        <p dir="ltr" align="center">
-            1.1 Introduction
+        <p dir="ltr" align="center"><a href="help.php#1.1">1.1 Introduction</a>
             &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
             2
         </p>
-        <p dir="ltr" align="center">
-            1.2 Landing Page
+        <p dir="ltr" align="center"><a href="help.php#1.2">1.2 Landing Page</a>
             &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
             2
         </p>
-        <p dir="ltr" align="center">
-            1.3 Login Page
+        <p dir="ltr" align="center"><a href="help.php#1.3">1.3 Login Page</a>
             &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
             3
         </p>
-        <p dir="ltr" align="center">
-            1.4 Register Page
+        <p dir="ltr" align="center"><a href="help.php#1.4">1.4 Register Page</a>
             &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
             4
         </p>
         <p dir="ltr" align="center"><b>
-            2 Main Pages
+            2 Main Page
         </b></p>
-        <p dir="ltr" align="center">
-            2.1 Home Page
+        <p dir="ltr" align="center"><a href="help.php#2.1">2.1 Home Page</a>
             &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
             5
         </p>
-        <p dir="ltr" align="center">
-            2.11 Home Page Admin
+        <p dir="ltr" align="center"><a href="help.php#2.11">2.11 Home Page Admin</a>
             &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
             6
         </p>
-        <p dir="ltr" align="center">
-            2.2 Game Page
+        <p dir="ltr" align="center"><a href="help.php#2.2">2.2 Game Page</a>
             &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
             7
         </p>
         <p dir="ltr" align="center"><b>
             3 Actual Game Pages
         </b></p>
-        <p dir="ltr" align="center">
-            3.1 Spinner Page
-            &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
+        <p dir="ltr" align="center"><a href="help.php#3.1">3.1 Spinner Page</a>
+            &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
             8
         </p>
-        <p dir="ltr" align="center">
-            3.2 Question Page
-            &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
+        <p dir="ltr" align="center"><a href="help.php#3.2">3.2 Question Page</a>
+            &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
             9
         </p>
-        <p dir="ltr" align="center">
-            3.3 Profile Page
-            &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
+        <p dir="ltr" align="center"><a href="help.php#3.3">3.3 Profile Page</a>
+            &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
             10
         </p>
         <p dir="ltr" align="center"><b>
             4 Edit Pages
         </b></p>
-        <p dir="ltr" align="center">
-            4.1 Manage Course Page
-            &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
+        <p dir="ltr" align="center"><a href="help.php#4.1">4.1 Manage Course Page</a>
+            &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
             11
         </p>
-        <p dir="ltr" align="center">
-            4.2 Set Categories Page
-            &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
+        <p dir="ltr" align="center"><a href="help.php#4.2">4.2 Set Categories Page</a>
+            &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
             12
         </p>
-        <p dir="ltr" align="center">
-            4.21 Students
-            &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
+        <p dir="ltr" align="center"><a href="help.php#4.21">4.21 Manage Students</a>
+            &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
             13
         </p>
-        <p dir="ltr" align="center">
-            4.3 Add Course Page
+        <p dir="ltr" align="center"> <a href="help.php#4.3">4.3 Add Course Page</a>
             &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
             14
         </p>
-        <br>
+        <p dir="ltr" align="center"><b>
+            5 General Considerations
+        </b></p>
+        <p dir="ltr" align="center"> <a href="help.php#5.1">5.1 General Considerations</a>
+            &#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;
+            15
+        </p>
+        <br/>
+
+        <hr class="line_break">
+        <hr class="line_break">
         <p dir="ltr" align="center"><b>
             Basics
         </b></p>
@@ -193,6 +196,7 @@
             to start playing.
         </p>
         <br/>
+        <hr class="line_break">
         <br/>
         <p dir="ltr" id="1.2">
             1.2 Landing Page
@@ -221,6 +225,7 @@
             />
         </p>
         <br/>
+        <hr class="line_break">
         <br/>
         <p dir="ltr" id="1.3">
             1.3 Login Page
@@ -242,7 +247,7 @@
             />
         </p>
         <br/>
-        <br/>
+        <hr class="line_break">
         <br/>
         <p dir="ltr" id="1.4">
             1.4 Register Page
@@ -263,6 +268,8 @@
             />
         </p>
         <br/>
+        <hr class="line_break">
+        <hr class="line_break">
         <p dir="ltr" align="center"><b>
             Main Pages
         </b></p>
@@ -304,6 +311,7 @@
             />
         </p>
         <br/>
+        <hr class="line_break">
         <br/>
         <p dir="ltr" id="2.11">
             2.11 Home Page for Admin
@@ -336,6 +344,7 @@
             />
         </p>
         <br/>
+        <hr class="line_break">
         <br/>
         <p dir="ltr" id="2.2">
             2.2 Game Page
@@ -357,8 +366,6 @@
                 height="20"
             />
             .
-        </p>
-        <p dir="ltr">
             Underneath that there are the games that other players are playing, and the
             past games which are games that are over. If the user does not see any
             available games under Your Turn, it means that other users need to play
@@ -370,6 +377,8 @@
                 height="20"
             />
             to start a new game.
+        <br/>
+        <br/>
         </p>
         <p dir="ltr" align="center">
             <img
@@ -379,8 +388,8 @@
             />
         </p>
         <br/>
-        <br/>
-        <br/>
+        <hr class="line_break">
+        <hr class="line_break">
         <p dir="ltr" align="center"><b>
             Actual Game Pages
         </b></p>
@@ -407,6 +416,7 @@
             />
         </p>
         <br/>
+        <hr class="line_break">
         <br/>
         <p dir="ltr" id="3.2">
             3.2 Question Page
@@ -429,6 +439,8 @@
             />
         </p>
         <br/>
+        <hr class="line_break">
+        <br/>
         <p dir="ltr" id="3.3">
             3.3 Profile Page
         </p>
@@ -450,6 +462,8 @@
             />
         </p>
         <br/>
+        <hr class="line_break">
+        <hr class="line_break">
         <p dir="ltr" align="center"><b>
             Edit Pages
         </b></p>
@@ -503,7 +517,7 @@
             />
         </p>
         <br/>
-        <br/>
+        <hr class="line_break">
         <br/>
         <p dir="ltr" id="4.2">
             4.2 Set Categories Page
@@ -525,6 +539,8 @@
             Communism. This will prevent problems in the Spinner Page in case a name is
             too long, which would end up being chaotic and confusing for the end user
             (students).
+        <br/>
+        <br/>
         </p>
         <p dir="ltr" align="center">
             <img
@@ -533,6 +549,9 @@
                 height="421"
             />
         </p>
+        <br/>
+        <hr class="line_break">
+        <br/>
         <p dir="ltr" id="4.21">
             4.21 Manage Students
         </p>
@@ -560,6 +579,7 @@
             />
         </p>
         <br/>
+        <hr class="line_break">
         <br/>
         <p dir="ltr" id="4.3">
             4.3 Add Course Page
@@ -578,7 +598,25 @@
                 height="308"
             />
         </p>
+        <br/>
+        <hr class="line_break">
+        <hr class="line_break">
+        <p dir="ltr" align="center"><b>
+            General Considerations
+        </b></p>
+        <br/>
+        <br/>
+        <p dir="ltr" id="5.1">
+            5.1 General Considerations
+        </p>
+        <br/>
+        <p dir="ltr">
+            Because of how currently the website is set, please avoid using single quotation marks ‘ when typing information in text areas. This will avoid running into bugs and problems where information is not pushed to the database. Regarding registration, please use authentic email addresses to get a confirmation email.
         <div>
+        <br/>
+        <br/>
+        <hr class="line_break">
+        <br/>
         <?php include( 'footer.php' ); ?>
             <br/>
         </div>
