@@ -38,7 +38,7 @@ can edit a specific student and his/her access to pages.
   <body>
 	<div class="container">
 		<div class="page-header text-center" id="pg_header">
-			<h1>Set Categories</font><br /></h1>
+			<h1>Manage Students</font><br /></h1>
 		</div>
 
 			<div class="row">
